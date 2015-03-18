@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Elecions maig 2015</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/votacio.css">
+
+</head>
+
+
+<body>
+    <div class="panell">
+        <div class="top"> <!--Capçalera-->
+            <h1>Democràcia Andorrana</h1>
+        </div>
+        <nav> <!--Menu-->
+          <ul> 
+            <li><a href="index.html" title="Inici">Inici</a></li>
+            <li><a id="aqui" href="" title="Participa">Votacions</a>
+               <ul>
+                 <li><a id="enquestes" href="enquestes.html" title="Enquestes">Enquestes</a></li>
+                 <li><a id="referendums" href="referendums.html" title="Referendums">Referèndums</a></li>
+             </ul>  
+         </li>
+         <li><a href="multimedia.html" title="Multimedia">Multimèdia</a>
+            <ul>
+              <li><a href="" title="Videos">Videos</a></li>
+              <li><a href="" title="Audio">Àudio</a></li>
+              <li><a href="" title="Articles">Articles</a></li>
+          </ul>
+      </li>
+      <li class="login"><a>Roc Duran</a>
+          <ul>
+              <li><a href="#">Perfil</a></li>
+              <li><a href="admin.html#resum">Ajustaments</a></li>
+              <li><a id="sortir" href="#">Sortir</a></li>
+          </ul>
+      </li> 
+
+      <li class="login"><a href="signup.html" title="Registrar">Registra't</a></li>
+
+      <div class="clear"></div>
+  </ul>
+</nav>
+
+
+<div class="votacio">
+    <h1>Votaciò per al cap de govern</h1>
+
+    <div class="img">
+        <img class="grafic" src="img/grafic1.png" height="100%" width="100%" border=0 alt=""> 
+    </div>
+
+    <div class="opcions"> <label for >Opcions :</label>
+        <input type = "radio" name = "radSize" class = "radBut" id="op1" value="Pepito" checked="checked" /><label class="opl" for="op1">Pepito</label>
+        <input type = "radio" name = "radSize" class = "radBut" id="op2" value="Juanito" /><label class="opl" for="op2">Juanito</label>
+        <input type = "radio" name = "radSize" class = "radBut" id="op3" value="Manolito" /><label class="opl" for="op3">Manolito</label>
+        <input type = "radio" name = "radSize" class = "radBut" id="op4" value="Vot blanc" /><label class="opl" for="op4">Vot blanc</label>
+        <button class="button-votar" type="submit" id="votar" onclick="">Votar</button>
+    </div>
+
+    <div id="descripcio">
+        <p> En vista de les eleccions d'aquest mes de maig, ens agradaria realitzar un estudi estadistic sobre les preferencies politiques que te el poble Andorra, els resultats son totalment anonims i nomes s'utilitzaran com a estudi.</p>   
+    </div>
+</div>
+
+<div id="seccio-comentaris">
+    <h1>Comentaris:</h1>
+    <div id="comentaris">
+        <div class="comentari">
+            <h2 class="usuari">Pepe</h2>
+            <p class="contingut-com">Aquesta votacio m'agrade, estare a l'espera dels resultats :)</p>  
+        </div>
+
+        <div class="comentari">
+            <h2 class="usuari">HatersGonaHate</h2>
+            <p class="contingut-com">Trobo que aquesta votacio no té gaire sentit, s'haurie de modificar blablabla</p>  
+        </div>
+
+        <div class="comentari">
+            <h2 class="usuari">Quique</h2>
+            <p class="contingut-com">blablablablablablablablablablablabla recortes blablablablablabla plasma blablablablabla</p>  
+        </div>
+
+        <div class="comentari">
+            <h2 class="usuari">François</h2>
+            <p class="contingut-com">Oui Oui trés bien je suis français !! Vive les croissants</p>  
+        </div>
+        
+    </div>
+
+    <div id="comentar">
+        <label for="txt-com"></label>
+        <textarea placeholder="Comentar..." id="txt-com"></textarea>
+        <button class="button-comentar" type="submit"  onclick="">Comentar</button>
+    </div>
+</div>
+
+<div class="footer">
+    <p id="copyright">Roc Duran &amp; Moises Miret </p>
+</div>
+
+</div>
+</body>
+</html>

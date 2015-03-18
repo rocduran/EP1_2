@@ -1,0 +1,16 @@
+.contingut{
+	height: 0;
+	padding-top: 25px;
+	padding-bottom: 67.5%;
+	position: relative;
+	overflow: hidden; 
+}
+
+.contingut iframe , .contingut audio, .contingut video{
+	top: 50%;
+	left: 50%;
+	width: 70%;
+	height: 100%;
+	position: absolute; 
+	transform: translate(-50%, -50%);
+} 

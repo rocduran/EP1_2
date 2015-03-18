@@ -1,0 +1,423 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,300,100,500,700,600,800,900);
+
+body {
+	background: #d4d4d4;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 26px;
+	color: #666;
+}
+
+h1{
+	padding-top: 5px;
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: #666;
+}
+
+
+/* Neteja estils */
+.clear {
+	clear: both;
+}
+
+/* Caixa de contingut */
+.panell {
+	width: 70%;
+	margin: 20px auto;
+	border-radius: 10px;
+	border: solid 3px #fff;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+	background: #d4d4d4;
+}
+
+
+/* Capçalera */
+.top {
+	min-height: 100px;
+	height: 30px;
+	background: #6CD1EE;
+	border-radius: 10px 10px 0 0;
+	padding-top: 40px;
+	padding-left: 40px;
+}
+
+#cerca{
+    border: solid 1px;
+    border-radius: 2px;
+    border-color: #ccc;
+    -webkit-border-radius: 2px;
+    background-color: #ccc; 
+    text-align: right;
+}
+
+/***Menu navegacio****/
+
+nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background: rgb(58,58,58);
+	border-top: solid 3px #fff;
+	border-bottom: solid 3px #fff;
+	z-index: 10;
+}
+
+nav ul li {
+	float: left;
+}
+
+nav ul li:hover {
+	background: #222;
+
+}
+
+nav ul li a {
+	display: block;
+	padding: 0 20px;
+	text-decoration: none;
+	line-height: 40px;
+	color: #fff;
+}
+
+nav ul ul {
+	display: none;
+	position: absolute;
+	list-style: none;
+	margin-left: -3px;
+	padding: 0;
+	overflow: hidden;
+}
+
+nav ul ul li {
+	float: none;
+}
+
+nav ul li:hover > ul {
+	display: block;
+	background: #222;
+	border: solid 3px #fff;
+	border-top: 0;
+
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+
+	-webkit-box-shadow:  0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+	box-shadow:  0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+nav ul li:hover > ul li:hover {
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+}
+
+nav ul li li a:hover {
+	background: #000;
+}
+
+nav ul ul li:last-child a,
+nav ul ul li:last-child a:hover {
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+}
+
+#inici{
+	color:#fff;
+}
+#inici:hover{
+	color:#6CD1EE;
+}
+
+#votacions:hover{
+	color: #F78664;
+	background: #000;
+}
+
+#enquestes:hover{
+	color: #A257D7; 
+	background: #000;
+}
+
+#referendums:hover{
+	color: #75D755;
+	background: #000;
+}
+
+#multimedia:hover{
+	color: #F7CD6A;
+	background: #000;
+}
+
+/* LOGIN */
+.login {
+	float:right;
+	background-color: #00A573;
+	transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out;
+}
+.login a:hover {
+	color: #00A573;
+	background-color: #222;
+}
+
+.login ul li a:hover{
+	background: #000;
+}
+
+.login:hover > ul{
+	-webkit-border-radius: 0 5px 5px 5px;
+	border-radius: 0 5px 5px 5px;
+}
+
+#sortir:hover{
+	color: #B66;
+}
+
+/*  Destacats  */
+#contingut_slider{
+	min-height: 100px;
+	background: rgb(58,58,58);
+	padding: 10px 20px;
+}
+
+#contingut_slider.opcio1 , #contingut_slider.opcio2 , #contingut_slider.opcio3 {
+	width: 100%;
+}
+
+#contingut_slider h1{
+	background: rgb(58,58,58);
+	color: #6CD1EE;
+	margin-top: 0px;
+}
+
+#contingut_slider p{
+	color: #fff;
+	margin-bottom: 0px
+}
+
+#contingut_slider:hover{
+	background: rgb(58,58,58);
+}
+
+.container_menu_slider{
+	float: left;
+	width: 100%;
+	background: rgb(58,58,58);
+	margin-bottom: 10px;
+}
+
+.menu_slider{
+	float: left;
+	left: 50%;
+	padding: 0;
+	position: relative;
+	list-style-type:none;
+	display: inline-block;  
+}
+
+.menu_slider li{
+	float:left;
+	position:relative;
+	right:50%;
+	border-radius: 5px;
+	border: solid 1px;
+	border-color: #1A9BCC;
+	margin-left: 5px;
+
+}
+
+.menu_slider li:hover{
+	border-color: rgb(58,58,58);
+	border-radius: 5px;
+	border: solid 1px;
+	float:left;
+	font-weight: bold;
+	margin-left: 5px;
+	position:relative;
+	right:50%;
+
+}
+
+.menu_slider li a{
+	display: inline-block;
+	padding: 0px 20px;
+	text-decoration: none;
+	color: #1A9BCC;
+}
+
+.menu_slider li a:hover{
+	background: #1A9BCC;
+	border-radius: 5px;
+	color: rgb(58,58,58);
+}
+
+/*Noticies*/
+
+
+#noticies{
+	display:block;
+}
+
+#noticies ul {
+  padding: 0;
+  margin: 0;
+  color: #555;
+}
+
+#noticies ul > li {
+  list-style: none;
+  border-top: 1px solid #ddd;
+  display: block;
+  padding: 15px;
+}
+
+#noticies ul:last-child {
+  border-bottom: 1px solid #ddd;
+}
+
+#noticies ul > li:hover {
+  background: #efefef;
+}
+
+.button {
+  padding: 8px 12px;
+  font-size: 14px;
+  background: #ccc;
+  display: block:
+  width: 200px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.noticia {
+  display: block;
+  text-decoration: none;
+  color: #555;
+  cursor: pointer;
+}
+
+h2 {
+  padding: 0;
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+span {
+  font-size: 14px;
+}
+
+.detall {
+  margin: 20px 0 0 0;
+  display: none;
+  line-height: 22px;
+}
+
+.right-arrow {
+  width: 10px;
+  height: 10px;
+  float: left;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 15px 15px 0 0;
+}
+
+.icon {
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin: 0 15px 0 0;
+  background: url("http://placehold.it/50x50") top left no-repeat;
+}
+
+/*Seccion comentaris*/
+#seccio-comentaris{
+    display: block;
+    text-align: justify;
+    padding: 0 20px 20px 20px;
+}
+
+#seccio-comentaris h1{
+    background: rgb(58,58,58);
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#comentaris{
+    max-height: 200px;
+    overflow-y: scroll;
+    white-space: nowrap;
+    background: #d4d4d4;
+    border: 1px solid;
+}
+
+.comentari{
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.comentari:nth-child(even){
+    background: #ccc;
+}
+
+.comentari:nth-child(odd){
+    background: #ddd;
+}
+
+.usuari{
+    padding: 0;
+    margin-top: 0;
+}
+
+.contingut-com{
+    padding: 0;
+    margin:-5px 0 0 20px;
+}
+
+#comentar{
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+    background:  #d4d4d4;
+    text-align: center;
+}
+
+#txt-com {
+    width:99%;
+    height: 100px;
+    display: block;
+    resize:none;
+    text-align: justify;
+}
+
+/* Footer */
+.footer {
+	min-height: 1em;
+	padding: 10px;
+	color: #eee;
+	background: rgb(58,58,58);
+	border-radius: 0 0 10px 10px;
+}
+
+.footer>p {
+	margin: auto 0px ;
+	text-align: right;
+}
+
+#copyright:hover:before {
+	padding-left: 5px;
+	margin-bottom: 15px;
+	float:left;
+	content:url(../img/wcag2aaa.gif);
+}
+
+#copyright:after {
+	padding-left: 5px;
+	margin-bottom: 15px;
+	content:"\00a9";
+}

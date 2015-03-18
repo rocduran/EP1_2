@@ -1,0 +1,135 @@
+/* Capçalera*/
+.top {
+    background: #A257D7;
+}
+
+#aqui{
+    color: #A257D7;
+}
+
+.enquesta h1{
+    background: #d4d4d4;
+    color: #000;
+    margin-top: 0;
+    padding-top: 20px
+}
+
+.img{
+    width: 50%;
+    display: block;
+    float: left;
+}
+
+.img:hover{
+    background: #fff;
+}
+
+.enquesta{
+    border-radius: 10px solid;
+    background: #d4d4d4;
+    padding: 0 20px 20px 20px;
+    text-align: justify;
+}
+
+.preguntes{
+    max-height: 200px;
+    overflow-y: scroll;
+    white-space: nowrap;
+    background: #d4d4d4;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.pregunta{
+    display: block;
+    color: #000;
+}
+
+.opcions{
+    display: block;
+    font-size: 14px;
+    text-align: center;
+}
+
+.checkBox{
+    display:none;
+}
+
+.opl{
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px;
+    width: 20%;
+    min-width:100px;
+    margin-left: 30%;
+    color: rgb(58,58,58);
+}
+
+.altres{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px;
+    color: rgb(58,58,58);
+}
+
+.checkBox[type=checkbox]:checked + .opl { 
+    background-color: #A257D7;
+}
+
+.radBut[type=radio]:checked + .opl { 
+    background-color: #A257D7;
+}
+
+.radBut{
+    cursor: pointer;
+    width: 1.2em;
+    height: 1.2em;
+    display: block;
+}
+
+.radBut[type=radio] {  
+    display: none;  
+}  
+
+.button-enviar {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #444;
+  padding: 5px 10px;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #fff;
+  border: 0px;
+  font-size: 1em;
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: inline-block;
+  margin-left: 150px;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+}
+
+.button-enviar:hover{
+    background: #A257D7; 
+    color: #000;
+}
+
+#descripcio{
+    display: inline-block;
+}
+
+.enquesta p{
+    background: #d4d4d4;
+    color: #000;
+    border-radius:10px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0);
+    margin:0;
+}
+

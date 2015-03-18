@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Enquesta salari minim</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/enquesta.css">
+</head>
+
+
+<body>
+    <div class="panell">
+        <div class="top"> <!--Capçalera-->
+            <h1>Democràcia Andorrana</h1>
+        </div>
+        <nav> <!--Menu-->
+          <ul> 
+            <li><a href="index.html" title="Inici">Inici</a></li>
+            <li><a id="aqui" href="" title="Participa">Enquesta</a>
+             <ul>
+               <li><a id="enquestes" href="votacions.html" title="Enquestes">Votacions</a></li>
+               <li><a id="referendums" href="referendums.html" title="Referendums">Referèndums</a></li>
+           </ul>  
+       </li>
+       <li><a href="multimedia.html" title="Multimedia">Multimèdia</a>
+        <ul>
+          <li><a href="" title="Videos">Videos</a></li>
+          <li><a href="" title="Audio">Àudio</a></li>
+          <li><a href="" title="Articles">Articles</a></li>
+      </ul>
+  </li>
+  <li class="login"><a>Roc Duran</a>
+      <ul>
+          <li><a href="#">Perfil</a></li>
+          <li><a href="admin.html#resum">Ajustaments</a></li>
+          <li><a id="sortir" href="#">Sortir</a></li>
+      </ul>
+  </li> 
+
+  <li class="login"><a href="signup.html" title="Registrar">Registra't</a></li>
+
+  <div class="clear"></div>
+</ul>
+</nav>
+
+
+<div class="enquesta">
+   <h1>Enquesta salari minim</h1>
+
+   <div class="img">
+       <img class="grafic" src="img/grafic1.png" height="100%" width="100%" border=0 alt=""> 
+   </div>
+
+   <div class="preguntes"> 
+    <h2 class="pregunta">Quantes hores treballes a la semana?</h2>
+    <div class="opcions">
+        <input type = "radio" name = "pr1" class = "radBut" id="op1" title="opcio1" checked="checked" /><label class="opl" for="op1">20</label>
+        <input type = "radio" name = "pr1" class = "radBut" id="op2" title="opcio2"  /><label class="opl"for="op2">30</label>
+        <input type = "radio" name = "pr1" class = "radBut" id="op3" title="opcio3"  /><label class="opl"for="op3">40</label>
+        <label class="altres" for="respostacustom1">Altres: </label><input id="respostacustom1" type="text" class="long">   
+    </div> 
+
+    <h2 class="pregunta">Quants dies de festa tens a la setmana ?</h2>
+    <div class="opcions">
+        <input type = "radio" name = "pr2" class = "radBut" id="op4" title="opcio4"  checked="checked" /><label class="opl" for="op4">1 dia</label>
+        <input type = "radio" name = "pr2" class = "radBut" id="op5" title="opcio5"  /><label class="opl"for="op5">2 dies</label>
+        <input type = "radio" name = "pr2" class = "radBut" id="op6" title="opcio6" /><label class="opl"for="op6">cap dia</label>
+        <label class="altres" for="respostacustom2">Altres: </label><input id="respostacustom2" type="text" class="long">  
+    </div>
+
+    <h2 class="pregunta">Quant cobres per hores ?</h2>
+    <div class="opcions">
+        <input type = "radio" name = "pr3" class = "radBut" id="op7" title="opcio7"  checked="checked" /><label class="opl" for="op7">entre 5 i 8€</label>
+        <input type = "radio" name = "pr3" class = "radBut" id="op8" title="opcio8"  /><label class="opl"for="op8">menys de 5€</label>
+        <input type = "radio" name = "pr3" class = "radBut" id="op9" title="opcio9" /><label class="opl"for="op9">mes de 8€</label>
+    </div>
+</div>
+<button class="button-enviar" type="submit"  onclick="">Enviar</button>
+
+<div id="descripcio">
+    <p>Volem realitzar un estudi estadistic per saber si tota la població Andorrana cobra el salari minim o no. Les respostes a aquesta enquesta son totalment anonimes.</p>   
+</div>
+</div>
+
+<div id="seccio-comentaris">
+    <h1>Comentaris:</h1>
+    <div id="comentaris">
+        <div class="comentari">
+            <h2 class="usuari">Pepe</h2>
+            <p class="contingut-com">Aquesta votacio m'agrade, estare a l'espera dels resultats :)</p>  
+        </div>
+
+        <div class="comentari">
+            <h2 class="usuari">HatersGonaHate</h2>
+            <p class="contingut-com">Trobo que aquesta votacio no té gaire sentit, s'haurie de modificar blablabla</p>  
+        </div>
+
+        <div class="comentari">
+            <h2 class="usuari">Quique</h2>
+            <p class="contingut-com">blablablablablablablablablablablabla recortes blablablablablabla plasma blablablablabla</p>  
+        </div>
+
+        <div class="comentari">
+            <h2 class="usuari">François</h2>
+            <p class="contingut-com">Oui Oui trés bien je suis français !! Vive les croissants</p>  
+        </div>
+        
+    </div>
+
+    <div id="comentar">
+        <label for="txt-com"></label>
+        <textarea placeholder="Comentar..." id="txt-com" title="comentar"></textarea>
+        <button class="button-comentar" type="submit"  onclick="">Comentar</button>
+    </div>
+</div>
+
+
+<div class="footer">
+    <p id="copyright">Roc Duran &amp; Moises Miret </p>
+</div>
+
+</div>
+</body>
+</html>

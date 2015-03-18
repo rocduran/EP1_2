@@ -1,0 +1,109 @@
+/* Capçalera*/
+.top {
+    background: #F78664;
+}
+
+#aqui{
+    color: #F78664;
+}
+
+.votacio{
+    border-radius: 10px solid;
+    background: #d4d4d4;
+    padding: 0 20px 20px 20px;
+    text-align: justify;
+}
+
+.img{
+    width: 50%;
+    display: block;
+    float: left;
+}
+
+.img:hover{
+    background: #FFF;
+}
+
+.opcions{
+    width: 50%;
+    float: left;
+    display: block;
+    color: #000;
+    font-size: 1.2em;
+    text-align: center;
+    vertical-align: center;
+
+}
+
+.opl{
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px;
+    width: 40%;
+    min-width:100px;
+    margin-left: 30%;
+}
+
+.radBut[type=radio]:checked + .opl { 
+    background-color: #F78664;
+}
+
+.radBut{
+    cursor: pointer;
+    width: 1.2em;
+    height: 1.2em;
+    display: block;
+}
+
+.radBut[type=radio] {  
+    display: none;  
+}  
+
+.button, input[type="button"], button {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #444;
+  padding: 5px 10px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #fff;
+  border: 0px;
+  font-size: 1em;
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+}
+
+.button-votar:hover{
+    background: #F78664;
+    color:#000;
+}
+
+.votacio h1{
+    background: #d4d4d4;
+    color: #000;
+    margin-top: 0;
+    padding-top: 20px
+}
+#descripcio{
+    display: inline-block;
+}
+
+#descripcio p{
+    background: #d4d4d4;
+    color: #000;
+    margin:0;
+}
+
+
+
+
+
+    

@@ -1,0 +1,74 @@
+/* Capçalera*/
+.top {
+    background: #75D755;
+}
+
+#aqui{
+    color: #75D755;
+}
+
+.referendum h1{
+    background: #d4d4d4;
+    color: #000;
+    margin-top: 0;
+    padding-top: 20px
+}
+
+.opcions{
+    width: 100%;
+    float: none;
+    display: block;
+    color: #000;
+    font-size: 18px;
+    text-align: center;
+}
+
+.button {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #444;
+  width: 20%;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #fff;
+  border: 0px;
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: 0;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+}
+
+/*.button:first-child{
+    margin-left: 50%;
+}*/
+
+#yes:hover{
+    background: #75D755; 
+    color: #000;
+    content:100;
+}
+
+#no:hover{
+    background: #EE1100; 
+    color: #000;
+}
+
+#descripcio{
+    display: inline-block;
+}
+
+.enquesta p{
+    background: #d4d4d4;
+    color: #000;
+    border-radius:10px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0);
+    margin:0;
+}
+
