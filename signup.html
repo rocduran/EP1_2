@@ -4,8 +4,10 @@
   <title>Registrar</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link rel="stylesheet" type="text/css" href="css/signup.css">
+
   <script src="jq/jquery-1.11.2.js" type="text/javascript"></script>
+  <script src="jq/signup.js" type="text/javascript"></script>
 </head>
 <body>
   <div class="panell">
@@ -47,7 +49,7 @@
     <hr>
     <label for="nom">
       <h2>Nom:</h2>
-      <input id="nom" type="text" class="long important">
+      <input onBlur="validarNom()" id="nom" type="text" class="long important">
     </label>
 
     <label for="cognom">
