@@ -101,16 +101,14 @@
 	margin-right: 10px;
 }
 /* agregar */
-.contingutPrincipal h2:after {
-	margin-left: 10px;
-	content: url(../img/plus.png);
-	border: 1px solid rgb(235,235,235);
-	border-radius: 5px;
-	padding: 1px 5px;
+.agregar{
+	display: inline-block;
+	margin-top: 0;
+	float: left;
 }
 
-.contingutPrincipal #resum h2:after {
-	content: none;
+.agregar:hover{
+	cursor: pointer;
 }
  
  /*Apartats*/
