@@ -101,11 +101,11 @@ input[type="text"].important, input[type="password"].important {
   border-color: #ccc;
 }
 
-input[type="text"].validat{
+.validat{
   border-color: #c00;
 }
 
-input[type="text"].noValidat{
+.noValidat{
   border-color: #0c0;
 }
 
