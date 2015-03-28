@@ -44,27 +44,27 @@
       <div class="clear"></div>
     </ul>
   </nav>
-  <form class="validar-form" action="index.html">
+  <form class="validar-form">
     <h1>Registrar</h1>
     <hr>
     <label for="nom">
       <h2>Nom:</h2>
-      <input  id="nom" type="text" class="long important validar">
+      <input  id="nom" type="text" class="long important">
     </label>
 
     <label for="cognom">
       <h2>Cognom:</h2>
-      <input id="cognom" type="text" class="long important validar">
+      <input id="cognom" type="text" class="long important">
     </label>
 
     <label for="poblacio">
       <h2>Població:</h2>
-      <input id="poblacio" type="text" class="long validar">
+      <input id="poblacio" type="text" class="long">
     </label>
 
     <label for="cp">
       <h2>Codi Postal:</h2> 
-      <input id="cp" type="text" class="long validar">
+      <input id="cp" type="text" class="long">
     </label>
 
     <label id="born" for="naixement">
@@ -79,22 +79,22 @@
 
       <label for="pais">
         <h2>Pais:</h2>
-        <input id="pais"type="text" class="long validar ">
+        <input id="pais"type="text" class="long">
       </label>
 
       <label for="email">
         <h2>Email:</h2>
-        <input id="email" type="text" class="long important validar">
+        <input id="email" type="text" class="long important">
       </label>
 
       <label for="contrasenya">
         <h2>Contrasenya:</h2>
-        <input id="contrasenya" type="password" class="long important validar">
+        <input id="contrasenya" type="password" class="long important">
       </label>
 
       <label for="contrasenya2">
         <h2>Repeteix la contrasenya:</h2>
-        <input id="contrasenya2" type="password" class="long important validar">
+        <input id="contrasenya2" type="password" class="long important">
       </label>
 
       <label for="condicions">
@@ -106,19 +106,10 @@
         <input id="infomail" type="checkbox" name="infomail" value="infomail">Rebre informació per correu.
       </label>
 
-      <button class="button-cancelar" type="submit"  onclick="cancelar()">Cancelar</button>
-      <button class="button-submit" type="submit"  onclick="registrar()">Registrar</button>
+      <button class="button-cancelar" type="submit">Cancelar</button>
+      <button class="button-submit" type="submit">Registrar</button>
       <p id="correcte"></p>
     </form>
-
-    <script>
-      function registrar() {
-        alert("T'has registrat!")
-      }
-      function cancelar() {
-        alert("Has cancelat!")
-      }
-    </script>
 
     <div class="footer">
       <p id="copyright">Roc Duran &amp; Moises Miret </p>

@@ -1,83 +1,92 @@
-// Simple Validation - By Chad Humphrey - hmphry.com
-// Released under the MIT license
+$(document).ready(function(){
+    
+  //variables
+   var name = $("#nom");
+       email = $("#email");
+       comment = $(".palabras textarea");
+       modal_name = $(".modal span");
+       modal = $(".modal");
+  
+   //hide modal
+    modal.hide();
 
-// Get all forms
-var simpleValidation = function(){
-
-  var validateForm = $('form.validar-form');
-
-  // Gets all forms to Validate
-  validateForm.each(function(){
-    // Defining basic variables, bro
-    var validateForm = $(this);
-    var validate = {};
-    var validateThis = $(this).find('.validar');
-    var validatingLength = $(this).find('.validar').length;
-    var submitBtn = $(this).find('.submit');
-
-    // For Loop Getting Elements to Validate
-    for(var i = 1; i <= validatingLength; i++){
-      // Adding Inputs to object, false for default
-      validate['input'+i] = false;
-    }
-
-    $('.validar').blur(function(){
-      var index =  $(this).prevAll().length+1;
-      var validateThisVal = $(this).val();
-      var validateThisType = $(this).attr('type');
-
-      // Checks if input type is email
-      if(validateThisType === "email"){
-
-        // Email regex
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        // Condition to see if Email exists
-        if(!validateThisVal.match(re)){
-          $(this).addClass('noValidat');
-          $(this).removeClass('validat');
-          return validate['input'+index] = false;
-        } else{
-          $(this).addClass('validat');
-          $(this).removeClass('noValidat');
-          return validate['input'+index] = true;
-        }
-      } else{
-        // Makes sure input is filled out
-        if(validateThisVal == ""){
-          $(this).addClass('noValidat');
-          $(this).removeClass('validat');
-          return validate['input'+index] = false;
-        } else{
-          $(this).addClass('validat');
-          $(this).removeClass('noValidat');
-          return validate['input'+index] = true;
-        }
+   //check if name is empty
+   name.on("blur",function(){
+    var $this = $(this);
+    if($this.val().length === 0 ||
+       $this.val() === "Nom"){
+        $this.addClass("noValid");
+        $this.val("");
+    } else{
+        $this.addClass("valid");
       }
-    });
-
-
-    validateForm.submit(function(event){
-      // Prevents Default
-      event.preventDefault();
-
-      // Logging form errors
-      var falseCtn = 0;
-      for(var i = 1; i <= validatingLength; i++){
-        if(validate['input'+i] == false){
-          falseCtn++;
+   });
+    
+    //check if email is empty
+  email.on("blur",function(){
+    var $this = $(this);
+    if($this.val().length === 0 ||
+       $this.val() === "Email"){
+      $this.addClass("noValid");
         }
-      }
-
-      // Checking if any falses exist
-      if(falseCtn > 0){
-        $(this).unbind('submit').submit();
-        $(this).click();
-      } else{
-      }
-    });
-
   });
+    
+    //check if email is valid
+  email.on("blur",function(){
+    var $this = $(this);
+    if($this.val().indexOf("." && "@") > -1){
+       $this.addClass("valid");
+    } else{
+        $this.addClass("noValid");
+        $this.val("Email");
+    }
+  });
+    
+    //check if textarea is empty
+  comment.on("blur",function(){
+    var $this = $(this);
+    if($this.val() === ""){
+      $this.addClass("noValid");
+      $this.val("Comments");
+    } else{
+      $this.addClass("valid");
+    }
+ });
+    
+    //clear inputs on click
+    $(".input").on("focus",function(){
+        $(this).val("");
+    });
+    
+    //show modal when inputs are valid and button
+    //is clicked
+  $(".submit").on("click",function(){
+    if(name.val() !== "Name" && name.val() !== "" &&
+       email.val() !== "Email" && 
+       email.val() !== "" &&
+       comment.val() !== "Comments" && 
+       comment.val()!== ""){
 
-};
-
-simpleValidation()
+          //remove invalid/valid classes
+          name.removeClass().addClass("input");
+          email.removeClass().addClass("input");
+          comment.removeClass().addClass("input");
+          
+          //modal box
+          modal_name.text(name.val());
+          modal.slideDown("medium")
+            .delay(2000).slideUp("fast");
+      
+          //put default text back
+          name.val("Name");
+          email.val("Email");
+          comment.val("Comments");
+      
+          return false;
+      
+    } else{
+      
+        return false; }
+    });
+    
+});
