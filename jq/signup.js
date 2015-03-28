@@ -97,5 +97,11 @@ $(document).ready(function(){
 
           return false; }
         });
+
+    $.datepicker.formatDate( "dd-mm-yy", new Date( 2007, 7 - 1, 26 ) );
+    
+    $(function() {
+    $( "#datepicker" ).datepicker();
+  });
     
   });
