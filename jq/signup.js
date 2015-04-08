@@ -1,3 +1,5 @@
+//TODO remove class valid/noValid 
+
 $(document).ready(function(){
 
   //variables
