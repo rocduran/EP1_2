@@ -10,9 +10,53 @@
 
   <script src="jq/jquery-1.11.2.js" type="text/javascript"></script>
 
+   <script>
+    $(document).ready(function(){
+            $(document).ready(function(){ // Script del Slider
+              $("div.noticies, div.multimedia, div.usuaris") . hide();
+              $('a.resum') . addClass('aqui');
+              
+              $("a.resum").click(function(e){
+                $('.menuadmin a').removeClass('aqui');
+                $(this).addClass('aqui');
+                $('div.resum').show('slow');
+                $('div.noticies, div.multimedia, div.usuaris') . hide('slow');
+                return false;
+                e.preventDefault();
+              });
+              
+              $("a.noticies").click(function(e){
+                $('.menuadmin a').removeClass('aqui');
+                $(this).addClass('aqui');
+                $('div.noticies').show('slow');
+                $('div.resum, div.multimedia, div.usuaris') . hide('slow');
+                return false;
+                e.preventDefault();
+              });
+
+              $("a.multimedia").click(function(e){
+                $('.menuadmin a').removeClass('aqui');
+                $(this).addClass('aqui');
+                $('div.multimedia').show('slow');
+                $('div.noticies, div.resum, div.usuaris') . hide('slow');
+                return false;
+                e.preventDefault();
+              });
+
+              $("a.usuaris").click(function(e){
+                $('.menuadmin a').removeClass('aqui');
+                $(this).addClass('aqui');
+                $('div.usuaris').show('slow');
+                $('div.noticies, div.multimedia, div.resum') . hide('slow');
+                return false;
+                e.preventDefault();
+              });
+              
+            });
+});
+</script>
+
 </head>
-
-
 <body>
   <div class="panell">
     <div class="top"> <!--Capçalera-->
@@ -49,46 +93,39 @@
     </ul>
   </nav>
 
-  <!-- Panell administració -->
 
-  <div class="admin clearfix">
-    <div class="menuadmin">
-      <ul>
-        <li><a href="#resum" id="target">Resum</a></li>
-        <li><a href="#noticiesA">Notícies</a></li>
-        <li><a href="#multimediaA">Multimèdia</a></li>
-        <li><a href="#usuarisA">Usuaris</a></li>
+  <div class="contingut">
+      <!-- Panell administració -->
+  <div class="menuadmin">
+    <ul>
+      <li><a href="#" class="resum">Resum</a></li>
+      <li><a href="#" class="noticies">Notícies</a></li>
+      <li><a href="#" class="multimedia">Multimèdia</a></li>
+      <li><a href="#" class="usuaris">Usuaris</a></li>
+    </ul>
+  </div>
+
+    <div class="resum">
+      <h2 class="header">Resum</h2>
+        <h3>Actualment</h3>
+        <ul class="contingutResum">
+          <li>Contingut</li>
+          <li class="noticies"><span class="valor">36</span><a href="">notícies</a></li>
+          <li class="multimedia"><span class="valor">26</span><a href="">multimèdia</a></li>
+          <li class="usuaris"><span class="valor">65</span><a href="">usuaris</a></li>
+        </ul>
+        <ul class="discusions">
+          <li>discussions</li>
+          <li class="comentaris"><span class="valor">128</span><a href="">comentaris</a></li>
+          <li class="aprovats"><span class="valor">120</span><a href="">aprovats</a></li>
+          <li class="pendents"><span class="valor">4</span><a href="">pendents</a></li>
+          <li class="spam"><span class="valor">4</span><a href="">spam</a></li>
       </ul>
     </div>
-    <div class="principal">
-      <div class="contingutPrincipal clearfix">
-        <div id="resum">
-          <h2 class="header">Resum</h2>
-          <div class="monitor">
-            <h3>Actualment</h3>
-            <div class="clearfix">
-              <ul class="contingut">
-                <li>Contingut</li>
-                <li class="noticies"><span class="valor">36</span><a href="">notícies</a></li>
-                <li class="multimedia"><span class="valor">26</span><a href="">multimèdia</a></li>
-                <li class="usuaris"><span class="valor">65</span><a href="">usuaris</a></li>
-              </ul>
-              <ul class="discusions">
-                <li>discussions</li>
-                <li class="comentaris"><span class="valor">128</span><a href="">comentaris</a></li>
-                <li class="aprovats"><span class="valor">120</span><a href="">aprovats</a></li>
-                <li class="pendents"><span class="valor">4</span><a href="">pendents</a></li>
-                <li class="spam"><span class="valor">4</span><a href="">spam</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id="noticiesA">
-        <h2 class="header">Notícies</h2> 
-         <a class="agregar" href="#" title=""><img  src="./img/plus.png" alt=""></a> 
-         <div class="monitor">
-          <div class="clearfix">
+  
+    <div class="noticies">
+      <h2 class="header">Notícies</h2> 
+        <a  href="http://www.google.com" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
             <div class="item">
               <div class="textitem" >
                 <span>Noticia 1</span>
@@ -125,13 +162,11 @@
                 <span><img src="img/bin.png" alt="borra"> </span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div id="multimediaA">
+    </div>
+
+    <div class="multimedia">
        <h2 class="header">Multimèdia</h2>
-       <div class="monitor">
-          <div class="clearfix">
+        <a  href="http://www.google.com" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
             <div class="item">
               <div class="textitem video" >
                 <span>Video 1</span>
@@ -168,14 +203,10 @@
                 <span><img src="img/bin.png" alt="borra"> </span>
               </div>
             </div>
-          </div>
-        </div>
-     </div>
+    </div>
 
-     <div id="usuarisA">
+    <div class="usuaris">
        <h2 class="header">Usuaris</h2>
-       <div class="monitor">
-          <div class="clearfix">
             <div class="item">
               <div class="textitem" >
                 <span>Moises Miret</span>
@@ -213,22 +244,19 @@
               </div>
             </div>
           </div>
-        </div>
-     </div>
-
-   </div>
-   <ul class="footerAdmin">
+  </div>
+    
+<!--    <ul class="footerAdmin">
      <li class="guardar"><a href="">Guardar</a></li>
      <li class="sortir"><a href="">Sortir</a></li>
-   </ul>
- </div>
-</div>
+   </ul> -->
 
+   <div class="footer">
+      <p id="copyright">Roc Duran &amp; Moises Miret </p>
+  </div>
 
-<div class="footer">
-  <p id="copyright">Roc Duran &amp; Moises Miret </p>
-</div>
-</div>
+ </div> <!--panell -->
+
 
 </body>
 </html>
