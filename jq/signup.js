@@ -4,9 +4,9 @@ $(document).ready(function(){
 
   //variables
   var nom = $("#nom");
-  cognom = $("#cognom");
-  email = $("#email");
-  comment = $(".palabras textarea");
+  var cognom = $("#cognom");
+  var email = $("#email");
+  var comment = $(".palabras textarea");
 
 
    //Comprova si el NOM esta buit
@@ -15,6 +15,7 @@ $(document).ready(function(){
     if($this.val().length === 0 ||
      $this.val() === "Nom"){
       $this.addClass("noValid");
+      $this.removeClass("Valid");
     $this.val("");
   } else{
     $this.addClass("valid");
