@@ -15,7 +15,6 @@ $(document).ready(function(){
     if($this.val().length === 0 ||
      $this.val() === "Nom"){
       $this.addClass("noValid");
-      $this.removeClass("Valid");
     $this.val("");
   } else{
     $this.addClass("valid");
