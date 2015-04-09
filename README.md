@@ -3,7 +3,7 @@ Modul 2 EP1
 
 
 - Preparació, revisió dels apunts :
-  - Sintaxi base del llenguatge (Capítols 1,2,3,4,6)
+  [] Sintaxi base del llenguatge (Capítols 1,2,3,4,6)
   - Creació i validació de formularis (Capítol 5)
   - Enviament, recepció i tractament d’informació XML, JSON i AJAX (Capítol 7 + Complement DOM SAX JSON)
   - Components avançats en HTML5 (Capítol 9 i complements)
