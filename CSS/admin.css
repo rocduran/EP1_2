@@ -1,17 +1,18 @@
-.admin {
+/*.admin {
 	width: 100%;
 	background-color: #fff;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-}
+}*/
 /*menu admin*/
 .menuadmin {
-	width: 100%;
+	width: 20%;
 	float: left;
 	border-right: 1px solid rgb(235,235,235);
 	background-color: rgb(247,247,247);
 	margin: 0;
+	height: 354px;
 }
 
 .menuadmin ul {
@@ -22,10 +23,10 @@
 	list-style-type: none;
 	margin: 0;
 	position: relative;
-	display: inline-block;
+	display: block;
 	text-align: center;
 	border-right: 1px solid rgb(235,235,235);
-	width: 10%;
+	width: 100%;
 }
 
 .menuadmin ul a {
@@ -42,9 +43,11 @@
 	background-color: #1A9DCC;
 }
 
-.contingut{
+.contingut div.resum, .contingut div.noticies, .contingut div.multimedia, .contingut div.usuaris{
 	display: block;
-	margin: 0;
+	margin-left: 10px;
+	border: solid 1px rgb(102, 102, 102);
+
 }
 
 .contingut h2{

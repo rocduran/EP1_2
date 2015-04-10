@@ -19,8 +19,8 @@
               $("a.resum").click(function(e){
                 $('.menuadmin a').removeClass('aqui');
                 $(this).addClass('aqui');
-                $('div.resum').show('slow');
-                $('div.noticies, div.multimedia, div.usuaris') . hide('slow');
+                $('div.resum').show();
+                $('div.noticies, div.multimedia, div.usuaris') . hide();
                 return false;
                 e.preventDefault();
               });
@@ -28,8 +28,8 @@
               $("a.noticies").click(function(e){
                 $('.menuadmin a').removeClass('aqui');
                 $(this).addClass('aqui');
-                $('div.noticies').show('slow');
-                $('div.resum, div.multimedia, div.usuaris') . hide('slow');
+                $('div.noticies').show();
+                $('div.resum, div.multimedia, div.usuaris') . hide();
                 return false;
                 e.preventDefault();
               });
@@ -37,8 +37,8 @@
               $("a.multimedia").click(function(e){
                 $('.menuadmin a').removeClass('aqui');
                 $(this).addClass('aqui');
-                $('div.multimedia').show('slow');
-                $('div.noticies, div.resum, div.usuaris') . hide('slow');
+                $('div.multimedia').show();
+                $('div.noticies, div.resum, div.usuaris') . hide();
                 return false;
                 e.preventDefault();
               });
@@ -46,8 +46,8 @@
               $("a.usuaris").click(function(e){
                 $('.menuadmin a').removeClass('aqui');
                 $(this).addClass('aqui');
-                $('div.usuaris').show('slow');
-                $('div.noticies, div.multimedia, div.resum') . hide('slow');
+                $('div.usuaris').show();
+                $('div.noticies, div.multimedia, div.resum') . hide();
                 return false;
                 e.preventDefault();
               });
