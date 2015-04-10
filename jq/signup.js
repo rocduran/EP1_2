@@ -6,29 +6,54 @@ $(document).ready(function(){
   var nom = $("#nom");
   var cognom = $("#cognom");
   var email = $("#email");
+  var inp = document.getElementsByTagName("input");
   var comment = $(".palabras textarea");
 
 
    //Comprova si el NOM esta buit
    nom.on("blur",function(){
     var $this = $(this);
-    if($this.val().length === 0 ||
-     $this.val() === "Nom"){
+    var re = /^[A-Za-z]{2,20}$/;
+    var val = $this.val();
+
+    var errPara = document.createElement("p");
+    var errText = document.createTextNode("Mínim 2 caràcters i màxim 20 caràcters");
+    errPara.appendChild(errText);
+
+    if(!re.test(val)){
       $this.addClass("noValid");
-    $this.val("");
+      var element = document.getElementById("errNom");
+      element.appendChild(errPara);
+      if ($this.hasClass("valid")) {
+        $this.removeClass("valid");
+      };
   } else{
     $this.addClass("valid");
+
+    var element = document.getElementById("errNom");
+    element.removeChild(errPara);
+    if ($this.hasClass("noValid")) {
+        $this.removeClass("noValid");
+      };
   }
 });
 
+
    cognom.on("blur",function(){
     var $this = $(this);
-    if($this.val().length === 0 ||
-     $this.val() === "Nom"){
+    var re = /^[A-Z a-z]{3,20}$/;
+    var val = $this.val();
+
+    if(!re.test(val)){
+      if ($this.hasClass("valid")) {
+        $this.removeClass("valid");
+      };
       $this.addClass("noValid");
-    $this.val("");
   } else{
     $this.addClass("valid");
+    if ($this.hasClass("noValid")) {
+        $this.removeClass("noValid");
+      };
   }
 });
 
@@ -36,10 +61,18 @@ $(document).ready(function(){
     //Comprova si el EMAIL esta buit
     email.on("blur",function(){
       var $this = $(this);
-      if($this.val().length === 0 ||
-       $this.val() === "Email"){
-        $this.addClass("noValid");
-    }
+    if($this.val().length === 0){
+      if ($this.hasClass("valid")) {
+        $this.removeClass("valid");
+      };
+      $this.addClass("noValid");
+    $this.val("");
+  } else{
+    $this.addClass("valid");
+    if ($this.hasClass("noValid")) {
+        $this.removeClass("noValid");
+      };
+  }
   });
     
     //Comprova si l'EMAIL es valid
@@ -52,21 +85,18 @@ $(document).ready(function(){
       $this.val("Email");
     }
   });
-    
-    //check if textarea is empty
-    comment.on("blur",function(){
-      var $this = $(this);
-      if($this.val() === ""){
-        $this.addClass("noValid");
-        $this.val("Comments");
-      } else{
-        $this.addClass("valid");
-      }
-    });
-    
+
+
     //clear inputs on click
-    $(".input").on("focus",function(){
-      $(this).val("");
+    $(inp).on("focus",function(){
+      if ($this.hasClass("noValid")) {
+        $this.removeClass("noValid");
+      };
+
+      if ($this.hasClass("valid")) {
+        $this.removeClass("valid");
+      };
+
     });
     
     //show modal when inputs are valid and button

@@ -78,6 +78,15 @@ form label {
   margin-left: 14px;
 }
 
+form div {
+  display: inline-block;
+}
+
+form div p {
+  margin: 0;
+  margin-left: 5px;
+}
+
 input[type="text"], input[type="password"],input[type="number"]{
   background: #f6f6f6;
   border: solid 1px;
