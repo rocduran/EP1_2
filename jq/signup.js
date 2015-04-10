@@ -16,7 +16,7 @@ $(document).ready(function(){
 
   });
 
-   //Comprova si el NOM esta buit
+   //Comprova si el NOM es correcte
    nom.on("blur",function(){
     var $this = $(this);
     var regex = /^[A-Za-z]{2,20}$/;
@@ -49,7 +49,7 @@ $(document).ready(function(){
   }
 });
 
-
+   //Comprova si el COGNOM es correcte
    cognom.on("blur",function(){
     var $this = $(this);
     var regex = /^[A-Z a-z]{3,20}$/;
@@ -82,33 +82,38 @@ $(document).ready(function(){
   }
 });
 
-    //Comprova si el EMAIL esta buit
-    email.on("blur",function(){
-      var $this = $(this);
-    if($this.val().length === 0){
+    //Comprova si l'EMAIL es valid
+   email.on("blur",function(){
+    var $this = $(this);
+    var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    var valor = $this.val();
+
+    var errPara = document.createElement("p");
+    var errText = document.createTextNode("Introdueix un correu vàlid 'exemple@exemple.com'");
+    errPara.appendChild(errText);
+
+    if(!regex.test(valor)){
+      $this.addClass("noValid");
+      var divErr = document.getElementById("errMail");
+      if (divErr.firstChild) {
+      divErr.removeChild(divErr.lastChild);
+      }
+      divErr.appendChild(errPara);
+
       if ($this.hasClass("valid")) {
         $this.removeClass("valid");
       };
-      $this.addClass("noValid");
-    $this.val("");
   } else{
     $this.addClass("valid");
+
+    var divErr = document.getElementById("errMail");
+    divErr.removeChild(divErr.lastChild);
+
     if ($this.hasClass("noValid")) {
         $this.removeClass("noValid");
       };
   }
-  });
-    
-    //Comprova si l'EMAIL es valid
-    email.on("blur",function(){
-      var $this = $(this);
-      if($this.val().indexOf("." && "@") > -1){
-       $this.addClass("valid");
-     } else{
-      $this.addClass("noValid");
-      $this.val("Email");
-    }
-  });
+});
 
 
     
