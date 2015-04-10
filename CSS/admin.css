@@ -1,18 +1,36 @@
-/*.admin {
-	width: 100%;
-	background-color: #fff;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-}*/
-/*menu admin*/
+.contingut div.resum, .contingut div.noticies, .contingut div.multimedia, .contingut div.usuaris{
+	display: block;
+	background-color: rgb(255, 255, 255); 
+	min-height: 700px;
+
+}
+
+.container{
+	border: solid 1px rgb(235, 235, 235);
+	border-radius: 5px;
+	margin-left: 25%;
+	margin-right: 5%;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.contingut h2{
+	color: #1A9DCC;
+	display:inline-block;
+	margin-left: 2%;
+}
+
+.contingut h3{
+	color: #1A9DCC;
+	margin-top: 0;
+}
+
 .menuadmin {
 	width: 20%;
 	float: left;
 	border-right: 1px solid rgb(235,235,235);
 	background-color: rgb(247,247,247);
-	margin: 0;
-	height: 354px;
+	min-height: 700px;
 }
 
 .menuadmin ul {
@@ -43,21 +61,7 @@
 	background-color: #1A9DCC;
 }
 
-.contingut div.resum, .contingut div.noticies, .contingut div.multimedia, .contingut div.usuaris{
-	display: block;
-	margin-left: 10px;
-	border: solid 1px rgb(102, 102, 102);
 
-}
-
-.contingut h2{
-	color: #1A9DCC;
-	display:inline-block;
-}
-
-.contingut h3{
-	color: #1A9DCC;
-}
 
 
 /*Resum*/
@@ -79,9 +83,9 @@ div.resum{
 /*noticies*/
 .agregar{
 	padding: 5px;
-	border: 1px solid rgb(0, 0 ,0);
+	border: 1px solid rgb(190, 190 ,190);
 	border-radius: 2px;
-	background-color: #ccc;
+	background-color: rgb(235, 235, 235);
 	display: inline-block;
 }
 
@@ -137,9 +141,9 @@ div.resum{
 }
 
 /*footer Admin*/
-/*.footerAdmin {
-	position: absolute;
-	bottom: 0;
+.footerAdmin {
+	position: relative;
+	bottom: 50px;
 	border-top: 1px solid rgb(235,235,235);
 	width: 100%;
 	padding: 0;
@@ -165,4 +169,4 @@ div.resum{
 	height: 49px;
 	line-height: 50px;
 	border-left: 1px solid rgb(235,235,235);
-}*/
+}
