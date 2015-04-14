@@ -75,9 +75,7 @@ form label {
   margin-left: 14px;
 }
 
-form div {
-  display: inline-block;
-}
+
 
 form div p {
   margin: 0;
@@ -128,6 +126,13 @@ input[type="text"].long, input[type="password"].long{
   color: rgb(255,50,0);
 }
 
+.network {
+  display: inline;
+}
+
+#social{
+  margin-left: 14px;
+}
 
 hr {
   background: #8d8d8d;
