@@ -1,4 +1,4 @@
-.contingut div.resum, .contingut div.noticies, .contingut div.multimedia, .contingut div.usuaris{
+div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, div.inserirMulti{
 	display: block;
 	background-color: rgb(255, 255, 255); 
 	min-height: 700px;
@@ -13,6 +13,109 @@
 	padding: 10px;
 	margin-top: 10px;
 }
+
+.container .lbl{
+	display: block;
+	margin-top: 10px;
+}
+
+.container .long{
+	width: 300px;
+}
+
+.container .opcions{
+	margin-top: 25px;
+	text-align: center;
+}
+
+.container .opcions .lbl{
+	display: inline-block;
+	float: left;
+}
+
+.container .radBut{
+	display:none;
+}
+
+.container .opl{
+	display: block;
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px;
+    width: 20%;
+    min-width:100px;
+    margin-left: 30%;
+    color: rgb(58,58,58);
+}
+
+.container .opl:first-child{
+	display: inline-block;
+}
+
+
+.container .opl:hover{
+	cursor: pointer;
+}
+
+.container .radBut:checked + .opl{
+	background-color: #00A573;
+	color: white; 
+}
+
+
+.container textarea{
+	display: block;
+	resize:none;
+	width: 99%;
+	height: 100px;
+	text-align: justify;
+	margin-bottom: 25px;
+}
+
+.container .button-submit, .container .button-cancelar{
+	margin-top: 25px;
+}
+
+.container.button, input[type="button"], button {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #444;
+  padding: 1em 3em;
+  margin: 0;
+  text-decoration: none;
+  color: #fff;
+  border: 0px;
+  font-size: 1em;
+/*  font-family: "Open Sans", helvetica, arial, sans-serif;
+*/  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+}
+
+
+.container .button-submit {
+  float:right;
+  background: #00A573;
+}
+.container .button-submit:hover {
+  background: #000;
+  color: #00A573;
+}
+
+
+.container .button-cancelar{
+  background: #B66;
+}
+.container .button-cancelar:hover{
+  background: #000;
+  color: #B66;
+}
+
 
 .contingut h2{
 	color: #1A9DCC;
@@ -80,7 +183,6 @@ div.resum{
 	display: inline-block;
 }
 
-/*noticies*/
 .agregar{
 	padding: 5px;
 	border: 1px solid rgb(190, 190 ,190);

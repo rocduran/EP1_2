@@ -10,50 +10,69 @@
 
   <script src="jq/jquery-1.11.2.js" type="text/javascript"></script>
 
-   <script>
-    $(document).ready(function(){
-            $(document).ready(function(){ // Script del Slider
-              $("div.noticies, div.multimedia, div.usuaris") . hide();
-              $('a.resum') . addClass('aqui');
-              
-              $("a.resum").click(function(e){
-                $('.menuadmin a').removeClass('aqui');
-                $(this).addClass('aqui');
-                $('div.resum').show();
-                $('div.noticies, div.multimedia, div.usuaris') . hide();
-                return false;
-                e.preventDefault();
-              });
-              
-              $("a.noticies").click(function(e){
-                $('.menuadmin a').removeClass('aqui');
-                $(this).addClass('aqui');
-                $('div.noticies').show();
-                $('div.resum, div.multimedia, div.usuaris') . hide();
-                return false;
-                e.preventDefault();
-              });
+  <script>
+$(document).ready(function(){ // Script del Slider
+          $("div.noticies, div.multimedia, div.usuaris, div.inserirNoticia, div.inserirMulti") . hide();
+          $('a.resum') . addClass('aqui');
 
-              $("a.multimedia").click(function(e){
-                $('.menuadmin a').removeClass('aqui');
-                $(this).addClass('aqui');
-                $('div.multimedia').show();
-                $('div.noticies, div.resum, div.usuaris') . hide();
-                return false;
-                e.preventDefault();
-              });
+          $("a.resum").click(function(e){
+            $('.menuadmin a').removeClass('aqui');
+            $(this).addClass('aqui');
+            $('div.resum').show();
+            $('div.noticies, div.multimedia, div.usuaris, div.inserirNoticia, div.inserirMulti') . hide();
+          return false;
+          e.preventDefault();
+          });
+                        
+          $("a.noticies").click(function(e){
+            $('.menuadmin a').removeClass('aqui');
+            $(this).addClass('aqui');
+            $('div.noticies').show();
+            $('div.resum, div.multimedia, div.usuaris, div.inserirNoticia, div.inserirMulti') . hide();
+          return false;
+          e.preventDefault();
+                        });
 
-              $("a.usuaris").click(function(e){
-                $('.menuadmin a').removeClass('aqui');
-                $(this).addClass('aqui');
-                $('div.usuaris').show();
-                $('div.noticies, div.multimedia, div.resum') . hide();
-                return false;
-                e.preventDefault();
-              });
-              
-            });
+          $("a.multimedia").click(function(e){
+            $('.menuadmin a').removeClass('aqui');
+            $(this).addClass('aqui');
+            $('div.multimedia').show();
+            $('div.noticies, div.resum, div.usuaris, div.inserirNoticia, div.inserirMulti') . hide();
+          return false;
+          e.preventDefault();
+                        });
+
+          $("a.usuaris").click(function(e){
+            $('.menuadmin a').removeClass('aqui');
+            $(this).addClass('aqui');
+            $('div.usuaris').show();
+            $('div.noticies, div.multimedia, div.resum, div.inserirNoticia, div.inserirMulti') . hide();
+          return false;
+          e.preventDefault();
+          });
+
+          $("a.inserirNoticia").click(function(e){
+            $('.menuadmin a').removeClass('aqui');
+            $(this).addClass('aqui');
+            $('div.inserirNoticia').show();
+            $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti') . hide();
+          return false;
+          e.preventDefault();
+          });
+
+           $("a.inserirMulti").click(function(e){
+            $('.menuadmin a').removeClass('aqui');
+            $(this).addClass('aqui');
+            $('div.inserirMulti').show();
+            $('div.noticies, div.multimedia, div.resum, div.usuaris') . hide();
+          return false;
+          e.preventDefault();
+          });
+
+
+
 });
+
 </script>
 
 </head>
@@ -94,16 +113,16 @@
   </nav>
 
 
-  <div class="contingut">
-      <!-- Panell administració -->
-  <div class="menuadmin">
-    <ul>
-      <li><a href="#" class="resum">Resum</a></li>
-      <li><a href="#" class="noticies">Notícies</a></li>
-      <li><a href="#" class="multimedia">Multimèdia</a></li>
-      <li><a href="#" class="usuaris">Usuaris</a></li>
-    </ul>
-  </div>
+<div class="contingut">
+    <!-- Panell administració -->
+    <div class="menuadmin">
+      <ul>
+        <li><a href="#" class="resum">Resum</a></li>
+        <li><a href="#" class="noticies">Notícies</a></li>
+        <li><a href="#" class="multimedia">Multimèdia</a></li>
+        <li><a href="#" class="usuaris">Usuaris</a></li>
+      </ul>
+    </div>
 
     <div class="resum">
       <h2 class="header">Resum</h2>
@@ -121,150 +140,198 @@
           <li class="aprovats"><span class="valor">120</span><a href="">aprovats</a></li>
           <li class="pendents"><span class="valor">4</span><a href="">pendents</a></li>
           <li class="spam"><span class="valor">4</span><a href="">spam</a></li>
-      </ul>
+        </ul>
       </div>
     </div>
-  
+
     <div class="noticies">
       <h2 class="header">Notícies</h2> 
       <div class="container">
-        <a  href="#" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
-            <div class="item">
-              <div class="textitem" >
-                <span>Noticia 1</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem" >
-                <span>Noticia 2</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem" >
-                <span>Noticia 3</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem" >
-                <span>Noticia 4</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            </div>
+        <a  href="#" class="inserirNoticia" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
+        <div class="item">
+          <div class="textitem" >
+            <span>Noticia 1</span>
+          </div>
+          <div class="botons">
+            <span><img src="img/pencil.png" alt="edita"> </span>
+            <span><img src="img/bin.png" alt="borra"> </span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="textitem" >
+            <span>Noticia 2</span>
+          </div>
+          <div class="botons">
+            <span><img src="img/pencil.png" alt="edita"> </span>
+            <span><img src="img/bin.png" alt="borra"> </span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="textitem" >
+            <span>Noticia 3</span>
+          </div>
+          <div class="botons">
+            <span><img src="img/pencil.png" alt="edita"> </span>
+            <span><img src="img/bin.png" alt="borra"> </span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="textitem" >
+            <span>Noticia 4</span>
+          </div>
+          <div class="botons">
+            <span><img src="img/pencil.png" alt="edita"> </span>
+            <span><img src="img/bin.png" alt="borra"> </span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="multimedia">
-       <h2 class="header">Multimèdia</h2>
-       <div class="container">
-        <a  href="#" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
-            <div class="item">
-              <div class="textitem video" >
-                <span>Video 1</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem audio" >
-                <span>Audio 1</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem article" >
-                <span>Article 1</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem audio" >
-                <span>Audio 2</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            </div>
+     <h2 class="header">Multimèdia</h2>
+     <div class="container">
+      <a  href="#" class="inserirMulti" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
+      <div class="item">
+        <div class="textitem video" >
+          <span>Video 1</span>
+        </div>
+        <div class="botons">
+          <span><img src="img/pencil.png" alt="edita"> </span>
+          <span><img src="img/bin.png" alt="borra"> </span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="textitem audio" >
+          <span>Audio 1</span>
+        </div>
+        <div class="botons">
+          <span><img src="img/pencil.png" alt="edita"> </span>
+          <span><img src="img/bin.png" alt="borra"> </span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="textitem article" >
+          <span>Article 1</span>
+        </div>
+        <div class="botons">
+          <span><img src="img/pencil.png" alt="edita"> </span>
+          <span><img src="img/bin.png" alt="borra"> </span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="textitem audio" >
+          <span>Audio 2</span>
+        </div>
+        <div class="botons">
+          <span><img src="img/pencil.png" alt="edita"> </span>
+          <span><img src="img/bin.png" alt="borra"> </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="usuaris">
+   <h2 class="header">Usuaris</h2>
+   <div class="container">
+     <a  href="#" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
+     <div class="item">
+      <div class="textitem" >
+        <span>Moises Miret</span>
+      </div>
+      <div class="botons">
+        <span><img src="img/pencil.png" alt="edita"> </span>
+        <span><img src="img/bin.png" alt="borra"> </span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="textitem" >
+        <span>Roc Duran</span>
+      </div>
+      <div class="botons">
+        <span><img src="img/pencil.png" alt="edita"> </span>
+        <span><img src="img/bin.png" alt="borra"> </span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="textitem" >
+        <span>Pepito Huan</span>
+      </div>
+      <div class="botons">
+        <span><img src="img/pencil.png" alt="edita"> </span>
+        <span><img src="img/bin.png" alt="borra"> </span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="textitem" >
+        <span>Thor</span>
+      </div>
+      <div class="botons">
+        <span><img src="img/pencil.png" alt="edita"> </span>
+        <span><img src="img/bin.png" alt="borra"> </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="inserirNoticia">
+  <h2 class="header">Inserir noticia</h2> 
+  <div class="container">
+    <span><label class="lbl" for="titulNot">Insereix el titol de la noticia: <input class="long" type="text" name="titulNot" value=""></label></span> 
+    
+    <div class="opcions">
+      <span><label class="lbl">Selecionar categoria:</label></span>
+      <span><input type = "radio" name = "op" class = "radBut" id="op1" title="opcio1" checked="checked" /><label class="opl" for="op1">Votació</label></span>
+      <span><input type = "radio" name = "op" class = "radBut" id="op2" title="opcio2" /><label class="opl" for="op2">Enquesta</label></span>
+      <span><input type = "radio" name = "op" class = "radBut" id="op3" title="opcio3" /><label class="opl" for="op3">Referendum</label></span>
     </div>
 
-    <div class="usuaris">
-       <h2 class="header">Usuaris</h2>
-       <div class="container">
-       <a  href="#" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
-            <div class="item">
-              <div class="textitem" >
-                <span>Moises Miret</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem" >
-                <span>Roc Duran</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem" >
-                <span>Pepito Huan</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="textitem" >
-                <span>Thor</span>
-              </div>
-              <div class="botons">
-                <span><img src="img/pencil.png" alt="edita"> </span>
-                <span><img src="img/bin.png" alt="borra"> </span>
-              </div>
-            </div>
-          </div>
-          </div>
+    <span><label class="lbl" for="arxiu">Selecionar imatge: <input type="file" name="arxiu" value=""></label></span> 
+
+    <span><label class="lbl" for="contingutNot">Insereix el contingut:<textarea name="contingutNot" placeholder="Contingut noticia..."></textarea></label></span> 
+
+    <span><label for="enviar"><input class="button-submit" type="button" name="" value="Enviar"></label> </span>
+    <span><label for="borrar"><input class="button-cancelar" type="button" name="" value="Reinicialitzar"></label> </span>
+
   </div>
+</div>
+
+  <div class="inserirMulti">
+  <h2 class="header">Inserir multimèdia:</h2> 
+  <div class="container">
+    <span><label class="lbl" for="titulNot">Insereix el titol del arxiu: <input class="long" type="text" name="titulNot" value=""></label></span> 
     
-   <ul class="footerAdmin">
-     <li class="guardar"><a href="">Guardar</a></li>
-     <li class="sortir"><a href="">Sortir</a></li>
-   </ul>
+    <div class="opcions">
+      <span><label class="lbl">Selecionar categoria:</label></span>
+      <span><input type = "radio" name = "op" class = "radBut" id="op4" title="opcio1" checked="checked" /><label class="opl" for="op4">Audio</label></span>
+      <span><input type = "radio" name = "op" class = "radBut" id="op5" title="opcio2" /><label class="opl" for="op5">Video</label></span>
+      <span><input type = "radio" name = "op" class = "radBut" id="op6" title="opcio3" /><label class="opl" for="op6">Text</label></span>
+    </div>
 
-   <div class="footer">
-      <p id="copyright">Roc Duran &amp; Moises Miret </p>
+    <span><label class="lbl" for="arxiu">Selecionar arxiu: <input type="file" name="arxiu" value=""></label></span> 
+
+    <span><label for="enviar"><input class="button-submit" type="button" name="" value="Enviar"></label> </span>
+    <span><label for="borrar"><input class="button-cancelar" type="button" name="" value="Reinicialitzar"></label> </span>
+
   </div>
+</div>
 
- </div> <!--panell -->
+
+
+
+
+
+</div>
+
+<ul class="footerAdmin">
+ <li class="guardar"><a href="">Guardar</a></li>
+ <li class="sortir"><a href="">Sortir</a></li>
+</ul>
+
+<div class="footer">
+  <p id="copyright">Roc Duran &amp; Moises Miret </p>
+</div>
+
+</div> <!--panell -->
 
 
 </body>
