@@ -7,6 +7,7 @@ $(document).ready(function(){
   var cognom = $("#cognom");
   var email = $("#email");
   var telefon = $("#telf");
+  var banc = $("#banc");
 
   $(function() {
     $( "#datepicker" ).datepicker(
@@ -140,6 +141,52 @@ $(document).ready(function(){
 
         var divErr = document.getElementById("errTelf");
         divErr.removeChild(divErr.lastChild);
+
+        if ($this.hasClass("noValid")) {
+          $this.removeClass("noValid");
+        };
+      }
+    });
+
+    banc.on("blur",function(){
+      var $this = $(this);
+      var regex = /AD[0-9]{2}000(1|3)[0-9]{16}/i;
+      var regAndBank = /AD[0-9]{2}0001[0-9]{16}/i;
+      var regCredit = /AD[0-9]{2}0003[0-9]{16}/i;
+      
+      var bankPara = document.createElement("p");
+      var andBank = document.createTextNode("AndBank");
+      var credit = document.createTextNode("Crèdit Andorrà");
+      var valor = $this.val();
+
+      var errPara = document.createElement("p");
+      var errText = document.createTextNode("Introdueix un IBAN vàlid (ADCC BBBB SSSS ZZZZ ZZZZ ZZZZ).");
+      errPara.appendChild(errText);
+
+      if(!regex.test(valor)){
+        $this.addClass("noValid");
+        var divErr = document.getElementById("errBanc");
+        if (divErr.firstChild) {
+          divErr.removeChild(divErr.lastChild);
+        }
+        divErr.appendChild(errPara);
+
+        if ($this.hasClass("valid")) {
+          $this.removeClass("valid");
+        };
+      } else{
+        $this.addClass("valid");
+        var divErr = document.getElementById("errBanc");
+        divErr.removeChild(divErr.lastChild);
+
+        if(regAndBank.test(valor)){
+          bankPara.appendChild(andBank);
+          divErr.appendChild(bankPara);
+        }
+        if(regCredit.test(valor)){
+          bankPara.appendChild(credit);
+          divErr.appendChild(bankPara);
+        }
 
         if ($this.hasClass("noValid")) {
           $this.removeClass("noValid");
