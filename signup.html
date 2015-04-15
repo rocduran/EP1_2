@@ -53,18 +53,19 @@
     <label for="nom">
       <h2>Nom:</h2>
       <input  id="nom" type="text" class="long important">
-      <div id= "errNom"></div>
+      <div id= "errNom" class="error"></div>
     </label>
 
     <label for="cognom">
       <h2>Cognom:</h2>
       <input id="cognom" type="text" class="long important">
-      <div id= "errCognom"></div>
+      <div id= "errCognom" class="error"></div>
     </label>
 
     <label for="telf">
       <h2>Telèfon:</h2>
-      <input id="telf" type="text" class="long">
+      <input id="telf" type="text" class="long" value="+376">
+      <div id= "errTelf" class="error"></div>
     </label>
 
     <label for="adress">
@@ -104,8 +105,8 @@
 
     <label for="email">
       <h2>Email:</h2>
-      <input id="email" type="text" class="long important">
-      <div id= "errMail"></div>
+      <input id="email" type="text" class="long important" placeholder="exemple@exemple.com">
+      <div id= "errMail" class="error"></div>
     </label>
 
     <label for="contrasenya">
@@ -121,6 +122,7 @@
     <label for="banc">
       <h2>Dades bancàries (IBAN):</h2>
       <input id="banc" type="text" class="long">
+      <div id= "errBanc" class="error"></div>
     </label>
 
     <div id="social">

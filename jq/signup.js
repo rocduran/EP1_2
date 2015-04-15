@@ -6,13 +6,13 @@ $(document).ready(function(){
   var nom = $("#nom");
   var cognom = $("#cognom");
   var email = $("#email");
+  var telefon = $("#telf");
 
-    
   $(function() {
     $( "#datepicker" ).datepicker(
-      {
-        dateFormat: "dd-mm-yy"
-      });
+    {
+      dateFormat: "dd-mm-yy"
+    });
 
   });
 
@@ -30,24 +30,24 @@ $(document).ready(function(){
       $this.addClass("noValid");
       var divErr = document.getElementById("errNom");
       if (divErr.firstChild) {
-      divErr.removeChild(divErr.lastChild);
+        divErr.removeChild(divErr.lastChild);
       }
       divErr.appendChild(errPara);
 
       if ($this.hasClass("valid")) {
         $this.removeClass("valid");
       };
-  } else{
-    $this.addClass("valid");
+    } else{
+      $this.addClass("valid");
 
-    var divErr = document.getElementById("errNom");
-    divErr.removeChild(divErr.lastChild);
+      var divErr = document.getElementById("errNom");
+      divErr.removeChild(divErr.lastChild);
 
-    if ($this.hasClass("noValid")) {
+      if ($this.hasClass("noValid")) {
         $this.removeClass("noValid");
       };
-  }
-});
+    }
+  });
 
    //Comprova si el COGNOM es correcte
    cognom.on("blur",function(){
@@ -63,59 +63,91 @@ $(document).ready(function(){
       $this.addClass("noValid");
       var divErr = document.getElementById("errCognom");
       if (divErr.firstChild) {
-      divErr.removeChild(divErr.lastChild);
+        divErr.removeChild(divErr.lastChild);
       }
       divErr.appendChild(errPara);
 
       if ($this.hasClass("valid")) {
         $this.removeClass("valid");
       };
-  } else{
-    $this.addClass("valid");
+    } else{
+      $this.addClass("valid");
 
-    var divErr = document.getElementById("errCognom");
-    divErr.removeChild(divErr.lastChild);
+      var divErr = document.getElementById("errCognom");
+      divErr.removeChild(divErr.lastChild);
 
-    if ($this.hasClass("noValid")) {
+      if ($this.hasClass("noValid")) {
         $this.removeClass("noValid");
       };
-  }
-});
+    }
+  });
 
     //Comprova si l'EMAIL es valid
-   email.on("blur",function(){
-    var $this = $(this);
-    var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    var valor = $this.val();
+    email.on("blur",function(){
+      var $this = $(this);
+      var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+      var valor = $this.val();
 
-    var errPara = document.createElement("p");
-    var errText = document.createTextNode("Introdueix un correu vàlid 'exemple@exemple.com'");
-    errPara.appendChild(errText);
+      var errPara = document.createElement("p");
+      var errText = document.createTextNode("Introdueix un correu vàlid 'exemple@exemple.com'");
+      errPara.appendChild(errText);
 
-    if(!regex.test(valor)){
-      $this.addClass("noValid");
-      var divErr = document.getElementById("errMail");
-      if (divErr.firstChild) {
-      divErr.removeChild(divErr.lastChild);
+      if(!regex.test(valor)){
+        $this.addClass("noValid");
+        var divErr = document.getElementById("errMail");
+        if (divErr.firstChild) {
+          divErr.removeChild(divErr.lastChild);
+        }
+        divErr.appendChild(errPara);
+
+        if ($this.hasClass("valid")) {
+          $this.removeClass("valid");
+        };
+      } else{
+        $this.addClass("valid");
+
+        var divErr = document.getElementById("errMail");
+        divErr.removeChild(divErr.lastChild);
+
+        if ($this.hasClass("noValid")) {
+          $this.removeClass("noValid");
+        };
       }
-      divErr.appendChild(errPara);
+    });
 
-      if ($this.hasClass("valid")) {
-        $this.removeClass("valid");
-      };
-  } else{
-    $this.addClass("valid");
+    telefon.on("blur",function(){
+      var $this = $(this);
+      var regex = /(\+376[0-9]{6})$/i;
+      var valor = $this.val();
 
-    var divErr = document.getElementById("errMail");
-    divErr.removeChild(divErr.lastChild);
+      var errPara = document.createElement("p");
+      var errText = document.createTextNode("Introdueix un telèfon de 6 números.");
+      errPara.appendChild(errText);
 
-    if ($this.hasClass("noValid")) {
-        $this.removeClass("noValid");
-      };
-  }
-});
+      if(!regex.test(valor)){
+        $this.addClass("noValid");
+        var divErr = document.getElementById("errTelf");
+        if (divErr.firstChild) {
+          divErr.removeChild(divErr.lastChild);
+        }
+        divErr.appendChild(errPara);
 
-   
+        if ($this.hasClass("valid")) {
+          $this.removeClass("valid");
+        };
+      } else{
+        $this.addClass("valid");
+
+        var divErr = document.getElementById("errTelf");
+        divErr.removeChild(divErr.lastChild);
+
+        if ($this.hasClass("noValid")) {
+          $this.removeClass("noValid");
+        };
+      }
+    });
+
+
 
 
     
@@ -151,5 +183,5 @@ $(document).ready(function(){
     //     });
 
 
-    
-  });
+
+});
