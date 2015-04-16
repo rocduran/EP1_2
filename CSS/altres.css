@@ -1,3 +1,59 @@
+.panell{
+	background-color: #fff;
+}
+
+.botons{
+	display: block;
+	margin-top: 2%;
+}
+
+.button{
+	  -moz-box-sizing: border-box;
+	  -webkit-box-sizing: border-box;
+	  box-sizing: border-box;
+	  background: #444;
+	  padding: 1em 10em;
+	  text-decoration: none;
+	  color: #fff;
+	  border: 0px;
+	  font-size: 1em;
+	/*  font-family: "Open Sans", helvetica, arial, sans-serif;
+	*/  cursor: pointer;
+	  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	  position: relative;
+	  display: inline-block;
+	  transition: all 0.3s ease 0s;
+	  -moz-transition: all 0.3s ease 0s;
+	  -webkit-transition: all 0.3s ease 0s;
+}
+
+#jsonBut{
+	float: left;
+	margin-left: 10%;
+}
+
+#xmlBut{
+	margin-left: 25%;
+}
+
+#jsonBut:hover, #xmlBut:hover{
+	background: #000;
+  	color: #00A573;	
+}
+
+h2{
+	display: block;
+	margin-top: 2%;
+	margin-left: 10%;
+	color: #1A9DCC;
+}
+
 .contingutFitxer{
 	min-height: 300px;
+	margin-top: 2%;
+	border: solid 1px rgb(235, 235, 235);
+	border-radius: 5px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 2%;
 }
