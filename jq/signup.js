@@ -1,7 +1,6 @@
-//TODO remove class valid/noValid 
 
 $(document).ready(function(){
-
+window.onLoad=getPaisos;
   //variables
   var nom = $("#nom");
   var cognom = $("#cognom");
@@ -197,7 +196,7 @@ $(document).ready(function(){
 
 
 
-    
+
     //show modal when inputs are valid and button
     //is clicked
     // $(".submit").on("click",function(){
@@ -232,3 +231,15 @@ $(document).ready(function(){
 
 
 });
+
+function getPaisos() {
+  var url, itemPais;
+  url = 'countries.json';
+
+  $.getJSON(url, function(data) {
+    $(data).each(function() {
+      itemPais = "<option>" + this.code + "</option>";
+      $('#llistaPais').append(itemPais);
+    });
+  });
+};
