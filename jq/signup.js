@@ -1,6 +1,23 @@
 
 $(document).ready(function(){
-window.onLoad=getPaisos;
+
+  getPaisos();
+
+
+  function getPaisos() {
+  var url, itemPais;
+  url = 'countries.json';
+
+  $.getJSON('jq/countries.json', function(data) {
+    alert("dins de getPaisos");
+    $(data.llistaPaisos).each(function(i,paisactual) {
+      alert("dins de getPaisos");
+      itemPais = "<option>" + paisactual.code + "</option>";
+      $('#llistaPais').append(itemPais);
+    });
+  })};
+
+
   //variables
   var nom = $("#nom");
   var cognom = $("#cognom");
@@ -231,15 +248,3 @@ window.onLoad=getPaisos;
 
 
 });
-
-function getPaisos() {
-  var url, itemPais;
-  url = 'countries.json';
-
-  $.getJSON(url, function(data) {
-    $(data).each(function() {
-      itemPais = "<option>" + this.code + "</option>";
-      $('#llistaPais').append(itemPais);
-    });
-  });
-};
