@@ -276,6 +276,7 @@ contrasenya2.on("blur",function(){
   }
 });
 
+//localStorage
 function init() {
   if (localStorage["nom"]) {
     $('#nom').val(localStorage["nom"]);
@@ -310,15 +311,34 @@ function init() {
 }
 init();
 
-
+//guarda dades a mesura que anem escrivint
 $('.stored').keyup(function () {
   localStorage[$(this).attr('name')] = $(this).val();
 });
 
+//Boto de reset del formulari
 $('.button-cancelar').click(function() {
+ if (confirm("Estàs segur que vols cancelar?\nAixò borrarà els camps") == true) {
+  localStorage.clear();
+  document.getElementById("formulari").reset();
+} else {}
+});
+
+$('#formulari').submit(function() {
  if (confirm("Estàs segur que vols cancelar?\nAixò borrarà els camps") == true) {
   localStorage.clear();
 } else {}
 });
+
+function validar(valor){
+  var $this = $(this);
+  if ($this.hasClass("valid") & !$this.hasClass("noValid")) {
+    return true;
+  } else {
+    return false;
+  };
+};
+
+
 
 });
