@@ -47,40 +47,40 @@
       <div class="clear"></div>
     </ul>
   </nav>
-  <form class="validar-form">
+  <form id="formulari" method="post" class="validar-form">
     <h1>Registrar</h1>
     <hr>
     <label for="nom">
       <h2>Nom:</h2>
-      <input  id="nom" type="text" class="long important">
+      <input  id="nom" type="text" class="long important stored">
       <div id= "errNom" class="error"></div>
     </label>
 
     <label for="cognom">
       <h2>Cognom:</h2>
-      <input id="cognom" type="text" class="long important">
+      <input id="cognom" type="text" class="long important stored">
       <div id= "errCognom" class="error"></div>
     </label>
 
     <label for="telf">
       <h2>Telèfon:</h2>
-      <input id="telf" type="text" class="long" value="+376">
+      <input id="telf" type="text" class="long stored" value="+376">
       <div id= "errTelf" class="error"></div>
     </label>
 
     <label for="adress">
       <h2>Adreça:</h2>
-      <input id="adress" type="text" class="long">
+      <input id="adress" type="text" class="long stored">
     </label>
 
     <label for="poblacio">
       <h2>Població:</h2>
-      <input id="poblacio" type="text" class="long">
+      <input id="poblacio" type="text" class="long stored">
     </label>
 
     <label for="cp">
       <h2>Codi Postal:</h2> 
-      <input type="text" id="cp" list="codis" class="long">
+      <input type="text" id="cp" list="codis" class="long stored">
       <datalist id="codis" >
         <option> AD100</option>
         <option> AD200</option>
@@ -94,35 +94,37 @@
 
     <label for="pais">
       <h2>Pais:</h2>
-      <input type="text" list="llistaPais" id="pais" name="pais" class="long">
+      <input type="text" list="llistaPais" id="pais" name="pais" class="long stored">
       <datalist id="llistaPais"></datalist>
     </label>
 
     <label id="born" for="datepicker">
       <h2>Data de naixement:</h2>
       <!-- calendari -->
-      <input id="datepicker" type="text" name="dia">
+      <input id="datepicker" type="text" name="dia" class="stored">
     </label>
 
     <label for="email">
       <h2>Email:</h2>
-      <input id="email" type="text" class="long important" placeholder="exemple@exemple.com">
+      <input id="email" type="text" class="long important stored" placeholder="exemple@exemple.com">
       <div id= "errMail" class="error"></div>
     </label>
 
     <label for="contrasenya">
       <h2>Contrasenya:</h2>
       <input id="contrasenya" type="password" class="long important">
+      <div id= "errPass" class="error"></div>
     </label>
 
     <label for="contrasenya2">
       <h2>Repeteix la contrasenya:</h2>
       <input id="contrasenya2" type="password" class="long important">
+      <div id= "errPass2" class="error"></div>
     </label>
 
     <label for="banc">
       <h2>Dades bancàries (IBAN):</h2>
-      <input id="banc" type="text" class="long">
+      <input id="banc" type="text" class="long stored">
       <div id= "errBanc" class="error"></div>
     </label>
 
@@ -150,7 +152,7 @@
       <input id="infomail" type="checkbox" name="infomail" value="infomail">Rebre informació per correu.
     </label>
 
-    <button class="button-cancelar" type="submit">Cancelar</button>
+    <button class="button-cancelar" type="button">Cancelar</button>
     <button class="button-submit" type="submit">Registrar</button>
     <p id="correcte"></p>
   </form>

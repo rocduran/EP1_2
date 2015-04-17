@@ -1,21 +1,21 @@
 
 $(document).ready(function(){
 
-  getPaisos();
+  // getPaisos();
 
 
-  function getPaisos() {
-  var url, itemPais;
-  url = 'countries.json';
+  // function getPaisos() {
+  // var url, itemPais;
+  // url = 'countries.json';
 
-  $.getJSON('jq/countries.json', function(data) {
-    alert("dins de getPaisos");
-    $(data.llistaPaisos).each(function(i,paisactual) {
-      alert("dins de getPaisos");
-      itemPais = "<option>" + paisactual.code + "</option>";
-      $('#llistaPais').append(itemPais);
-    });
-  })};
+  // $.getJSON('jq/countries.json', function(data) {
+  //   alert("dins de getPaisos");
+  //   $(data.llistaPaisos).each(function(i,paisactual) {
+  //     alert("dins de getPaisos");
+  //     itemPais = "<option>" + paisactual.code + "</option>";
+  //     $('#llistaPais').append(itemPais);
+  //   });
+  // })};
 
 
   //variables
@@ -24,6 +24,8 @@ $(document).ready(function(){
   var email = $("#email");
   var telefon = $("#telf");
   var banc = $("#banc");
+  var contrasenya = $("#contrasenya");
+  var contrasenya2 = $("#contrasenya2");
 
   $(function() {
     $( "#datepicker" ).datepicker(
@@ -210,41 +212,113 @@ $(document).ready(function(){
       }
     });
 
+contrasenya.on("blur",function(){
+  var $this = $(this);
+  var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{2,})[^ ]{6,}$/;
+  var valor = $this.val();
+
+  var errPara = document.createElement("p");
+  var errText = document.createTextNode("Ha de contenir un mínim de 2 digits, una majúscula i una minúscula i 6 caràcters de llarg");
+  errPara.appendChild(errText);
+
+  if(!regex.test(valor)){
+    $this.addClass("noValid");
+    var divErr = document.getElementById("errPass");
+    if (divErr.firstChild) {
+      divErr.removeChild(divErr.lastChild);
+    }
+    divErr.appendChild(errPara);
+
+    if ($this.hasClass("valid")) {
+      $this.removeClass("valid");
+    };
+  } else{
+    $this.addClass("valid");
+
+    var divErr = document.getElementById("errPass");
+    divErr.removeChild(divErr.lastChild);
+
+    if ($this.hasClass("noValid")) {
+      $this.removeClass("noValid");
+    };
+  }
+});
+
+contrasenya2.on("blur",function(){
+  var $this = $(this);
+  var contra = contrasenya.val();
+  var valor = $this.val();
+
+  var errPara = document.createElement("p");
+  var errText = document.createTextNode("Les contrasenyes han de coincidir");
+  errPara.appendChild(errText);
+
+  if(valor!==contra){
+    $this.addClass("noValid");
+    var divErr = document.getElementById("errPass2");
+    if (divErr.firstChild) {
+      divErr.removeChild(divErr.lastChild);
+    }
+    divErr.appendChild(errPara);
+
+    if ($this.hasClass("valid")) {
+      $this.removeClass("valid");
+    };
+  } else{
+    $this.addClass("valid");
+
+    var divErr = document.getElementById("errPass2");
+    divErr.removeChild(divErr.lastChild);
+
+    if ($this.hasClass("noValid")) {
+      $this.removeClass("noValid");
+    };
+  }
+});
+
+function init() {
+  if (localStorage["nom"]) {
+    $('#nom').val(localStorage["nom"]);
+  }
+  if (localStorage["cognom"]) {
+    $('#cognom').val(localStorage["cognom"]);
+  }
+  if (localStorage["telf"]) {
+    $('#telf').val(localStorage["telf"]);
+  }
+  if (localStorage["adress"]) {
+    $('#adress').val(localStorage["adress"]);
+  }
+  if (localStorage["poblacio"]) {
+    $('#poblacio').val(localStorage["poblacio"]);
+  }
+  if (localStorage["cp"]) {
+    $('#cp').val(localStorage["cp"]);
+  }
+  if (localStorage["pais"]) {
+    $('#pais').val(localStorage["pais"]);
+  }
+  if (localStorage["datepicker"]) {
+    $('#datepicker').val(localStorage["datepicker"]);
+  }
+  if (localStorage["email"]) {
+    $('#email').val(localStorage["email"]);
+  }
+  if (localStorage["banc"]) {
+    $('#banc').val(localStorage["banc"]);
+  }
+}
+init();
 
 
+$('.stored').keyup(function () {
+  localStorage[$(this).attr('name')] = $(this).val();
+});
 
-
-    //show modal when inputs are valid and button
-    //is clicked
-    // $(".submit").on("click",function(){
-    //   if(name.val() !== "Name" && name.val() !== "" &&
-    //    email.val() !== "Email" && 
-    //    email.val() !== "" &&
-    //    comment.val() !== "Comments" && 
-    //    comment.val()!== ""){
-
-    //       //remove invalid/valid classes
-    //     name.removeClass().addClass("input");
-    //     email.removeClass().addClass("input");
-    //     comment.removeClass().addClass("input");
-
-    //       //modal box
-    //       modal_name.text(name.val());
-    //       modal.slideDown("medium")
-    //       .delay(2000).slideUp("fast");
-
-    //       //put default text back
-    //       name.val("Name");
-    //       email.val("Email");
-    //       comment.val("Comments");
-
-    //       return false;
-
-    //     } else{
-
-    //       return false; }
-    //     });
-
-
+$('.button-cancelar').click(function() {
+ if (confirm("Estàs segur que vols cancelar?\nAixò borrarà els camps") == true) {
+  localStorage.clear();
+} else {}
+});
 
 });
