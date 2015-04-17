@@ -27,49 +27,74 @@ $(document).ready(function(){
   var contrasenya = $("#contrasenya");
   var contrasenya2 = $("#contrasenya2");
 
-  $(function() {
-    $( "#datepicker" ).datepicker(
-    {
-      dateFormat: "dd-mm-yy"
-    });
+  nom.onBlur = valNom();
+  cognom.onBlur = valCognom();
+  mail.onBlur = valMail();
+  telefon.onBlur = valTelf();
+  banc.onBlur = valBanc();
+  contrasenya.onBlur = valPass();
+  contrasenya2.onBlur = valPass();
 
+  //localStorage
+
+  init();
+
+  //guarda dades a mesura que anem escrivint
+  $('.stored').keyup(function () {
+    localStorage[$(this).attr('name')] = $(this).val();
   });
 
-   //Comprova si el NOM es correcte
-   nom.on("blur",function(){
-    var $this = $(this);
-    var regex = /^[A-Za-z]{2,20}$/;
-    var valor = $this.val();
+  //Boto de reset del formulari
+  $('.button-cancelar').click(function() {
+   if (confirm("Estàs segur que vols cancelar?\nAixò borrarà els camps") == true) {
+    localStorage.clear();
+    document.getElementById("formulari").reset();
+  } else {}
+  });
 
-    var errPara = document.createElement("p");
-    var errText = document.createTextNode("Mínim 2 caràcters i màxim 20 caràcters");
-    errPara.appendChild(errText);
+  $('#formulari').submit(function() {
+   if (formValidat==false) {
+    alert("Esta buit!!!")
+  } else {}
+  });
+});
 
-    if(!regex.test(valor)){
-      $this.addClass("noValid");
-      var divErr = document.getElementById("errNom");
-      if (divErr.firstChild) {
-        divErr.removeChild(divErr.lastChild);
-      }
-      divErr.appendChild(errPara);
 
-      if ($this.hasClass("valid")) {
-        $this.removeClass("valid");
-      };
-    } else{
-      $this.addClass("valid");
 
-      var divErr = document.getElementById("errNom");
+function valNom(){
+  var $this = $(this);
+  var regex = /^[A-Za-z]{2,20}$/;
+  var valor = $this.val();
+
+  var errPara = document.createElement("p");
+  var errText = document.createTextNode("Mínim 2 caràcters i màxim 20 caràcters");
+  errPara.appendChild(errText);
+
+  if(!regex.test(valor)){
+    $this.addClass("noValid");
+    var divErr = document.getElementById("errNom");
+    if (divErr.firstChild) {
       divErr.removeChild(divErr.lastChild);
-
-      if ($this.hasClass("noValid")) {
-        $this.removeClass("noValid");
-      };
     }
-  });
+    divErr.appendChild(errPara);
+
+    if ($this.hasClass("valid")) {
+      $this.removeClass("valid");
+    }
+  } else{
+    $this.addClass("valid");
+
+    var divErr = document.getElementById("errNom");
+    divErr.removeChild(divErr.lastChild);
+
+    if ($this.hasClass("noValid")) {
+      $this.removeClass("noValid");
+    }
+  }
+}
 
    //Comprova si el COGNOM es correcte
-   cognom.on("blur",function(){
+   function valCognom(){
     var $this = $(this);
     var regex = /^[A-Z a-z]{3,20}$/;
     var valor = $this.val();
@@ -97,12 +122,12 @@ $(document).ready(function(){
 
       if ($this.hasClass("noValid")) {
         $this.removeClass("noValid");
-      };
+      }
     }
-  });
+  }
 
     //Comprova si l'EMAIL es valid
-    email.on("blur",function(){
+    function valMail(){
       var $this = $(this);
       var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
       var valor = $this.val();
@@ -130,11 +155,11 @@ $(document).ready(function(){
 
         if ($this.hasClass("noValid")) {
           $this.removeClass("noValid");
-        };
+        }
       }
-    });
+    }
 
-    telefon.on("blur",function(){
+    function valTelf(){
       var $this = $(this);
       var regex = /(\+376[0-9]{6})$/i;
       var valor = $this.val();
@@ -162,11 +187,11 @@ $(document).ready(function(){
 
         if ($this.hasClass("noValid")) {
           $this.removeClass("noValid");
-        };
+        }
       }
-    });
+    }
 
-    banc.on("blur",function(){
+    function valBanc(){
       var $this = $(this);
       var regex = /AD[0-9]{2}000(1|3)[0-9]{16}/i;
       var regAndBank = /AD[0-9]{2}0001[0-9]{16}/i;
@@ -208,75 +233,74 @@ $(document).ready(function(){
 
         if ($this.hasClass("noValid")) {
           $this.removeClass("noValid");
-        };
+        }
       }
-    });
-
-contrasenya.on("blur",function(){
-  var $this = $(this);
-  var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{2,})[^ ]{6,}$/;
-  var valor = $this.val();
-
-  var errPara = document.createElement("p");
-  var errText = document.createTextNode("Ha de contenir un mínim de 2 digits, una majúscula i una minúscula i 6 caràcters de llarg");
-  errPara.appendChild(errText);
-
-  if(!regex.test(valor)){
-    $this.addClass("noValid");
-    var divErr = document.getElementById("errPass");
-    if (divErr.firstChild) {
-      divErr.removeChild(divErr.lastChild);
     }
-    divErr.appendChild(errPara);
 
-    if ($this.hasClass("valid")) {
-      $this.removeClass("valid");
-    };
-  } else{
-    $this.addClass("valid");
+    function valPass(){
+      var $this = $(this);
+      var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{2,})[^ ]{6,}$/;
+      var valor = $this.val();
 
-    var divErr = document.getElementById("errPass");
-    divErr.removeChild(divErr.lastChild);
+      var errPara = document.createElement("p");
+      var errText = document.createTextNode("Ha de contenir un mínim de 2 digits, una majúscula i una minúscula i 6 caràcters de llarg");
+      errPara.appendChild(errText);
 
-    if ($this.hasClass("noValid")) {
-      $this.removeClass("noValid");
-    };
-  }
-});
+      if(!regex.test(valor)){
+        $this.addClass("noValid");
+        var divErr = document.getElementById("errPass");
+        if (divErr.firstChild) {
+          divErr.removeChild(divErr.lastChild);
+        }
+        divErr.appendChild(errPara);
 
-contrasenya2.on("blur",function(){
-  var $this = $(this);
-  var contra = contrasenya.val();
-  var valor = $this.val();
+        if ($this.hasClass("valid")) {
+          $this.removeClass("valid");
+        };
+      } else{
+        $this.addClass("valid");
 
-  var errPara = document.createElement("p");
-  var errText = document.createTextNode("Les contrasenyes han de coincidir");
-  errPara.appendChild(errText);
+        var divErr = document.getElementById("errPass");
+        divErr.removeChild(divErr.lastChild);
 
-  if(valor!==contra){
-    $this.addClass("noValid");
-    var divErr = document.getElementById("errPass2");
-    if (divErr.firstChild) {
-      divErr.removeChild(divErr.lastChild);
+        if ($this.hasClass("noValid")) {
+          $this.removeClass("noValid");
+        }
+      }
     }
-    divErr.appendChild(errPara);
 
-    if ($this.hasClass("valid")) {
-      $this.removeClass("valid");
-    };
-  } else{
-    $this.addClass("valid");
+    function valPass2(){
+      var $this = $(this);
+      var contra = contrasenya.val();
+      var valor = $this.val();
 
-    var divErr = document.getElementById("errPass2");
-    divErr.removeChild(divErr.lastChild);
+      var errPara = document.createElement("p");
+      var errText = document.createTextNode("Les contrasenyes han de coincidir");
+      errPara.appendChild(errText);
 
-    if ($this.hasClass("noValid")) {
-      $this.removeClass("noValid");
-    };
-  }
-});
+      if(valor!==contra){
+        $this.addClass("noValid");
+        var divErr = document.getElementById("errPass2");
+        if (divErr.firstChild) {
+          divErr.removeChild(divErr.lastChild);
+        }
+        divErr.appendChild(errPara);
 
-//localStorage
+        if ($this.hasClass("valid")) {
+          $this.removeClass("valid");
+        };
+      } else{
+        $this.addClass("valid");
+
+        var divErr = document.getElementById("errPass2");
+        divErr.removeChild(divErr.lastChild);
+
+        if ($this.hasClass("noValid")) {
+          $this.removeClass("noValid");
+        }
+      }
+    }
+
 function init() {
   if (localStorage["nom"]) {
     $('#nom').val(localStorage["nom"]);
@@ -309,36 +333,12 @@ function init() {
     $('#banc').val(localStorage["banc"]);
   }
 }
-init();
-
-//guarda dades a mesura que anem escrivint
-$('.stored').keyup(function () {
-  localStorage[$(this).attr('name')] = $(this).val();
-});
-
-//Boto de reset del formulari
-$('.button-cancelar').click(function() {
- if (confirm("Estàs segur que vols cancelar?\nAixò borrarà els camps") == true) {
-  localStorage.clear();
-  document.getElementById("formulari").reset();
-} else {}
-});
-
-$('#formulari').submit(function() {
- if (confirm("Estàs segur que vols cancelar?\nAixò borrarà els camps") == true) {
-  localStorage.clear();
-} else {}
-});
 
 function validar(valor){
   var $this = $(this);
-  if ($this.hasClass("valid") & !$this.hasClass("noValid")) {
+  if ($this.hasClass("valid") & !($this.hasClass("noValid"))) {
     return true;
   } else {
     return false;
-  };
-};
-
-
-
-});
+  }
+}
