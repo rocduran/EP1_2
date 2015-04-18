@@ -12,11 +12,9 @@
 	  -webkit-box-sizing: border-box;
 	  box-sizing: border-box;
 	  background: #444;
-	  padding: 1em 10em;
 	  text-decoration: none;
 	  color: #fff;
 	  border: 0px;
-	  font-size: 1em;
 	/*  font-family: "Open Sans", helvetica, arial, sans-serif;
 	*/  cursor: pointer;
 	  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -27,13 +25,16 @@
 	  -webkit-transition: all 0.3s ease 0s;
 }
 
-#jsonBut{
-	float: left;
-	margin-left: 10%;
+.botons{
+	margin-left: 10%
 }
 
-#xmlBut{
-	margin-left: 25%;
+#jsonBut, #xmlBut{
+	margin-left: 10%;
+	font-size: 14px;
+	text-align: center;
+	padding: 10px 2px;
+	width:29%;
 }
 
 #jsonBut:hover, #xmlBut:hover{
@@ -42,10 +43,32 @@
 }
 
 h2{
-	display: block;
 	margin-top: 2%;
 	margin-left: 10%;
 	color: #1A9DCC;
+}
+
+#crud{
+	margin-top: 2%;
+	margin-left: 33%;
+	margin-right: 33%;
+	margin-bottom: 2%;
+	display: block;
+	border:1px solid rgb(235, 235, 235);
+	border-radius: 5px;
+	text-align: center;
+}
+
+#mod, #del{
+	width: 25%;
+	margin-left: 3%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+#mod:hover, #del:hover{
+	background: #000;
+  	color: #00A573;	
 }
 
 #contingutFitxer{
