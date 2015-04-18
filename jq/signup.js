@@ -3,26 +3,8 @@ window.onload = function () {
   associaDOMevents();  
 
   //localStorage
-  // init();
+  init();
 
-  //guarda dades a mesura que anem escrivint
-  // $('.stored').keyup(function () {
-  //   localStorage[$(this).attr('name')] = $(this).val();
-  // });
-
-  //Boto de reset del formulari
-  // $('.button-cancelar').click(function() {
-  //  if (confirm("Estàs segur que vols cancelar?\nAixò borrarà els camps") == true) {
-  //   localStorage.clear();
-  //   document.getElementById("formulari").reset();
-  // } else {}
-  // });
-
-  // $('#formulari').submit(function() {
-  //  if (formValidat==false) {
-  //   alert("Esta buit!!!")
-  // } else {}
-  // });
 };
 
 //Inici funcions
@@ -38,16 +20,16 @@ document.getElementById("banc").addEventListener("blur", valBanc, true);
 document.getElementById("contrasenya").addEventListener("blur", valPass, true);
 document.getElementById("contrasenya2").addEventListener("blur", valPass2, true);
 
-document.getElementById("nom").addEventListener("keyUp", lsNom);
-document.getElementById("cognom").addEventListener("keyUp", lsCognom, true);
-document.getElementById("telf").addEventListener("keyUp", lsTelf, true);
-document.getElementById("adress").addEventListener("keyUp", lsAdress, true);
-document.getElementById("poblacio").addEventListener("keyUp", lsPoblacio, true);
-document.getElementById("cp").addEventListener("keyUp", lsCp, true);
-document.getElementById("pais").addEventListener("keyUp", lsPais, true);
-document.getElementById("datepicker").addEventListener("keyUp", lsDatePicker, true);
-document.getElementById("email").addEventListener("keyUp", lsEmail, true);
-document.getElementById("banc").addEventListener("keyUp", lsBanc, true);
+document.getElementById("nom").onkeyup = lsNom
+document.getElementById("cognom").onkeyup = lsCognom
+document.getElementById("telf").onkeyup = lsTelf
+document.getElementById("adress").onkeyup =  lsAdress
+document.getElementById("poblacio").onkeyup = lsPoblacio
+document.getElementById("cp").onkeyup = lsCp
+document.getElementById("pais").onkeyup = lsPais
+document.getElementById("datepicker").onkeyup = lsDatePicker
+document.getElementById("email").onkeyup = lsEmail
+document.getElementById("banc").onkeyup = lsBanc
 
 }
 
@@ -314,10 +296,10 @@ function valNom(){
     //Funcions de guardar al localStorage
 
     function lsNom () {
-      var elemLS = document.getElementById("nom");
-      localStorage[nom] =  elemLS.value;
+      var elemLS = document.getElementById("nom").value;
+      localStorage.setItem('nom', elemLS);
     }
-//No furula ni el de nom ni el de cognom (2 maneres)
+
     function lsCognom () {
       var elemLS = document.getElementById("cognom").value;
       localStorage.setItem('cognom', elemLS);
@@ -365,10 +347,10 @@ function valNom(){
       localStorage.setItem('banc', elemLS);
     }
 
-
+//Recuperem valors de la localStorage al carregar la pagina (si existeixen)
     function init() {
-//El if del nom es una prova pero tampoco tira
-      if (!localStorage.getItem("nom") === null) {
+
+      if (localStorage["nom"]) {
        document.getElementById("nom").value = localStorage.getItem('nom');
      }
      if (localStorage["cognom"]) {
