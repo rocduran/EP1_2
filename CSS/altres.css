@@ -48,12 +48,29 @@ h2{
 	color: #1A9DCC;
 }
 
-.contingutFitxer{
-	min-height: 300px;
+#contingutFitxer{
+	height: 300px;
 	margin-top: 2%;
 	border: solid 1px rgb(235, 235, 235);
 	border-radius: 5px;
 	margin-left: 10%;
 	margin-right: 10%;
 	margin-bottom: 2%;
+	text-align: justify;
+	overflow-y: scroll;
+}
+
+.item{
+	margin-left: 2%;
+	margin-right: 2%;
+	text-align: justify;
+	padding: 10px;
+}
+
+.item:nth-child(even){
+    background: #ccc;
+}
+
+.item:nth-child(odd){
+    background: #ddd;
 }

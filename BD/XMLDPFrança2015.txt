@@ -1,0 +1,23 @@
+[
+{
+"CODI": "1",
+"TIPUS": "Enquete",
+"PREGUNTA": "Combien de fois avez vous voté?",
+"DATAI": "12/01/2015",
+"DATAF": "18/01/2015"
+},
+{
+"CODI": "2",
+"TIPUS": "Votacions",
+"PREGUNTA": "Prochain président de la République Française",
+"DATAI": "12/01/2015",
+"DATAF": "18/01/2015"
+},
+{
+"CODI": "3",
+"TIPUS": "Referendum",
+"PREGUNTA": "Faut il prendre des mesures en vers l'Andorre et BPA ?",
+"DATAI": "12/01/2015",
+"DATAF": "18/01/2015"
+}
+]
