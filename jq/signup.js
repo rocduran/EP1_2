@@ -1,9 +1,8 @@
-
 window.onload = function () {
 
   associaDOMevents();  
-  //localStorage
 
+  //localStorage
   // init();
 
   //guarda dades a mesura que anem escrivint
@@ -26,20 +25,33 @@ window.onload = function () {
   // });
 };
 
+//Inici funcions
+
 function associaDOMevents() {
 //Associar events de la Vista
 //variables
 document.getElementById("nom").addEventListener("blur", valNom, true);
 document.getElementById("cognom").addEventListener("blur", valCognom, true);
-document.getElementById("email").addEventListener("blur", valMail, true);
+document.getElementById("email").addEventListener("blur", valEmail, true);
 document.getElementById("telf").addEventListener("blur", valTelf, true);
 document.getElementById("banc").addEventListener("blur", valBanc, true);
 document.getElementById("contrasenya").addEventListener("blur", valPass, true);
 document.getElementById("contrasenya2").addEventListener("blur", valPass2, true);
 
+document.getElementById("nom").addEventListener("keyUp", lsNom);
+document.getElementById("cognom").addEventListener("keyUp", lsCognom, true);
+document.getElementById("telf").addEventListener("keyUp", lsTelf, true);
+document.getElementById("adress").addEventListener("keyUp", lsAdress, true);
+document.getElementById("poblacio").addEventListener("keyUp", lsPoblacio, true);
+document.getElementById("cp").addEventListener("keyUp", lsCp, true);
+document.getElementById("pais").addEventListener("keyUp", lsPais, true);
+document.getElementById("datepicker").addEventListener("keyUp", lsDatePicker, true);
+document.getElementById("email").addEventListener("keyUp", lsEmail, true);
+document.getElementById("banc").addEventListener("keyUp", lsBanc, true);
+
 }
 
-
+//Definició de funcions de validació
 
 function valNom(){
   var elemVal = document.getElementById("nom");
@@ -53,8 +65,8 @@ function valNom(){
   if(!regex.test(valor)){
     elemVal.classList.add('noValid');
     var divErr = document.getElementById("errNom");
-    if (divErr.firstChild) {
-      divErr.removeChild(divErr.lastChild);
+    if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
     }
     divErr.appendChild(errPara);
     if (elemVal.classList.contains('valid') ) {
@@ -65,7 +77,9 @@ function valNom(){
     elemVal.classList.add('valid');
 
     var divErr = document.getElementById("errNom");
-    divErr.removeChild(divErr.lastChild);
+    if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
 
     if (elemVal.classList.contains('noValid') ) {
       elemVal.classList.remove('noValid');
@@ -87,9 +101,9 @@ function valNom(){
       elemVal.classList.add('noValid');
 
       var divErr = document.getElementById("errCognom");
-      if (divErr.firstChild) {
-        divErr.removeChild(divErr.lastChild);
-      }
+      if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
       divErr.appendChild(errPara);
       if (elemVal.classList.contains('valid') ) {
         elemVal.classList.remove('valid');
@@ -99,7 +113,9 @@ function valNom(){
       elemVal.classList.add('valid');
 
       var divErr = document.getElementById("errCognom");
-      divErr.removeChild(divErr.lastChild);
+      if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
 
       if (elemVal.classList.contains('noValid') ) {
         elemVal.classList.remove('noValid');
@@ -108,7 +124,7 @@ function valNom(){
   }
 
     //Comprova si l'EMAIL es valid
-    function valMail(){
+    function valEmail(){
       var elemVal = document.getElementById("email");
       var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
       var valor =  elemVal.value;
@@ -121,9 +137,9 @@ function valNom(){
         elemVal.classList.add('noValid');
 
         var divErr = document.getElementById("errMail");
-        if (divErr.firstChild) {
-          divErr.removeChild(divErr.lastChild);
-        }
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
@@ -133,7 +149,9 @@ function valNom(){
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errMail");
-        divErr.removeChild(divErr.lastChild);
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
 
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
@@ -154,9 +172,9 @@ function valNom(){
         elemVal.classList.add('noValid');
 
         var divErr = document.getElementById("errTelf");
-        if (divErr.firstChild) {
-          divErr.removeChild(divErr.lastChild);
-        }
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
@@ -166,7 +184,9 @@ function valNom(){
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errTelf");
-        divErr.removeChild(divErr.lastChild);
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
 
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
@@ -192,9 +212,9 @@ function valNom(){
       if(!regex.test(valor)){
         elemVal.classList.add('noValid');
         var divErr = document.getElementById("errBanc");
-        if (divErr.firstChild) {
-          divErr.removeChild(divErr.lastChild);
-        }
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
@@ -203,7 +223,9 @@ function valNom(){
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errBanc");
-        divErr.removeChild(divErr.lastChild);
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
 
         if(regAndBank.test(valor)){
           bankPara.appendChild(andBank);
@@ -233,9 +255,9 @@ function valNom(){
       if(!regex.test(valor)){
         elemVal.classList.add('noValid');
         var divErr = document.getElementById("errPass");
-        if (divErr.firstChild) {
-          divErr.removeChild(divErr.lastChild);
-        }
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
@@ -245,7 +267,9 @@ function valNom(){
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errPass");
-        divErr.removeChild(divErr.lastChild);
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
 
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
@@ -265,9 +289,9 @@ function valNom(){
       if(valor != contra){
         elemVal.classList.add('noValid');
         var divErr = document.getElementById("errPass2");
-        if (divErr.firstChild) {
-          divErr.removeChild(divErr.lastChild);
-        }
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
@@ -277,7 +301,9 @@ function valNom(){
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errPass2");
-        divErr.removeChild(divErr.lastChild);
+        if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
 
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
@@ -285,35 +311,92 @@ function valNom(){
       }
     }
 
-// function init() {
-//   if (localStorage["nom"]) {
-//      document.getElementById("nom").value = (localStorage["nom"]);
-//   }
-//   if (localStorage["cognom"]) {
-//     $('#cognom').val(localStorage["cognom"]);
-//   }
-//   if (localStorage["telf"]) {
-//     $('#telf').val(localStorage["telf"]);
-//   }
-//   if (localStorage["adress"]) {
-//     $('#adress').val(localStorage["adress"]);
-//   }
-//   if (localStorage["poblacio"]) {
-//     $('#poblacio').val(localStorage["poblacio"]);
-//   }
-//   if (localStorage["cp"]) {
-//     $('#cp').val(localStorage["cp"]);
-//   }
-//   if (localStorage["pais"]) {
-//     $('#pais').val(localStorage["pais"]);
-//   }
-//   if (localStorage["datepicker"]) {
-//     $('#datepicker').val(localStorage["datepicker"]);
-//   }
-//   if (localStorage["email"]) {
-//     $('#email').val(localStorage["email"]);
-//   }
-//   if (localStorage["banc"]) {
-//     $('#banc').val(localStorage["banc"]);
-//   }
-// }
+    //Funcions de guardar al localStorage
+
+    function lsNom () {
+      var elemLS = document.getElementById("nom");
+      localStorage[nom] =  elemLS.value;
+    }
+//No furula ni el de nom ni el de cognom (2 maneres)
+    function lsCognom () {
+      var elemLS = document.getElementById("cognom").value;
+      localStorage.setItem('cognom', elemLS);
+    }
+
+    
+    function lsTelf () {
+      var elemLS = document.getElementById("telf").value;
+      localStorage.setItem('telf', elemLS);
+    }
+
+
+    function lsAdress () {
+      var elemLS = document.getElementById("adress").value;
+      localStorage.setItem('adress', elemLS);
+    }
+
+    function lsPoblacio () {
+      var elemLS = document.getElementById("poblacio").value;
+      localStorage.setItem('poblacio', elemLS);
+    }
+
+    function lsCp () {
+      var elemLS = document.getElementById("cp").value;
+      localStorage.setItem('cp', elemLS);
+    }
+    function lsPais () {
+      var elemLS = document.getElementById("pais").value;
+      localStorage.setItem('pais', elemLS);
+    }
+
+    function lsDatePicker() {
+      var elemLS = document.getElementById("datepicker").value;
+      localStorage.setItem('datepicker', elemLS);
+    }
+
+    function lsEmail () {
+      var elemLS = document.getElementById("email").value;
+      localStorage.setItem('email', elemLS);
+    }
+
+
+    function lsBanc () {
+      var elemLS = document.getElementById("banc").value;
+      localStorage.setItem('banc', elemLS);
+    }
+
+
+    function init() {
+//El if del nom es una prova pero tampoco tira
+      if (!localStorage.getItem("nom") === null) {
+       document.getElementById("nom").value = localStorage.getItem('nom');
+     }
+     if (localStorage["cognom"]) {
+       document.getElementById("cognom").value = localStorage.getItem('cognom');
+     }
+     if (localStorage["telf"]) {
+       document.getElementById("telf").value = localStorage.getItem('telf');
+     }
+     if (localStorage["adress"]) {
+       document.getElementById("adress").value = localStorage.getItem('adress');
+     }
+     if (localStorage["poblacio"]) {
+       document.getElementById("poblacio").value = localStorage.getItem('poblacio');
+     }
+     if (localStorage["cp"]) {
+       document.getElementById("cp").value = localStorage.getItem('cp');
+     }
+     if (localStorage["pais"]) {
+       document.getElementById("pais").value = localStorage.getItem('pais');
+     }
+     if (localStorage["datepicker"]) {
+       document.getElementById("datepicker").value = localStorage.getItem('datepicker');
+     }
+     if (localStorage["email"]) {
+       document.getElementById("email").value = localStorage.getItem('email');
+     }
+     if (localStorage["banc"]) {
+       document.getElementById("banc").value = localStorage.getItem('banc');
+     }
+   }
+
