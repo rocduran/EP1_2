@@ -1,3 +1,6 @@
+//@TODO Arreglar datepicker // Afegir style CSS Registrar(atenuat)
+//@TODO Activar botó registrar al validar tots els camps. (return true/false)
+
 window.onload = function () {
 
   associaDOMevents();  
