@@ -1,5 +1,3 @@
-//@TODO Arreglar datepicker // Afegir style CSS Registrar(atenuat)
-//@TODO Activar botó registrar al validar tots els camps. (return true/false)
 
 window.onload = function () {
 
@@ -15,24 +13,31 @@ window.onload = function () {
 function associaDOMevents() {
 //Associar events de la Vista
 //variables
-document.getElementById("nom").addEventListener("blur", valNom, true);
-document.getElementById("cognom").addEventListener("blur", valCognom, true);
-document.getElementById("email").addEventListener("blur", valEmail, true);
-document.getElementById("telf").addEventListener("blur", valTelf, true);
-document.getElementById("banc").addEventListener("blur", valBanc, true);
-document.getElementById("contrasenya").addEventListener("blur", valPass, true);
-document.getElementById("contrasenya2").addEventListener("blur", valPass2, true);
+document.getElementById("nom").addEventListener("blur", valNom , true);
+document.getElementById("cognom").addEventListener("blur", valCognom , true);
+document.getElementById("email").addEventListener("blur", valEmail , true);
+document.getElementById("telf").addEventListener("blur", valTelf , true);
+document.getElementById("banc").addEventListener("blur", valBanc , true);
+document.getElementById("contrasenya").addEventListener("blur", valPass , true);
+document.getElementById("contrasenya2").addEventListener("blur", valPass2 , true);
 
-document.getElementById("nom").onkeyup = lsNom
-document.getElementById("cognom").onkeyup = lsCognom
-document.getElementById("telf").onkeyup = lsTelf
-document.getElementById("adress").onkeyup =  lsAdress
-document.getElementById("poblacio").onkeyup = lsPoblacio
-document.getElementById("cp").onkeyup = lsCp
-document.getElementById("pais").onkeyup = lsPais
-document.getElementById("datepicker").onkeyup = lsDatePicker
-document.getElementById("email").onkeyup = lsEmail
-document.getElementById("banc").onkeyup = lsBanc
+document.getElementById("condicions").onchange = validarTot;
+
+document.getElementById("nom").onkeyup = lsNom;
+document.getElementById("cognom").onkeyup = lsCognom;
+document.getElementById("telf").onkeyup = lsTelf;
+document.getElementById("adress").onkeyup =  lsAdress;
+document.getElementById("poblacio").onkeyup = lsPoblacio;
+document.getElementById("cp").onkeyup = lsCp;
+document.getElementById("pais").onkeyup = lsPais;
+document.getElementById("datepicker").onkeyup = lsDatePicker;
+document.getElementById("email").onkeyup = lsEmail;
+document.getElementById("banc").onkeyup = lsBanc;
+
+  //Calendari de "naixement"
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
 
 }
 
@@ -57,7 +62,7 @@ function valNom(){
     if (elemVal.classList.contains('valid') ) {
       elemVal.classList.remove('valid');
     };
-
+    return false;
   } else{
     elemVal.classList.add('valid');
 
@@ -69,6 +74,7 @@ function valNom(){
     if (elemVal.classList.contains('noValid') ) {
       elemVal.classList.remove('noValid');
     };
+    return true;
   }
 }
 
@@ -87,24 +93,25 @@ function valNom(){
 
       var divErr = document.getElementById("errCognom");
       if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+        divErr.removeChild(divErr.childNodes[0]);
+      }
       divErr.appendChild(errPara);
       if (elemVal.classList.contains('valid') ) {
         elemVal.classList.remove('valid');
       };
-
+      return false
     } else{
       elemVal.classList.add('valid');
 
       var divErr = document.getElementById("errCognom");
       if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+        divErr.removeChild(divErr.childNodes[0]);
+      }
 
       if (elemVal.classList.contains('noValid') ) {
         elemVal.classList.remove('noValid');
       };
+      return true
     }
   }
 
@@ -123,24 +130,25 @@ function valNom(){
 
         var divErr = document.getElementById("errMail");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
         };
-
+        return false;
       } else{
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errMail");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
 
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
         };
+        return true;
       }
     }
 
@@ -158,24 +166,25 @@ function valNom(){
 
         var divErr = document.getElementById("errTelf");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
         };
-
+        return false;
       } else{
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errTelf");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
 
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
         };
+        return true;
       }
     }
 
@@ -198,19 +207,20 @@ function valNom(){
         elemVal.classList.add('noValid');
         var divErr = document.getElementById("errBanc");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
         };
+        return false;
       } else{
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errBanc");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
 
         if(regAndBank.test(valor)){
           bankPara.appendChild(andBank);
@@ -224,6 +234,7 @@ function valNom(){
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
         };
+        return true;
       }
     }
 
@@ -241,24 +252,25 @@ function valNom(){
         elemVal.classList.add('noValid');
         var divErr = document.getElementById("errPass");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
         };
-
+        return false;
       } else{
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errPass");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
 
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
         };
+        return true;
       }
     }
 
@@ -271,28 +283,51 @@ function valNom(){
       var errText = document.createTextNode("Les contrasenyes han de coincidir");
       errPara.appendChild(errText);
 
-      if(valor != contra){
+      if(valor != contra || valor===""){
         elemVal.classList.add('noValid');
         var divErr = document.getElementById("errPass2");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
         divErr.appendChild(errPara);
         if (elemVal.classList.contains('valid') ) {
           elemVal.classList.remove('valid');
         };
-
+        return false;
       } else{
         elemVal.classList.add('valid');
 
         var divErr = document.getElementById("errPass2");
         if (divErr.hasChildNodes()) {
-      divErr.removeChild(divErr.childNodes[0]);
-    }
+          divErr.removeChild(divErr.childNodes[0]);
+        }
 
         if (elemVal.classList.contains('noValid') ) {
           elemVal.classList.remove('noValid');
         };
+        return true;
+      }
+    }
+
+
+    //Validar tot formulari
+    function validarTot (){
+      valNom();
+      valCognom();
+      valEmail();
+      valTelf();
+      valBanc();
+      valPass();
+      valPass2();
+      if (valNom() && valCognom() && valEmail() && valTelf() && valBanc() && valPass() && valPass2()) {
+        var boto = document.getElementById("registrar");
+        boto.classList.remove("des");
+        boto.setAttribute("disabled", "false");
+      } else {
+        var boto = document.getElementById("registrar");
+        boto.classList.add("des");
+        boto.setAttribute("disabled", "true");
+        document.getElementById("condicions").checked = false;
       }
     }
 
@@ -351,37 +386,37 @@ function valNom(){
     }
 
 //Recuperem valors de la localStorage al carregar la pagina (si existeixen)
-    function init() {
+function init() {
 
-      if (localStorage["nom"]) {
-       document.getElementById("nom").value = localStorage.getItem('nom');
-     }
-     if (localStorage["cognom"]) {
-       document.getElementById("cognom").value = localStorage.getItem('cognom');
-     }
-     if (localStorage["telf"]) {
-       document.getElementById("telf").value = localStorage.getItem('telf');
-     }
-     if (localStorage["adress"]) {
-       document.getElementById("adress").value = localStorage.getItem('adress');
-     }
-     if (localStorage["poblacio"]) {
-       document.getElementById("poblacio").value = localStorage.getItem('poblacio');
-     }
-     if (localStorage["cp"]) {
-       document.getElementById("cp").value = localStorage.getItem('cp');
-     }
-     if (localStorage["pais"]) {
-       document.getElementById("pais").value = localStorage.getItem('pais');
-     }
-     if (localStorage["datepicker"]) {
-       document.getElementById("datepicker").value = localStorage.getItem('datepicker');
-     }
-     if (localStorage["email"]) {
-       document.getElementById("email").value = localStorage.getItem('email');
-     }
-     if (localStorage["banc"]) {
-       document.getElementById("banc").value = localStorage.getItem('banc');
-     }
-   }
+  if (localStorage["nom"]) {
+   document.getElementById("nom").value = localStorage.getItem('nom');
+ }
+ if (localStorage["cognom"]) {
+   document.getElementById("cognom").value = localStorage.getItem('cognom');
+ }
+ if (localStorage["telf"]) {
+   document.getElementById("telf").value = localStorage.getItem('telf');
+ }
+ if (localStorage["adress"]) {
+   document.getElementById("adress").value = localStorage.getItem('adress');
+ }
+ if (localStorage["poblacio"]) {
+   document.getElementById("poblacio").value = localStorage.getItem('poblacio');
+ }
+ if (localStorage["cp"]) {
+   document.getElementById("cp").value = localStorage.getItem('cp');
+ }
+ if (localStorage["pais"]) {
+   document.getElementById("pais").value = localStorage.getItem('pais');
+ }
+ if (localStorage["datepicker"]) {
+   document.getElementById("datepicker").value = localStorage.getItem('datepicker');
+ }
+ if (localStorage["email"]) {
+   document.getElementById("email").value = localStorage.getItem('email');
+ }
+ if (localStorage["banc"]) {
+   document.getElementById("banc").value = localStorage.getItem('banc');
+ }
+}
 
