@@ -1,0 +1,150 @@
+form {
+
+  padding: 2em;
+  background: #fff;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+/* Botons */
+.button, input[type="button"], button {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #444;
+  padding: 1em 3em;
+  margin: 0;
+  text-decoration: none;
+  color: #fff;
+  border: 0px;
+  font-size: 1em;
+/*  font-family: "Open Sans", helvetica, arial, sans-serif;
+*/  cursor: pointer;
+text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+position: relative;
+display: inline-block;
+transition: all 0.3s ease 0s;
+-moz-transition: all 0.3s ease 0s;
+-webkit-transition: all 0.3s ease 0s;
+}
+
+.button:hover, input[type="button"]:hover, button:hover {
+  background: #000;
+}
+
+input[type="button"].button-submit, button.button-submit {
+  float:right;
+  background: #00A573;
+}
+input[type="button"].button-submit:hover, button.button-submit:hover {
+  background: #000;
+  color: #00A573;
+}
+
+input[type="button"].des, button.des {
+  float:right;
+  background: #333;
+  color: #999;
+  cursor: default;
+}
+
+input[type="button"].des:hover, button.des:hover {
+  background: #111;
+  color: #999;
+}
+
+input[type="button"].button-cancelar, button.button-cancelar {
+  background: #B66;
+}
+input[type="button"].button-cancelar:hover, button.button-cancelar:hover {
+  background: #000;
+  color: #B66;
+}
+
+
+/* Labels */
+
+label {
+  display: block;
+  margin-bottom: 1em;
+}
+
+
+label h2 {
+  font-size: 1em;
+  margin: 0;
+  margin-bottom: 0.2em;
+}
+
+form h1{
+  margin-left: 14px;
+  color: #8d8d8d;
+}
+form label {
+  margin-left: 14px;
+}
+
+
+
+form div p {
+  margin: 0;
+  margin-left: 5px;
+}
+
+input[type="text"], input[type="password"],input[type="number"]{
+  background: #f6f6f6;
+  border: solid 1px;
+  border-color: #ccc;
+  font-size: 1em;
+  font-weight: 100;
+  margin-left: -14px;
+  margin: 0;
+  padding: 0.2em 1.3em;
+}
+
+input[type="number"]{
+  padding: 0.2em 0 0.2em 0.5em;
+}
+
+input[type="text"].long, input[type="password"].long{
+  width: 350px;
+}
+
+.noValid{
+  color:red;
+  border:1px solid red !important;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.4);
+  -moz-box-shadow:    0px 0px 10px rgba(255, 0, 0, 0.4);
+  box-shadow:         0px 0px 10px rgba(255, 0, 0, 0.4);
+}
+.valid{
+  color: green;
+  border:1px solid green !important;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.4);
+  -moz-box-shadow:    0px 0px 10px rgba(0, 255, 0, 0.4);
+  box-shadow:         0px 0px 10px rgba(0, 255, 0, 0.4);
+}
+
+.network {
+  display: inline;
+}
+
+#social{
+  margin-left: 14px;
+}
+
+.error{
+  display:inline-block;
+}
+
+hr {
+  background: #8d8d8d;
+  border: 0px;
+  height: 1px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  opacity: 0.2;
+  width: 100%;
+}
