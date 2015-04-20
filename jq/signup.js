@@ -419,4 +419,3 @@ function init() {
    document.getElementById("banc").value = localStorage.getItem('banc');
  }
 }
-
