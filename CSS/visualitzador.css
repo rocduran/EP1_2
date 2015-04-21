@@ -1,4 +1,4 @@
-.contingut{
+#contingut{
 	height: 0;
 	padding-top: 25px;
 	padding-bottom: 67.5%;
@@ -6,7 +6,7 @@
 	overflow: hidden; 
 }
 
-.contingut iframe , .contingut audio, .contingut video{
+#contingut video{
 	top: 50%;
 	left: 50%;
 	width: 70%;
@@ -14,3 +14,20 @@
 	position: absolute; 
 	transform: translate(-50%, -50%);
 } 
+
+#contingut embed{
+	top: 50%;
+	left: 50%;
+	width: 70%;
+	height: 100%;
+	position: absolute; 
+	transform: translate(-50%, -50%);
+} 
+
+#contingut audio {
+	top: 50%;
+	left: 50%;
+	width: 70%;
+	position: absolute; 
+	transform: translate(-50%, -50%);
+}
