@@ -16,8 +16,8 @@ function associaDOMevents() {
 
 function init() {
 	document.getElementById("contingut").innerHTML = "";
-	if (localStorage["tipusM"]) {
-		var tipus = localStorage.getItem('tipusM');
+	if (sessionStorage["tipusM"]) {
+		var tipus = sessionStorage.getItem('tipusM');
 		if (tipus == "video") {
 			document.getElementById("contingut").innerHTML += "<video poster\"http://www.html5rocks.com/en/tutorials/video/basics/star.png\" controls><source src=\"http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4\" type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'/></video><video poster=\"http://www.html5rocks.com/en/tutorials/video/basics/star.png\" controls><source src=\"http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm\" type='video/webm; codecs=\"vp8, vorbis\"' /></video><video poster=\"http://www.html5rocks.com/en/tutorials/video/basics/star.png\" controls><source src=\"http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv\" type='video/ogg; codecs=\"theora, vorbis\"' /></video>"
 		}
@@ -32,12 +32,12 @@ function init() {
 }
 
 function lsVideo () {
-	localStorage.setItem('tipusM', "video");
+	sessionStorage.setItem('tipusM', "video");
 }
 
 function lsAudio () {
-	localStorage.setItem('tipusM', "audio");
+	sessionStorage.setItem('tipusM', "audio");
 }
 function lsArticle () {
-	localStorage.setItem('tipusM', "article");
+	sessionStorage.setItem('tipusM', "article");
 }
