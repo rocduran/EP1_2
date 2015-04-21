@@ -13,13 +13,14 @@ window.onload = function () {
 function associaDOMevents() {
 //Associar events de la Vista
 //variables
-document.getElementById("nom").addEventListener("blur", valNom , true);
-document.getElementById("cognom").addEventListener("blur", valCognom , true);
-document.getElementById("email").addEventListener("blur", valEmail , true);
-document.getElementById("telf").addEventListener("blur", valTelf , true);
-document.getElementById("banc").addEventListener("blur", valBanc , true);
-document.getElementById("contrasenya").addEventListener("blur", valPass , true);
-document.getElementById("contrasenya2").addEventListener("blur", valPass2 , true);
+
+document.getElementById("nom").onblur = valNom;
+document.getElementById("cognom").onblur = valCognom;
+document.getElementById("email").onblur = valEmail;
+document.getElementById("telf").onblur = valTelf;
+document.getElementById("banc").onblur = valBanc;
+document.getElementById("contrasenya").onblur = valPass;
+document.getElementById("contrasenya2").onblur = valPass2;
 
 document.getElementById("condicions").onchange = validarTot;
 
@@ -39,6 +40,8 @@ document.getElementById("banc").onkeyup = lsBanc;
     $( "#datepicker" ).datepicker();
   });
 
+  //volcar llista de paisos
+  volcarJSON();
 }
 
 //Definició de funcions de validació
@@ -418,4 +421,37 @@ function init() {
  if (localStorage["banc"]) {
    document.getElementById("banc").value = localStorage.getItem('banc');
  }
+}
+
+//Afegir paisos
+
+function crearObjecteAjax() {
+  var obj;
+  if (window.XMLHttpRequest) { //si no es IE
+    obj = new XMLHttpRequest();
+  } else { //es IE o no te objecte
+    try {
+      obj = new ActiveXObject("Microsoft.XMLHTTP");
+    } catch (e) {
+      console.log("Navegador utilitzat no soportat !")
+    }
+  }
+  return obj;
+}
+
+function volcarJSON(){
+  jsonPaisos = '/Roc/BD/countries.txt';
+  var jsonRequest = crearObjecteAjax();
+  jsonRequest.onreadystatechange = function() {
+    if (jsonRequest.readyState == 4 && jsonRequest.status == 200) {
+      doc = JSON.parse(jsonRequest.responseText);
+      document.getElementById("llistaPais").innerHTML = "";
+      for (var i = 0; i < doc.length; i++) {
+        document.getElementById("llistaPais").innerHTML += "<option value=\"" + doc[i].nom + "\">" + doc[i].nom +"</option>";
+      } 
+      
+    }
+  };
+  jsonRequest.open('GET', jsonPaisos, true);
+  jsonRequest.send("");
 }
