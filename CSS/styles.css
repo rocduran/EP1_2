@@ -1,4 +1,4 @@
-@@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,300,100,500,700,600,800,900);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,300,100,500,700,600,800,900);
 
 body {
 	background: #d4d4d4;
@@ -287,7 +287,7 @@ nav ul ul li:last-child a:hover {
   padding: 8px 12px;
   font-size: 14px;
   background: #ccc;
-  display: block;
+  display: block:
   width: 200px;
   border-radius: 3px;
   cursor: pointer;

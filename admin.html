@@ -5,75 +5,11 @@
 	<title>Administració</title>
 	<meta charset="utf-8">
 
-  <link rel="stylesheet" type="text/css" href="css/styles.css">  
-  <link rel="stylesheet" type="text/css" href="css/admin.css">
+  <link rel="stylesheet" type="text/css" href="CSS/styles.css">  
+  <link rel="stylesheet" type="text/css" href="CSS/admin.css">
 
   <script src="jq/jquery-1.11.2.js" type="text/javascript"></script>
-
-  <script>
-$(document).ready(function(){ // Script del Slider
-          $("div.noticies, div.multimedia, div.usuaris, div.inserirNoticia, div.inserirMulti") . hide();
-          $('a.resum') . addClass('aqui');
-
-          $("a.resum").click(function(e){
-            $('.menuadmin a').removeClass('aqui');
-            $(this).addClass('aqui');
-            $('div.resum').show();
-            $('div.noticies, div.multimedia, div.usuaris, div.inserirNoticia, div.inserirMulti') . hide();
-          return false;
-          e.preventDefault();
-          });
-                        
-          $("a.noticies").click(function(e){
-            $('.menuadmin a').removeClass('aqui');
-            $(this).addClass('aqui');
-            $('div.noticies').show();
-            $('div.resum, div.multimedia, div.usuaris, div.inserirNoticia, div.inserirMulti') . hide();
-          return false;
-          e.preventDefault();
-                        });
-
-          $("a.multimedia").click(function(e){
-            $('.menuadmin a').removeClass('aqui');
-            $(this).addClass('aqui');
-            $('div.multimedia').show();
-            $('div.noticies, div.resum, div.usuaris, div.inserirNoticia, div.inserirMulti') . hide();
-          return false;
-          e.preventDefault();
-                        });
-
-          $("a.usuaris").click(function(e){
-            $('.menuadmin a').removeClass('aqui');
-            $(this).addClass('aqui');
-            $('div.usuaris').show();
-            $('div.noticies, div.multimedia, div.resum, div.inserirNoticia, div.inserirMulti') . hide();
-          return false;
-          e.preventDefault();
-          });
-
-          $("a.inserirNoticia").click(function(e){
-            $('.menuadmin a').removeClass('aqui');
-            $(this).addClass('aqui');
-            $('div.inserirNoticia').show();
-            $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti') . hide();
-          return false;
-          e.preventDefault();
-          });
-
-           $("a.inserirMulti").click(function(e){
-            $('.menuadmin a').removeClass('aqui');
-            $(this).addClass('aqui');
-            $('div.inserirMulti').show();
-            $('div.noticies, div.multimedia, div.resum, div.usuaris') . hide();
-          return false;
-          e.preventDefault();
-          });
-
-
-
-});
-
-</script>
+  <script src="jq/slider.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -234,7 +170,7 @@ $(document).ready(function(){ // Script del Slider
   <div class="usuaris">
    <h2 class="header">Usuaris</h2>
    <div class="container">
-     <!-- <a  href="#" title=""><img class="agregar" src="./img/plus.png" alt=""></a> -->
+     <a  href="#" class="inserirUsuari" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
      <div class="item">
       <div class="textitem" >
         <span>Moises Miret</span>
@@ -311,6 +247,13 @@ $(document).ready(function(){ // Script del Slider
 
     <span><label for="enviar"><input class="button-submit" type="button" name="" value="Enviar"></label> </span>
     <span><label for="borrar"><input class="button-cancelar" type="button" name="" value="Reinicialitzar"></label> </span>
+
+  </div>
+</div>
+
+  <div class="inserirUsuari">
+  <h2 class="header">Inserir usuari:</h2> 
+  <div class="container">
 
   </div>
 </div>

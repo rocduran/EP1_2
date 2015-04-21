@@ -4,28 +4,33 @@ window.onload = function() {
 };
 
 function associarEvents() {
-	xmlFolder = '/RocMoi/BD/XMLDPEspanya2015.xml';
-	jsonFolder = '/RocMoi/BD/XMLDPFrança2015.txt';
+	xmlFolder = "/RocMoi/BD/XMLDPEspanya2015.xml";
+	jsonFolder = "/RocMoi/BD/XMLDPFrança2015.txt";
 
 	contingut = document.getElementById("contingutFitxer");
 
 	titulCont = document.getElementById("titulH");
 
+	jsonBut = document.getElementById("jsonBut");
+	xmlBut = document.getElementById("xmlBut");
+
 	crud = document.getElementById("crud");
 	sav = document.getElementById("sav");
 	mod = document.getElementById("mod");
 	del = document.getElementById("del");
+	res = document.getElementById("res");
 	amagarCrud();
 
-	document.getElementById("jsonBut").onclick = presentarJSON;
-	document.getElementById("xmlBut").onclick = presentarXML;
+	jsonBut.onclick = presentarJSON;
+	xmlBut.onclick = presentarXML;
 	mod.onclick = modificar;
 	sav.onclick = actualitzarDB;
 	del.onclick = borrar;
-	//document.getElementById("view").onclick = ;
+	res.onclick = reiniciar;
 
 	idb =null;
 	crearDB();
+
 	xml = false;
 	modificant = false;
 	borrant = false;
@@ -56,25 +61,25 @@ function crearDB() {
 		console.log("IDB no soportat")
 	}
 	if (idbSupported) {
-		var openRequest = indexedDB.open("RMBD", 3);
+		var openRequest = indexedDB.open("RMBD", 1);
 
 		openRequest.onupgradeneeded = function(e) {
-			var rmdb = e.target.result;
+			var idb = e.target.result;
 
-			if (!rmdb.objectStoreNames.contains("itemsJSON")) {
-				rmdb.createObjectStore("itemsJSON", {keyPath: "ind"}); //storage per fitxer json
+			if (!idb.objectStoreNames.contains("itemsJSON")) {
+				idb.createObjectStore("itemsJSON", {keyPath: "ind"}); //storage per fitxer json
 			}
 
-			if (!rmdb.objectStoreNames.contains("itemsXML")) {
-				rmdb.createObjectStore("itemsXML", {keyPath: "ind"}); //storage per fitxer xml
+			if (!idb.objectStoreNames.contains("itemsXML")) {
+				idb.createObjectStore("itemsXML", {keyPath: "ind"}); //storage per fitxer xml
 			}
 
 		};
 		openRequest.onsuccess = function(e) {
 			console.log("Success!");
-			idb = e.target.result;
-			volcarJSON();
+			idb = e.target.result;	
 			volcarXML();
+			volcarJSON();	
 		};
 		openRequest.onerror = function(e) {
 			console.log("Error");
@@ -85,7 +90,7 @@ function crearDB() {
 
 function volcarJSON(){
 	var jsonRequest = crearObjecteAjax();
-	jsonRequest.open('GET', jsonFolder, true);
+	jsonRequest.open("GET", jsonFolder, true);
 	jsonRequest.send("");
 	jsonRequest.onreadystatechange = function() {
 		if (jsonRequest.readyState == 4 && jsonRequest.status == 200) {
@@ -131,7 +136,7 @@ function presentarJSON(){
 		objectStore.openCursor().onsuccess = function(e){
 			var cursor = e.target.result;
 			if (cursor){
-				id="item"+cursor.value.ind;
+				id=cursor.value.ind;
 
 				txt += "<tr class=\"item\" id=\""+id+"\">";
 
@@ -161,7 +166,7 @@ function presentarJSON(){
 
 function volcarXML(){
 	var xmlRequest = crearObjecteAjax();
-	xmlRequest.open('GET', xmlFolder, true);
+	xmlRequest.open("GET", xmlFolder, true);
 	xmlRequest.send("");
 
 	xmlRequest.onreadystatechange = function() {
@@ -217,7 +222,7 @@ function presentarXML(){
 			var cursor = e.target.result;
 			
 			if (cursor){
-				id="item"+cursor.value.ind;
+				id=cursor.value.ind;
 
 				txt += "<tr class=\"item\" id=\""+id+"\">";
 
@@ -255,6 +260,10 @@ function mostrarCrud(){
 
 function modificar(){
 	if(!borrant){
+		del.classList.add("unable");
+		jsonBut.classList.add("unable");
+		xmlBut.classList.add("unable");
+		res.classList.add("unable");
 		modificant = true;
 		mod.style.display="none";
 		sav.style.display="inline-block";
@@ -290,8 +299,8 @@ function actualitzarDB(){
 			var transaction = idb.transaction(["itemsJSON"],"readwrite").objectStore("itemsJSON");	
 		}
 
-		var items =[]; // per actualitzar els arxius XML i JSON despres
-		for (var i = 0; i < llista.length; i++) {  //actualitzem la base de dades primer
+		var i = 0
+		while (i < llista.length) {  //actualitzem la base de dades primer
 			
 			var objecte = new Object;
 			objecte.ind = i;
@@ -300,8 +309,6 @@ function actualitzarDB(){
 			objecte.Pregunta = preguntes[i].innerHTML;
 			objecte.DataI = datesI[i].innerHTML;
 			objecte.DataF = datesF[i].innerHTML;
-
-			items[i] = objecte;
 			
 			var request = transaction.put(objecte); // put serveix per actualitzar l'item d'index i 
 
@@ -314,14 +321,8 @@ function actualitzarDB(){
         	};
 
 			llista[i].classList.remove("trEdit"); // treiem la classe trEdit a les files de la taula
+			i++;
 		}
-
-  //       if (xml){
-  //       	actualitzarXML(items); // actualitzem fitxer XML	
-  //       }else {
-  //       	console.log("actualitza JSON");
-  //       }
-
 
 		var ret = document.getElementsByTagName("td"); // un cop guardat, sortim del mode modifcacio
 		for (var i = 0; i < ret.length; i++) {
@@ -331,21 +332,31 @@ function actualitzarDB(){
 		modificant =false;
 		sav.style.display="none";
 		mod.style.display="inline-block";
+		del.classList.remove("unable");
+		jsonBut.classList.remove("unable");
+		xmlBut.classList.remove("unable");
+		res.classList.remove("unable");
 	} else{
 		console.log("Has de clickar a modificar primer !");
 	}
 }
 
-function preBorrat(){
-	alert("holaaaXD");
-}
-
 function borrar(){
 	if(!borrant && !modificant){
 		mostrarChecks();
+		mod.classList.add("unable");
+		jsonBut.classList.add("unable");
+		xmlBut.classList.add("unable");
+		res.classList.add("unable");
 		return;
 	}else{
-		borrarCheckeds();
+		if(!modificant){
+			borrarCheckeds();
+			mod.classList.remove("unable");
+			jsonBut.classList.remove("unable");
+			xmlBut.classList.remove("unable");
+			res.classList.remove("unable");
+		}
 	}
 	amagarChecks();
 	
@@ -368,86 +379,61 @@ function amagarChecks(){
 }
 
 function borrarCheckeds(){
-	var llista = document.getElementsByTagName("tbody");
+	
 	var items = document.getElementsByClassName("item");
 	var check = document.getElementsByClassName("ChBorrar");
 
 	var aBorrar = [];
+	var indxBorrar = [];
 	var j = 0; 
 
 	for (var i = 0; i < items.length; i++) {
 		if(check[i].checked){
-			aBorrar[j] = items[i];
+			aBorrar[j] = items[i]; //per treurels del HTML
+			indxBorrar[j] = items[i].id; //indexs elements a borrar, per la DB
 			j++;
 		}
 	}
 
+	var llista = document.getElementsByTagName("tbody")[0];
 	for (var i = 0; i < aBorrar.length; i++) {
-		llista[0].removeChild(aBorrar[i]);
+		llista.removeChild(aBorrar[i]);
 	}
-
-	borrarRecordsDB(aBorrar);
+	borrarRecordsDB(indxBorrar);
 }
 
-// function borrarRecordsDB(aBorrar){
+function borrarRecordsDB(indxBorrar){
 
-// 	if (xml){
-// 		var transaction = idb.transaction(["itemsXML"],"readwrite").objectStore("itemsXML");
-// 	} else{
-// 		var transaction = idb.transaction(["itemsJSON"],"readwrite").objectStore("itemsJSON");	
-// 	}
+	if (xml){
+		var transaction = idb.transaction(["itemsXML"],"readwrite").objectStore("itemsXML");
+	} else{
+		var transaction = idb.transaction(["itemsJSON"],"readwrite").objectStore("itemsJSON");	
+	}
 
-// 	objectStore.openCursor().onsuccess = function(e){
-// 		var cursor = e.target.result;
+	transaction.openCursor().onsuccess = function(e){
+		var cursor = e.target.result;
 			
-// 		if (cursor){
-// 			idDb="item"+cursor.value.ind;
+		if (cursor){
+			for (var i = 0; i != indxBorrar.length; i++){
+				if(cursor.value.ind == indxBorrar[i]){
+					var request = transaction.delete(cursor.value.ind);
+				}
+			}
+			cursor.continue();
+		}
+	};	
+}
 
-// 			for (var i = 0; i < aBorrar.length; i++) {
-// 				idBorrar = aBorrar[i].id;
-// 				if(idDB == idBorrar){
+function reiniciar(){
+	if(!borrant && !modificant){
+		indexedDB.deleteDatabase("RMBD");
+		location.reload(true);
+		//alert("Recarregar la pàgina !");
+	}
+}
 
-// 				}
-// 			};
 
-// 			cursor.continue();
-// 		}
 
-// 	};	
-// }
-
-// function actualitzarXML(items){
-// 	var xmlRequest = crearObjecteAjax();
-// 	xmlRequest.open('GET', xmlFolder, true);
-	
-// 	xmlRequest.onreadystatechange = function() {
-// 		if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {	
-
-// 			var doc = xmlRequest.responseXML.documentElement.getElementsByTagName("ITEM");
-
-// 			for (var i = 0; i < doc.length; i++) {
-
-// 				console.log(doc);
-
-// 				aux = doc[i].getElementsByTagName("CODI");
-// 				aux[0].firstChild.nodeValue = items[i].Codi;
-		
-// 				aux = doc[i].getElementsByTagName("TIPUS");
-// 				aux[0].firstChild.nodeValue = items[i].Tipus;
-
-// 				aux = doc[i].getElementsByTagName("PREGUNTA");
-// 				aux[0].firstChild.nodeValue = items[i].Pregunta;
-
-// 				aux = doc[i].getElementsByTagName("DATAI");
-// 				aux[0].firstChild.nodeValue = items[i].DataI;
-
-// 				aux = doc[i].getElementsByTagName("DATAF");
-// 				aux[0].firstChild.nodeValue = items[i].DataF;
-// 			}
-// 			xmlRequest.send(doc);
-// 		}
-// 	}
-// };
 
 
 

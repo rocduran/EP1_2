@@ -19,5 +19,12 @@
 "PREGUNTA": "Faut il prendre des mesures en vers l'Andorre et BPA ?",
 "DATAI": "12/01/2015",
 "DATAF": "18/01/2015"
+},
+{
+"CODI": "4",
+"TIPUS": "Referendum",
+"PREGUNTA": "oui oui trés bien!!",
+"DATAI": "12/01/2015",
+"DATAF": "18/01/2015"
 }
 ]

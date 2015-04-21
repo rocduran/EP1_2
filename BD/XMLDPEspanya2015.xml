@@ -2,7 +2,7 @@
 <ESPANYADP>
 	<ITEM>
 		 <CODI>1</CODI>
-		 <TIPUS>Referendum</TIPUS>
+		 <TIPUS>asd</TIPUS>
 		 <PREGUNTA>Debe ir Rodrigo Rato a la carcel?</PREGUNTA>
 		 <DATAI>17/12/2014</DATAI> 
 		 <DATAF>29/07/2015</DATAF>
@@ -24,4 +24,11 @@
 		 <DATAF>29/07/2015</DATAF>
 	</ITEM>
 
+	<ITEM>
+		 <CODI>4</CODI>
+		 <TIPUS>Enquesta</TIPUS>
+		 <PREGUNTA>blablabla ?</PREGUNTA>
+		 <DATAI>17/12/2014</DATAI> 
+		 <DATAF>29/07/2015</DATAF>
+	</ITEM>
 </ESPANYADP>
