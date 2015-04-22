@@ -34,15 +34,12 @@
 	display: none;
 }
 
-#mapes{
-	margin-left: 2%;
-}
-
-#divMap1, #divMap2{
+#mapa{
 	width:400px;
 	height:400px;
 	display: inline-block;
-	margin-left: 2%;
+	margin-left: 30%;
+	margin-right: 30%;
 }
 
 

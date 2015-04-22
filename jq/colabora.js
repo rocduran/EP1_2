@@ -7,6 +7,13 @@ function associarEvents(){
 	titul = document.getElementById("hcolabOp");
 	tanca = document.getElementById("hcolabCl");
 	contingut = document.getElementById("colabora");
+
+	paisos = document.getElementById("paisos");
+	pais = paisos.options[paisos.selectedIndex].text;
+
+	divMap = document.getElementById("mapa");
+
+	paisos.onchange = initMap;
 	
 	titul.onclick= mostrarColab;
 	tanca.onclick= mostrarColab;
@@ -29,9 +36,21 @@ function mostrarColab(){
 }
 
 function initMap(){//moi's house ! 42.474759, 1.490000 // //paris 48.8667 , 2.33333
+	pais = paisos.options[paisos.selectedIndex].text;
+	var latitud;
+	var longitud;
+	if(pais == "Andorra"){
+		latitud = 42.474759 ;
+		longitud = 1.490000;
+	} 
+	if(pais == "França"){
+		latitud = 48.8667 ;
+		longitud = 2.33333;
+	}
+	divMap.innerHTML = "";
 	var mapProp = {
         zoom: 15,
-        center: new google.maps.LatLng(42.474759, 1.490000),
+        center: new google.maps.LatLng(latitud, longitud),
 		mapTypeControl: true,
 		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
 		navigationControl: true,
@@ -39,26 +58,10 @@ function initMap(){//moi's house ! 42.474759, 1.490000 // //paris 48.8667 , 2.33
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
-	var mapProp2 = {
- 		zoom: 15,
-        center: new google.maps.LatLng(48.8667 , 2.33333),
-		mapTypeControl: true,
-		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-		navigationControl: true,
-		navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-  	};
+	var map = new google.maps.Map(divMap,mapProp);
 
-	var map = new google.maps.Map(document.getElementById("divMap1"),mapProp);
 
-	var oficina1 = new google.maps.LatLng(57.0442, 9.9116); // marcador mapa sanju
-  	var ofi1Mark = new google.maps.Marker({
-      position: oficina1,
-      map: map,
-      title:"Oficina Sant Julia"
-  	});
 
-	var map2 = new google.maps.Map(document.getElementById("divMap2"),mapProp2);
 
 }
 
