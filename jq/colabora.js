@@ -28,20 +28,35 @@ function mostrarColab(){
 	}
 }
 
-function initMap(){
+function initMap(){//moi's house ! 42.474759, 1.490000 // //paris 48.8667 , 2.33333
 	var mapProp = {
-  		center:new google.maps.LatLng(42.472, 1.492), //moi's house ! 
-  		zoom: 10,
-  	mapTypeId: google.maps.MapTypeId.ROADMAP
+        zoom: 15,
+        center: new google.maps.LatLng(42.474759, 1.490000),
+		mapTypeControl: true,
+		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+		navigationControl: true,
+		navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
 	var mapProp2 = {
-    	center: new google.maps.LatLng(48.8667 , 2.33333), //paris
-    	zoom:10,
-    	mapTypeId: google.maps.MapTypeId.ROADMAP
+ 		zoom: 15,
+        center: new google.maps.LatLng(48.8667 , 2.33333),
+		mapTypeControl: true,
+		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+		navigationControl: true,
+		navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+		mapTypeId: google.maps.MapTypeId.ROADMAP
   	};
 
 	var map = new google.maps.Map(document.getElementById("divMap1"),mapProp);
+
+	var oficina1 = new google.maps.LatLng(57.0442, 9.9116); // marcador mapa sanju
+  	var ofi1Mark = new google.maps.Marker({
+      position: oficina1,
+      map: map,
+      title:"Oficina Sant Julia"
+  	});
 
 	var map2 = new google.maps.Map(document.getElementById("divMap2"),mapProp2);
 

@@ -29,6 +29,8 @@ function associarEvents() {
 	res.onclick = reiniciar;
 
 	idb =null;
+	vJSON = false;
+	vXML = false;
 	crearDB();
 
 	xml = false;
@@ -64,22 +66,26 @@ function crearDB() {
 		var openRequest = indexedDB.open("RMBD", 1);
 
 		openRequest.onupgradeneeded = function(e) {
-			var idb = e.target.result;
+			var db = e.target.result;
 
-			if (!idb.objectStoreNames.contains("itemsJSON")) {
-				idb.createObjectStore("itemsJSON", {keyPath: "ind"}); //storage per fitxer json
+			if (!db.objectStoreNames.contains("itemsJSON")) {
+				db.createObjectStore("itemsJSON", {keyPath: "ind"}); //storage per fitxer json
+				vJSON=true;
 			}
 
-			if (!idb.objectStoreNames.contains("itemsXML")) {
-				idb.createObjectStore("itemsXML", {keyPath: "ind"}); //storage per fitxer xml
+			if (!db.objectStoreNames.contains("itemsXML")) {
+				db.createObjectStore("itemsXML", {keyPath: "ind"}); //storage per fitxer xml
+				vXML=true;
 			}
 
 		};
 		openRequest.onsuccess = function(e) {
 			console.log("Success!");
-			idb = e.target.result;	
-			volcarXML();
-			volcarJSON();	
+			idb = e.target.result;
+			if(idb!=null){
+				if(vJSON){volcarJSON();}
+				if(vXML){volcarXML();}	
+			}
 		};
 		openRequest.onerror = function(e) {
 			console.log("Error");
@@ -214,7 +220,7 @@ function presentarXML(){
 	if(!borrant && !modificant){
 		sav.style.display="none";
 		var objectStore = idb.transaction("itemsXML").objectStore("itemsXML");
-		txt ="<table id=\"table\">";
+		var txt ="<table id=\"table\">";
 		txt += "<thead> <tr> <th>Codi</th> <th>Tipus</th> <th>Pregunta</th> <th>Data Inici</th> <th>Data Fi</th> <th class=\"tdBorrar\">Borrar</th> </tr> </thead>";
 		txt += "<tbody>";
 
@@ -303,7 +309,9 @@ function actualitzarDB(){
 		while (i < llista.length) {  //actualitzem la base de dades primer
 			
 			var objecte = new Object;
-			objecte.ind = i;
+
+			objecte.ind = parseInt(llista[i].id);
+			alert(objecte.ind);
 			objecte.Codi = codis[i].innerHTML;
 			objecte.Tipus = tipus[i].innerHTML;
 			objecte.Pregunta = preguntes[i].innerHTML;
