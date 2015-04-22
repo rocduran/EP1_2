@@ -53,10 +53,11 @@ function crearObjecteAjax() {
 }
 
 function crearDB() {
-	
+
+	var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 	var idbSupported = false;
 
-	if (window.indexedDB) {
+	if (indexedDB) {
 		idbSupported = true;
 		console.log("IDB soportat!");
 	} else {
@@ -305,7 +306,7 @@ function actualitzarDB(){
 			var transaction = idb.transaction(["itemsJSON"],"readwrite").objectStore("itemsJSON");	
 		}
 
-		var i = 0
+		var i = 0;
 		while (i < llista.length) {  //actualitzem la base de dades primer
 			
 			var objecte = new Object;
