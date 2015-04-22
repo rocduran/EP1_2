@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ESPANYADP>
+	<ITEM>
+		 <CODI>1</CODI>
+		 <TIPUS>asd</TIPUS>
+		 <PREGUNTA>Debe ir Rodrigo Rato a la carcel?</PREGUNTA>
+		 <DATAI>17/12/2014</DATAI> 
+		 <DATAF>29/07/2015</DATAF>
+	</ITEM>
+
+	<ITEM>
+		 <CODI>2</CODI>
+		 <TIPUS>Votacion</TIPUS>
+		 <PREGUNTA>Eleciones municipales</PREGUNTA>
+		 <DATAI>17/12/2014</DATAI> 
+		 <DATAF>29/07/2015</DATAF>
+	</ITEM>
+
+	<ITEM>
+		 <CODI>3</CODI>
+		 <TIPUS>Enquesta</TIPUS>
+		 <PREGUNTA>A quien votaras este año ?</PREGUNTA>
+		 <DATAI>17/12/2014</DATAI> 
+		 <DATAF>29/07/2015</DATAF>
+	</ITEM>
+
+	<ITEM>
+		 <CODI>4</CODI>
+		 <TIPUS>Enquesta</TIPUS>
+		 <PREGUNTA>blablabla ?</PREGUNTA>
+		 <DATAI>17/12/2014</DATAI> 
+		 <DATAF>29/07/2015</DATAF>
+	</ITEM>
+</ESPANYADP>

@@ -6,59 +6,12 @@
 	<meta charset="utf-8">
 
   <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/colabora.css">
 
   <script src="jq/jquery-1.11.2.js" type="text/javascript"></script>
-  <script>
-    $(document).ready(function(){
-            $(document).ready(function(){ // Script del Slider
-              $("div.opcio2, div.opcio3") . hide();
-              $('a.opcio1') . addClass('aqui');
-              
-              $("a.opcio1").click(function(e){
-                $('.menu_slider a').removeClass('aqui');
-                $(this).addClass('aqui');
-                $('div.opcio1').show('slow');
-                $('div.opcio2, div.opcio3') . hide('slow');
-                return false;
-                e.preventDefault();
-              });
-              
-              $("a.opcio2").click(function(e){
-                $('.menu_slider a').removeClass('aqui');
-                $(this).addClass('aqui');
-                $('div.opcio2').show('slow');
-                $('div.opcio1, div.opcio3') . hide('slow');
-                return false;
-                e.preventDefault();
-              });
-              
-              $("a.opcio3").click(function(e){
-                $('.menu_slider a').removeClass('aqui');
-                $(this).addClass('aqui');
-                $('div.opcio3').show('slow');
-                $('div.opcio1, div.opcio2') . hide('slow');
-                return false;
-                e.preventDefault();
-              });
-            });
-});
-</script>
-
-<script>
-  $(function() {
-  $(".noticia").on( "click", function() {
-    $(this).next().slideToggle(100);
-    $expand = $(this).find(">:first-child");
-    
-    if($expand.text() == "+") {
-      $expand.text("-");
-    } else {
-      $expand.text("+");
-    }
-  });
-});
-</script>
-
+  <script src="jq/slider.js" type="text/javascript"></script>
+  <script src="jq/colabora.js" type="text/javascript"></script>
+  
 </head>
 
 
@@ -97,6 +50,24 @@
       <div class="clear"></div>
     </ul>
   </nav>
+
+  <h2 id="hcolabOp" class="hcolab">Col·labora!</h2>
+  <div id="colabora">
+      <div>
+        <p>Estas interesat en participar activament en la nostra web?<br>
+          T'agradaria proposar enquestes,votacions, referendums o altres temes de debat ?<br>
+          Contacta amb nosaltres trucant al: +376 888888<br>
+          Envian un email a: democAnd@democ.ad<br>
+          O vinguen a les nostres oficines situades a: </p>     
+          <div id="mapes"> 
+            <div id="divMap1"></div>
+            <div id="divMap2"></div>
+          </div>
+        
+     </div>
+  </div>
+  <h2 id="hcolabCl" class="hcolab">Tanca col·labora!</h2>
+  
   <a href="" title="Destacats">
     <div id="contingut_slider">
       <div class="opcio1">
@@ -136,10 +107,12 @@
           </ul>    
         </div>
 
+
+
         <div id="noticies">
           <ul>
             <li>
-              <a class="noticia">
+              <a class="notExp">
                 <div class="right-arrow">+</div>
                 <div class="icon london"></div>
                 <h2>Noticia 1</h2>
@@ -153,7 +126,7 @@
               </div>
             </li>
             <li>
-              <a class="noticia">    
+              <a class="notExp">    
                 <div class="right-arrow">+</div>    
                 <div class="icon newyork"></div>
                 <h2>Noticia 2</h2>
@@ -167,7 +140,7 @@
               </div>    
             </li>
             <li>
-              <a class="noticia">
+              <a class="notExp">
                 <div class="right-arrow">+</div>    
                 <div class="icon paris"></div>
                 <h2>Noticia 3</h2>

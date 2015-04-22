@@ -1,0 +1,16 @@
+Noves funcionalitats:
+	-signup.html, signup.js : validació de formaluri implementada.
+
+	-altres.html, altres.css, altres.js : creació de base de dades indexedDB, lectura i modificacio en local d'arxius JSON i XML.
+
+	-{AQUI ANIRA PART AUDIO/VIDEO XDD}
+
+	-index.htlm, colabora.css, colabora.js: implementació de funcionalitats de la geolocalització.
+
+
+Millores de funcionalitats ja presents en el TV-1:
+	-admin.html, admin.css, index.html, slider.js : separació del codi html i js, canvis menors del codi(.html i .css).
+
+	-{ALGUNA MAS ? XD)
+
+

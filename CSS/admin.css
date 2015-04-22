@@ -1,24 +1,139 @@
-.clearfix:after {
-	content: "";
+div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, div.inserirMulti{
 	display: block;
-	height: 0;
-	width: 0;
-	clear: both;
+	background-color: rgb(255, 255, 255); 
+	min-height: 700px;
+
 }
-.admin {
-	width: 100%;
-	background-color: #fff;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+
+.container{
+	border: solid 1px rgb(235, 235, 235);
+	border-radius: 5px;
+	margin-left: 25%;
+	margin-right: 5%;
+	padding: 10px;
+	margin-top: 10px;
 }
-/*menu admin*/
+
+.container .lbl{
+	display: block;
+	margin-top: 10px;
+}
+
+.container .long{
+	width: 300px;
+}
+
+.container .opcions{
+	margin-top: 25px;
+	text-align: center;
+}
+
+.container .opcions .lbl{
+	display: inline-block;
+	float: left;
+}
+
+.container .radBut{
+	display:none;
+}
+
+.container .opl{
+	display: block;
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px;
+    width: 20%;
+    min-width:100px;
+    margin-left: 30%;
+    color: rgb(58,58,58);
+}
+
+.container .opl:first-child{
+	display: inline-block;
+}
+
+
+.container .opl:hover{
+	cursor: pointer;
+}
+
+.container .radBut:checked + .opl{
+	background-color: #00A573;
+	color: white; 
+}
+
+
+.container textarea{
+	display: block;
+	resize:none;
+	width: 99%;
+	height: 100px;
+	text-align: justify;
+	margin-bottom: 25px;
+}
+
+.container .button-submit, .container .button-cancelar{
+	margin-top: 25px;
+}
+
+.container.button, input[type="button"], button {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #444;
+  padding: 1em 3em;
+  margin: 0;
+  text-decoration: none;
+  color: #fff;
+  border: 0px;
+  font-size: 1em;
+/*  font-family: "Open Sans", helvetica, arial, sans-serif;
+*/  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+}
+
+
+.container .button-submit {
+  float:right;
+  background: #00A573;
+}
+.container .button-submit:hover {
+  background: #000;
+  color: #00A573;
+}
+
+
+.container .button-cancelar{
+  background: #B66;
+}
+.container .button-cancelar:hover{
+  background: #000;
+  color: #B66;
+}
+
+
+.contingut h2{
+	color: #1A9DCC;
+	display:inline-block;
+	margin-left: 2%;
+}
+
+.contingut h3{
+	color: #1A9DCC;
+	margin-top: 0;
+}
+
 .menuadmin {
 	width: 20%;
-	min-height: 690px;
 	float: left;
 	border-right: 1px solid rgb(235,235,235);
 	background-color: rgb(247,247,247);
+	min-height: 700px;
 }
 
 .menuadmin ul {
@@ -29,20 +144,11 @@
 	list-style-type: none;
 	margin: 0;
 	position: relative;
-}
-.menuadmin li:before {
-	content: "";
-	speak: none;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	position: absolute;
 	display: block;
-	line-height: 40px;
-	color: rgb(102,102,102);
-	right: 20px;
+	text-align: center;
+	border-right: 1px solid rgb(235,235,235);
+	width: 100%;
 }
-
 
 .menuadmin ul a {
 	color: rgb(140,140,140);
@@ -51,108 +157,37 @@
 	border-bottom: 1px solid rgb(235,235,235);
 	display: block;
 	box-shadow:inset 0 1px 0 rgb(255,255,255);
-	text-indent: 20px;
-	padding: 5px 0;
+	padding: 5px 0px;
 }
 .menuadmin li:hover a {
 	color: #fff;
 	background-color: #1A9DCC;
 }
-/*principal*/
-.principal {
-	float: left;
-	width: 79%;
-	height: 690px;
-	background-color: rgb(255,255,255);
-	position: relative;
-}
 
 
-/*contingut Principal*/
-.contingutPrincipal h3 {
-	line-height: 1;
-	font-size: 18px;
-	margin: 1.3em 0 1em;
-	margin-left: 17px;
-}
- 
-.contingutPrincipal>div {
-	position: absolute;
-	opacity: 0;
-	-webkit-transition:opacity 200ms linear;
-	-moz-transition:opacity 200ms linear;
-	-ms-transition:opacity 200ms linear;
-	transition:opacity 200ms linear;
-}
-/*opacitat*/
-.contingutPrincipal>div:target {
-	opacity: 1;
-}
-.contingutPrincipal h2 {
-	margin:1em 30px;
-	color: #1A9DCC;
-	font-size: 20px;
-}
-.contingutPrincipal h2:before {
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	margin-right: 10px;
-}
-/* agregar */
-.contingutPrincipal h2:after {
-	margin-left: 10px;
-	content: url(../img/plus.png);
-	border: 1px solid rgb(235,235,235);
-	border-radius: 5px;
-	padding: 1px 5px;
-}
 
-.contingutPrincipal #resum h2:after {
-	content: none;
-}
- 
- /*Apartats*/
-.contingutPrincipal>div>div {
-	border: 1px solid rgb(235,235,235);
-	margin-left: 30px;
-	float: left;
-	border-radius: 5px;
-	min-width: 500px;
-	height: 262px;
-	display: inline-block;
-}
- 
-.monitor ul {
-	float: left;
-	padding: 0;
-	margin: 0 31px 0 17px;
-}
-.monitor li {
-	list-style:none;
-	color: rgb(102,102,102);
-	text-transform: capitalize;
-}
-.monitor li a {
-	color: rgb(102,102,102);
-	text-transform: capitalize;
-	text-decoration: none;
-}
-.monitor li:first-child {
-	border-bottom: 1px dotted rgb(153,153,153);
-}
 
 /*Resum*/
+div.resum{
+	text-align: justify;
+}
 .discusions .comentaris {color: rgb(27,106,173);}
 .discusions .aprovats {color: rgb(105,174,48);}
 .discusions .pendents {color: rgb(246,129,15);}
 .discusions .spam {color: rgb(243,47,47);}
-.monitor .valor {
+.valor {
 	text-align: right;
 	font-weight: 600;
 	margin-right: 15px;
 	min-width: 25px;
+	display: inline-block;
+}
+
+.agregar{
+	padding: 5px;
+	border: 1px solid rgb(190, 190 ,190);
+	border-radius: 2px;
+	background-color: rgb(235, 235, 235);
 	display: inline-block;
 }
 
@@ -196,9 +231,6 @@
 	content: url(../img/file.png);
 }
 
-
-
-
 .item .botons {
 	float:right;
 	padding: 5px;
@@ -210,12 +242,10 @@
 	padding: 2px;
 }
 
-
-
 /*footer Admin*/
 .footerAdmin {
-	position: absolute;
-	bottom: 0;
+	position: relative;
+	bottom: 50px;
 	border-top: 1px solid rgb(235,235,235);
 	width: 100%;
 	padding: 0;
