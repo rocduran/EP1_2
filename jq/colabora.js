@@ -39,17 +39,19 @@ function initMap(){//moi's house ! 42.474759, 1.490000 // //paris 48.8667 , 2.33
 	pais = paisos.options[paisos.selectedIndex].text;
 	var latitud;
 	var longitud;
+	var titolEti;
 	if(pais == "Andorra"){
 		latitud = 42.474759 ;
 		longitud = 1.490000;
+		titolEti = "Oficina Andorra";
 	} 
 	if(pais == "França"){
 		latitud = 48.8667 ;
 		longitud = 2.33333;
+		titolEti = "Oficina França";
 	}
-	divMap.innerHTML = "";
 	var mapProp = {
-        zoom: 15,
+        zoom: 10,
         center: new google.maps.LatLng(latitud, longitud),
 		mapTypeControl: true,
 		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
@@ -60,13 +62,14 @@ function initMap(){//moi's house ! 42.474759, 1.490000 // //paris 48.8667 , 2.33
 
 	var map = new google.maps.Map(divMap,mapProp);
 
-
-
-
+	var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: new google.maps.LatLng(latitud, longitud),
+        content: titolEti
+      });
 }
 
-function carregarScript()
-{
+function carregarScript(){
   var script = document.createElement("script");
   script.type = "text/javascript";
   script.src = "http://maps.googleapis.com/maps/api/js?key=&sensor=false&callback=initMap";
