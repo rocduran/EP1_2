@@ -1,8 +1,7 @@
-div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, div.inserirMulti{
+div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, div.inserirMulti, div.inserirUsuari{
 	display: block;
 	background-color: rgb(255, 255, 255); 
-	min-height: 700px;
-
+	min-height: 800px;
 }
 
 .container{
@@ -52,7 +51,6 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	display: inline-block;
 }
 
-
 .container .opl:hover{
 	cursor: pointer;
 }
@@ -61,7 +59,6 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	background-color: #00A573;
 	color: white; 
 }
-
 
 .container textarea{
 	display: block;
@@ -87,8 +84,7 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
   color: #fff;
   border: 0px;
   font-size: 1em;
-/*  font-family: "Open Sans", helvetica, arial, sans-serif;
-*/  cursor: pointer;
+  cursor: pointer;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   position: relative;
   display: inline-block;
@@ -107,7 +103,6 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
   color: #00A573;
 }
 
-
 .container .button-cancelar{
   background: #B66;
 }
@@ -116,11 +111,60 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
   color: #B66;
 }
 
-
-.contingut h2{
+h2{
 	color: #1A9DCC;
-	display:inline-block;
+	display:block;
 	margin-left: 2%;
+}
+
+.h2Form{
+	color: #444;
+	margin: 0;
+}
+
+form label {
+  margin-left: 14px;
+}
+
+input[type="text"], input[type="password"],input[type="number"]{
+  background: #f6f6f6;
+  border: solid 1px;
+  border-color: #ccc;
+  font-size: 1em;
+  font-weight: 100;
+  margin-bottom: 3%;
+  padding: 0.2em 1.3em;
+}
+
+input[type="number"]{
+  padding: 0.2em 0 0.2em 0.5em;
+}
+
+input[type="text"].long, input[type="password"].long{
+  width: 200px;
+}
+
+.noValid{
+  color:red;
+  border:1px solid red !important;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.4);
+  -moz-box-shadow:    0px 0px 10px rgba(255, 0, 0, 0.4);
+  box-shadow:         0px 0px 10px rgba(255, 0, 0, 0.4);
+}
+.valid{
+  color: green;
+  border:1px solid green !important;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.4);
+  -moz-box-shadow:    0px 0px 10px rgba(0, 255, 0, 0.4);
+  box-shadow:         0px 0px 10px rgba(0, 255, 0, 0.4);
+}
+
+.error{
+	display: inline-block;
+}
+
+.formButs{
+	display: block;
 }
 
 .contingut h3{
@@ -133,7 +177,7 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	float: left;
 	border-right: 1px solid rgb(235,235,235);
 	background-color: rgb(247,247,247);
-	min-height: 700px;
+	min-height: 800px;
 }
 
 .menuadmin ul {
@@ -159,13 +203,11 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	box-shadow:inset 0 1px 0 rgb(255,255,255);
 	padding: 5px 0px;
 }
+
 .menuadmin li:hover a {
 	color: #fff;
 	background-color: #1A9DCC;
 }
-
-
-
 
 /*Resum*/
 div.resum{

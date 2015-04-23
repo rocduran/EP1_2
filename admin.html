@@ -10,6 +10,8 @@
 
   <script src="jq/jquery-1.11.2.js" type="text/javascript"></script>
   <script src="jq/slider.js" type="text/javascript"></script>
+  <script src="jq/signup.js" type="text/javascript"></script>
+  <script src="jq/jquery-ui.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -254,6 +256,46 @@
   <div class="inserirUsuari">
   <h2 class="header">Inserir usuari:</h2> 
   <div class="container">
+   <form id="formulari" method="post" class="validar-form">
+    <h2>Registrar Administrador</h2>
+    <hr>
+    <label for="nom">
+      <h2 class="h2Form">Nom:</h2>
+      <span><input  id="nom" type="text" class="long important"></span>
+      <div id= "errNom" class="error"></div>
+    </label>
+
+    <label for="cognom">
+      <h2 class="h2Form">Cognom:</h2>
+      <input id="cognom" type="text" class="long important">
+      <div id= "errCognom" class="error"></div>
+    </label>
+
+    <label for="email">
+      <h2 class="h2Form">Email:</h2>
+      <input id="email" type="text" class="long important" placeholder="exemple@exemple.com">
+      <div id= "errMail" class="error"></div>
+    </label>
+
+    <label for="contrasenya">
+      <h2 class="h2Form">Contrasenya:</h2>
+      <input id="contrasenya" type="password" class="long important">
+      <div id= "errPass" class="error"></div>
+    </label>
+
+    <label for="contrasenya2">
+      <h2 class="h2Form">Repeteix la contrasenya:</h2>
+      <input id="contrasenya2" type="password" class="long important">
+      <div id= "errPass2" class="error"></div>
+    </label>
+
+    <div class="formButs">
+      <button id="cancelar" class="button-cancelar" type="button">Cancelar</button>
+      <button id="registrar" class="button-submit des" disabled="true" type="submit">Registrar</button>
+      <p id="correcte"></p>
+    </div>
+
+  </form>
 
   </div>
 </div>
