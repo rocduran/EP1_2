@@ -312,7 +312,6 @@ function actualitzarDB(){
 			var objecte = new Object;
 
 			objecte.ind = parseInt(llista[i].id);
-			alert(objecte.ind);
 			objecte.Codi = codis[i].innerHTML;
 			objecte.Tipus = tipus[i].innerHTML;
 			objecte.Pregunta = preguntes[i].innerHTML;
