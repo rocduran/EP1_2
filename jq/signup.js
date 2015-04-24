@@ -157,7 +157,7 @@ function valNom(){
 
     function valTelf(){
       var elemVal = document.getElementById("telf");
-      var regex = /(\+376[0-9]{6})$/i;
+      var regex = /(\+3763|6|7|8[0-9]{5})$/i;
       var valor =  elemVal.value;
 
       var errPara = document.createElement("p");
