@@ -114,7 +114,8 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 h2{
 	color: #1A9DCC;
 	display:block;
-	margin-left: 2%;
+	margin-left: 21%;
+	padding: 10px;
 }
 
 .h2Form{

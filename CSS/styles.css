@@ -257,7 +257,6 @@ nav ul ul li:last-child a:hover {
 
 /*Noticies*/
 
-
 #noticies{
 	display:block;
 }
@@ -333,7 +332,12 @@ span {
   background: url("http://placehold.it/50x50") top left no-repeat;
 }
 
+.seccio {
+	margin: 1em;
+}
+
 /*Seccion comentaris*/
+
 #seccio-comentaris{
     display: block;
     text-align: justify;
