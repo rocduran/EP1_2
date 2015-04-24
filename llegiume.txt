@@ -18,3 +18,6 @@ Millores de funcionalitats ja presents en el TV-1:
 	- multimedia.html, visualitzador.html, multimedia.js : Ara carrega l'arxiu que sel·lecciones a multimedia.html dinàmicament a visualitzador.html.
 
 	- Reescrita tota la pàgina d'admin (html+css+js). 
+
+
+Per veure TOT el projecte i l'evolució del projecte: https://github.com/rocduran/EP1_2

@@ -40,22 +40,22 @@ Modul 2 EP1
 
 - Implementació:
   Noves funcionalitats:
-    - signup.html, signup.js : Validació de formaluri implementada i guardat de les dades (excepte contrasenya, per raons de seguretat) al localStorage per evitar pèrdues. Botó de "registrar" desactivat fins que l'usuari no ha introduit totes les dades vàlides i té activat el checkbox d'acceptar les condicions. La llista de paisos es carregada dinàmicament a partir d'un arxiu JSON.
+    - *signup.html, signup.js* : Validació de formaluri implementada i guardat de les dades (excepte contrasenya, per raons de seguretat) al localStorage per evitar pèrdues. Botó de "registrar" desactivat fins que l'usuari no ha introduit totes les dades vàlides i té activat el checkbox d'acceptar les condicions. La llista de paisos es carregada dinàmicament a partir d'un arxiu JSON.
 
-    - altres.html, altres.css, altres.js : Creació de base de dades indexedDB, lectura i modificació en local d'arxius JSON i XML. Per accedir-hi, has d'estar a la pàgina d'admin ("usuari">Ajustaments) i llavors a la barra de navegació surt l'opció d'Altres.
+    - *altres.html, altres.css, altres.js* : Creació de base de dades indexedDB, lectura i modificació en local d'arxius JSON i XML. Per accedir-hi, has d'estar a la pàgina d'admin ("usuari">Ajustaments) i llavors a la barra de navegació surt l'opció d'Altres.
 
-    - multimedia.html, visualitzador.html, multimedia.js : Desde multimèdia es fa click al arxiu que vols veure i envia a visualitzador.html amb el arxiu a veure. pot ser un video(html5), un audio(html5) o un pdf(embed per veure'l sense descarregarlo). 
+    - *multimedia.html, visualitzador.html, multimedia.js* : Desde multimèdia es fa click al arxiu que vols veure i envia a *visualitzador.html* amb el arxiu a veure. pot ser un video(html5), un audio(html5) o un pdf(embed per veure'l sense descarregarlo). 
 
-    - index.html, colabora.css, colabora.js: Implementació de funcionalitats de la geolocalització.
+    - *index.html, colabora.css, colabora.js*: Implementació de funcionalitats de la geolocalització.
 
-    - Hem utilitzat funcionalitats CCS3: :odd/:even per aplicar estils als llistats (admin.html o altres.html) o :after per aplicar estil **DESPRES** del selector (linia 423, styles.css). També hem utilitzat unitats de valors de propietats noves de CSS3, com:
-      - em(agafa el valor del font-size, font-size:14px 1em=14px;): linia 335, styles.css.
-      - vw (funciona d'una manera similar al em, però amb el tamany de la finestra, 1vw= 1% del tamany de la finestra del navegador): linia 38, altres.css.
+    - Hem utilitzat funcionalitats CCS3: **:odd/:even** per aplicar estils als llistats (admin.html o altres.html) o **:after** per aplicar estil **DESPRES** del selector (*linia 423, styles.css*). També hem utilitzat unitats de valors de propietats noves de CSS3, com:
+      - **em**(agafa el valor del font-size, font-size:14px 1em=14px;): *linia 335, styles.css.*
+      - **vw** (funciona d'una manera similar al em, però amb el tamany de la finestra, 1vw= 1% del tamany de la finestra del navegador): *linia 38, altres.css.*
 
 
   Millores de funcionalitats ja presents en el TV-1:
-    - admin.html, admin.css, index.html, slider.js : Separació del codi html i js, canvis menors del codi(.html i .css).
+    - *admin.html, admin.css, index.html, slider.js *: Separació del codi html i js, canvis menors del codi(.html i .css).
 
-    - multimedia.html, visualitzador.html, multimedia.js : Ara carrega l'arxiu que sel·lecciones a multimedia.html dinàmicament a visualitzador.html.
+    - *multimedia.html, visualitzador.html, multimedia.js* : Ara carrega l'arxiu que sel·lecciones a *multimedia.html* dinàmicament a *visualitzador.html*.
 
     - Reescrita tota la pàgina d'admin (html+css+js). 
