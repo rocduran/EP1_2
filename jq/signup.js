@@ -440,14 +440,14 @@ function crearObjecteAjax() {
 }
 
 function volcarJSON(){
-  jsonPaisos = '/Roc/BD/countries.txt';
+  jsonPaisos = '/RocMoi/BD/countries.txt';
   var jsonRequest = crearObjecteAjax();
   jsonRequest.onreadystatechange = function() {
     if (jsonRequest.readyState == 4 && jsonRequest.status == 200) {
       doc = JSON.parse(jsonRequest.responseText);
       document.getElementById("llistaPais").innerHTML = "";
       for (var i = 0; i < doc.length; i++) {
-        document.getElementById("llistaPais").innerHTML += "<option value=\"" + doc[i].nom + "\">" + doc[i].nom +"</option>";
+        document.getElementById("llistaPais").innerHTML += "<option value=\"" + doc[i].nom + "\">" + doc[i].codi +"</option>";
       } 
       
     }

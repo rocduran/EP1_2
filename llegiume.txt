@@ -7,6 +7,10 @@ Noves funcionalitats:
 
 	- index.html, colabora.css, colabora.js: Implementació de funcionalitats de la geolocalització.
 
+	- Hem utilitzat funcionalitats CCS3: :odd/:even per aplicar estils als llistats (admin.html o altres.html) o :after per aplicar estil DESPRES del selector (linia 423, styles.css). També hem utilitzat unitats de valors de propietats noves de CSS3, com:
+		- em(agafa el valor del font-size, font-size:14px 1em=14px;): linia 335, styles.css.
+		- vw (funciona d'una manera similar al em, però amb el tamany de la finestra, 1vw= 1% del tamany de la finestra del navegador): linia 38, altres.css.
+
 
 Millores de funcionalitats ja presents en el TV-1:
 	- admin.html, admin.css, index.html, slider.js : Separació del codi html i js, canvis menors del codi(.html i .css).
