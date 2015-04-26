@@ -1,9 +1,9 @@
-$(document).ready(function() { // Script del Slider
-  // SLIDER INDEX
-  $("div.opcio2, div.opcio3").hide();
-  $('a.opcio1').addClass('aqui');
+$(document).ready(function() { // Script del Slider de la pagina index
 
-  $("a.opcio1").click(function(e) {
+  $("div.opcio2, div.opcio3").hide(); // amaguem opcio2 i opcio3
+  $('a.opcio1').addClass('aqui'); // mostrem opcio1
+
+  $("a.opcio1").click(function(e) { // quan clickem opcio1, opcio2 i 3 s'amaguen i es mostra opcio1
     $('.menu_slider a').removeClass('aqui');
     $(this).addClass('aqui');
     $('div.opcio1').show('slow');
@@ -44,7 +44,7 @@ $(document).ready(function() { // Script del Slider
     });
   });
 
-  //SLIDER ADMIN
+  //SLIDER ADMIN (mateix principi que SLIDER INDEX)
   $("div.noticies, div.multimedia, div.usuaris, div.inserirNoticia, div.inserirMulti, div.inserirUsuari").hide();
   $('a.resum').addClass('aqui');
 

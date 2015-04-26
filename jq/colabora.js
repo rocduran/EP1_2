@@ -60,7 +60,7 @@ function initMap(){//moi's house ! 42.474759, 1.490000 // //paris 48.8667 , 2.33
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
-	var map = new google.maps.Map(divMap,mapProp);
+	var map = new google.maps.Map(divMap,mapProp); // marcador de la oficina en questio
 
 	var infowindow = new google.maps.InfoWindow({
         map: map,
@@ -69,7 +69,7 @@ function initMap(){//moi's house ! 42.474759, 1.490000 // //paris 48.8667 , 2.33
       });
 }
 
-function carregarScript(){
+function carregarScript(){ // per executar el script al carregar la pagina
   var script = document.createElement("script");
   script.type = "text/javascript";
   script.src = "http://maps.googleapis.com/maps/api/js?key=&sensor=false&callback=initMap";

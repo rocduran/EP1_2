@@ -1,5 +1,5 @@
 window.onload = function() {
-	//indexedDB.deleteDatabase("RMBD");
+	//indexedDB.deleteDatabase("RMBD"); Per borrar la base de dades, util pel testing
 	associarEvents();
 };
 
@@ -39,6 +39,7 @@ function associarEvents() {
 }
 
 function crearObjecteAjax() {
+	// peticio ajax
 	var obj;
 	if (window.XMLHttpRequest) { //si no es IE
 		obj = new XMLHttpRequest();
@@ -53,8 +54,8 @@ function crearObjecteAjax() {
 }
 
 function crearDB() {
-
-	var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+	// per crear/obrir la base de dades
+	var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB; // segons el navegador
 	var idbSupported = false;
 
 	if (indexedDB) {
@@ -83,10 +84,8 @@ function crearDB() {
 		openRequest.onsuccess = function(e) {
 			console.log("Success!");
 			idb = e.target.result;
-			if(idb!=null){
-				if(vJSON){volcarJSON();}
-				if(vXML){volcarXML();}	
-			}
+			if(vJSON){volcarJSON();} // nomes ho fem quan creem la base de dades, no quan l'obrim
+			if(vXML){volcarXML();}	
 		};
 		openRequest.onerror = function(e) {
 			console.log("Error");
@@ -96,9 +95,11 @@ function crearDB() {
 }
 
 function volcarJSON(){
+	// per volcar el contingut de .txt a la base de dades
 	var jsonRequest = crearObjecteAjax();
 	jsonRequest.open("GET", jsonFolder, true);
 	jsonRequest.send("");
+
 	jsonRequest.onreadystatechange = function() {
 		if (jsonRequest.readyState == 4 && jsonRequest.status == 200) {
 
@@ -135,9 +136,10 @@ function volcarJSON(){
 }
 
 function presentarJSON(){
+	// per presentar el continugt del .txt al fitxer .html
 	if(!borrant && !modificant){
 		var objectStore = idb.transaction("itemsJSON").objectStore("itemsJSON");
-		var txt ="<table id=\"table\">";
+		var txt ="<table id=\"table\">"; // aquesta table comtindra tots els camps del fitxer
 		txt += "<thead> <tr> <th>Codi</th> <th>Tipus</th> <th>Pregunta</th> <th>Data Inici</th> <th>Data Fi</th> <th class=\"tdBorrar\">Borrar</th> </tr>  </thead>";
 		txt += "<tbody>";
 		objectStore.openCursor().onsuccess = function(e){
@@ -163,7 +165,7 @@ function presentarJSON(){
 
 				cursor.continue();
 			}
-			contingut.innerHTML =txt + "</tbody></table>";
+			contingut.innerHTML =txt + "</tbody></table>"; // inserim el contingut al .html
 			titulCont.innerHTML ="Contingut democràcia participativa a França:";
 			mostrarCrud();
 			xml =false;
@@ -172,6 +174,7 @@ function presentarJSON(){
 }
 
 function volcarXML(){
+	// per volcar el contingut del arxiu .xml a la base de dades
 	var xmlRequest = crearObjecteAjax();
 	xmlRequest.open("GET", xmlFolder, true);
 	xmlRequest.send("");
@@ -218,6 +221,7 @@ function volcarXML(){
 }
 
 function presentarXML(){
+	// per presentar el continugt del .xml al fitxer .html
 	if(!borrant && !modificant){
 		sav.style.display="none";
 		var objectStore = idb.transaction("itemsXML").objectStore("itemsXML");
@@ -292,6 +296,7 @@ function contingutEditable(){
 }
 
 function actualitzarDB(){
+	// actualitzem la base de dades despres d'una/es modificacion/s
 	if(modificant){
 		var llista = document.getElementsByClassName("item");
 		var codis = document.getElementsByClassName("tdCodi");
@@ -300,7 +305,7 @@ function actualitzarDB(){
 		var datesI = document.getElementsByClassName("tdDataI");
 		var datesF = document.getElementsByClassName("tdDataF");
 
-		if (xml){
+		if (xml){ // si hem modificat l'apartat xml
 			var transaction = idb.transaction(["itemsXML"],"readwrite").objectStore("itemsXML");
 		} else{
 			var transaction = idb.transaction(["itemsJSON"],"readwrite").objectStore("itemsJSON");	
@@ -411,7 +416,7 @@ function borrarCheckeds(){
 }
 
 function borrarRecordsDB(indxBorrar){
-
+	// per treure els items selecionats de la base de dades
 	if (xml){
 		var transaction = idb.transaction(["itemsXML"],"readwrite").objectStore("itemsXML");
 	} else{
