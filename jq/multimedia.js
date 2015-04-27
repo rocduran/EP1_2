@@ -1,6 +1,8 @@
 window.onload = function () {
-  //localStorage
 
+  //sessionStorage
+  
+  //Mirem si estem a visualitzador.html per llegir el valor de tipusM i carregar el contingut dins l'HTML
   if  (/visualitzador/.test(self.location.href)){
   	init();
   }
@@ -8,13 +10,17 @@ window.onload = function () {
 
 };
 
+//Associar events
 function associaDOMevents() {
+
+	//Al fer click a un Arxiu de multimedia.html es guarda el tipus que es a SessionStorage
 	$(".video").click(lsVideo)
 	$(".audio").click(lsAudio)
 	$(".article").click(lsArticle)
 }
 
 function init() {
+	//Careguem el tipus de contingut segons sigui la variable tipusM de SessionStorage
 	document.getElementById("contingut").innerHTML = "";
 	if (sessionStorage["tipusM"]) {
 		var tipus = sessionStorage.getItem('tipusM');
@@ -31,6 +37,7 @@ function init() {
 	}
 }
 
+//Funcions que guarden la variable tipusM amb el seu valor a SessionStorage
 function lsVideo () {
 	sessionStorage.setItem('tipusM', "video");
 }

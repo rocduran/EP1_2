@@ -5,14 +5,12 @@ window.onload = function () {
 
   //localStorage
   init();
-
 };
 
 //Inici funcions
 
 function associaDOMevents() {
 //Associar events de la Vista
-//variables
 
 document.getElementById("nom").onblur = valNom;
 document.getElementById("cognom").onblur = valCognom;
@@ -22,8 +20,10 @@ document.getElementById("banc").onblur = valBanc;
 document.getElementById("contrasenya").onblur = valPass;
 document.getElementById("contrasenya2").onblur = valPass2;
 
+//Al fer activar "accepto condicions" valida tot el formulari i el desactiva si hi ha algun camp no vàlid
 document.getElementById("condicions").onchange = validarTot;
 
+//A cada keyup(al anar escribint) va guardant a localStorage el que escrivim
 document.getElementById("nom").onkeyup = lsNom;
 document.getElementById("cognom").onkeyup = lsCognom;
 document.getElementById("telf").onkeyup = lsTelf;
@@ -45,7 +45,7 @@ document.getElementById("banc").onkeyup = lsBanc;
 }
 
 //Definició de funcions de validació
-
+//Comprova si el NOM es correcte
 function valNom(){
   var elemVal = document.getElementById("nom");
   var regex = /^[A-Za-z]{2,20}$/;
@@ -118,7 +118,7 @@ function valNom(){
     }
   }
 
-    //Comprova si l'EMAIL es valid
+    //Comprova si l'EMAIL es correcte
     function valEmail(){
       var elemVal = document.getElementById("email");
       var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -155,6 +155,7 @@ function valNom(){
       }
     }
 
+    //Comprova si el TELEFON es correcte
     function valTelf(){
       var elemVal = document.getElementById("telf");
       var regex = /(\+3763|6|7|8[0-9]{5})$/i;
@@ -191,6 +192,7 @@ function valNom(){
       }
     }
 
+    //Comprova si el BANC es correcte
     function valBanc(){
       var elemVal = document.getElementById("banc");
       var regex = /AD[0-9]{2}000(1|3)[0-9]{16}/i;
@@ -241,7 +243,7 @@ function valNom(){
       }
     }
 
-
+    //Comprova si el PASSWORD es correcte
     function valPass(){
       var elemVal = document.getElementById("contrasenya");
       var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{2,})[^ ]{6,}$/;
@@ -277,6 +279,7 @@ function valNom(){
       }
     }
 
+//Comprova si el PASSWORD2 (validacio de contrasenya) es correcte
     function valPass2(){
       var elemVal = document.getElementById("contrasenya2");
       var contra = document.getElementById("contrasenya").value;
@@ -335,7 +338,6 @@ function valNom(){
     }
 
     //Funcions de guardar al localStorage
-
     function lsNom () {
       var elemLS = document.getElementById("nom").value;
       localStorage.setItem('nom', elemLS);
@@ -424,7 +426,7 @@ function init() {
 }
 
 //Afegir paisos
-
+//Creem objecte ajacs i comprovem que sigui compatible
 function crearObjecteAjax() {
   var obj;
   if (window.XMLHttpRequest) { //si no es IE
@@ -439,6 +441,7 @@ function crearObjecteAjax() {
   return obj;
 }
 
+//Carreguem i inserim el JSON dins de #llistaPais
 function volcarJSON(){
   jsonPaisos = '/RocMoi/BD/countries.txt';
   var jsonRequest = crearObjecteAjax();
