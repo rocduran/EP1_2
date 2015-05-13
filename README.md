@@ -45,4 +45,7 @@
   - Implementar inici de sessió 
   - Mostrar nom d'usuari
   - Segons sigui admin o no, mostrar "altres" i més opcions. [php login exemple](https://css-tricks.com/snippets/php/login-function/)
+  
 - Paginació de notícies: ¿1 taula per totes o 1 taula per categoria? crec que 1 per tot es més simple a l'hora de fer llistats, amb atribut que sigui categoria. [exemple conexió BD](https://css-tricks.com/snippets/php/basic-database-connection-random-query-display-result/)
+
+- [PHP error login](https://css-tricks.com/snippets/htaccess/php-error-logging/), per fer testing rapit.
