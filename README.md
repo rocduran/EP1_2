@@ -35,3 +35,14 @@
     - En el treball anterior, es van recollir les dades provinents de les diferents països veïns en format XML i Json (DPEspanya2015.XML  i DPFranca2015.txt).
     - En aquest treball, us demano de que aquestes informacions provinguin d’un serveiWeb que generi la mateixa informació en XML
     - Crear una pàgina web en la que es combinin informacions provinents d’un parell de RSS i del servei GoogleMaps.
+
+
+### Idees + TODO
+
+- Generar colors de categories a partir de la categoria en la que estem (1 html vs 3 htmls). (aviam si també es pot fer amb les pàgines úniques, enquesta1/votacio1/referendum1)
+
+- Login: 
+  - Implementar inici de sessió 
+  - Mostrar nom d'usuari
+  - Segons sigui admin o no, mostrar "altres" i més opcions. [php login exemple](https://css-tricks.com/snippets/php/login-function/)
+- Paginació de notícies: ¿1 taula per totes o 1 taula per categoria? crec que 1 per tot es més simple a l'hora de fer llistats, amb atribut que sigui categoria. [exemple conexió BD](https://css-tricks.com/snippets/php/basic-database-connection-random-query-display-result/)
