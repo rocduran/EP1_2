@@ -4,7 +4,7 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	min-height: 800px;
 }
 
-.container{
+#containerNoticies{
 	border: solid 1px rgb(235, 235, 235);
 	border-radius: 5px;
 	margin-left: 25%;
@@ -13,30 +13,30 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	margin-top: 10px;
 }
 
-.container .lbl{
+#containerNoticies .lbl{
 	display: block;
 	margin-top: 10px;
 }
 
-.container .long{
+#containerNoticies .long{
 	width: 300px;
 }
 
-.container .opcions{
+#containerNoticies .opcions{
 	margin-top: 25px;
 	text-align: center;
 }
 
-.container .opcions .lbl{
+#containerNoticies .opcions .lbl{
 	display: inline-block;
 	float: left;
 }
 
-.container .radBut{
+#containerNoticies .radBut{
 	display:none;
 }
 
-.container .opl{
+#containerNoticies .opl{
 	display: block;
     position: relative;
     cursor: pointer;
@@ -47,20 +47,20 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
     color: rgb(58,58,58);
 }
 
-.container .opl:first-child{
+#containerNoticies .opl:first-child{
 	display: inline-block;
 }
 
-.container .opl:hover{
+#containerNoticies .opl:hover{
 	cursor: pointer;
 }
 
-.container .radBut:checked + .opl{
+#containerNoticies .radBut:checked + .opl{
 	background-color: #00A573;
 	color: white; 
 }
 
-.container textarea{
+#containerNoticies textarea{
 	display: block;
 	resize:none;
 	width: 99%;
@@ -69,11 +69,11 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	margin-bottom: 25px;
 }
 
-.container .button-submit, .container .button-cancelar{
+#containerNoticies .button-submit, #containerNoticies .button-cancelar{
 	margin-top: 25px;
 }
 
-.container.button, input[type="button"], button {
+#containerNoticies.button, input[type="button"], button {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -94,19 +94,19 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 }
 
 
-.container .button-submit {
+#containerNoticies .button-submit {
   float:right;
   background: #00A573;
 }
-.container .button-submit:hover {
+#containerNoticies .button-submit:hover {
   background: #000;
   color: #00A573;
 }
 
-.container .button-cancelar{
+#containerNoticies .button-cancelar{
   background: #B66;
 }
-.container .button-cancelar:hover{
+#containerNoticies .button-cancelar:hover{
   background: #000;
   color: #B66;
 }
