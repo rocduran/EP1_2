@@ -54,7 +54,8 @@ function presentaDades(data){
 			$cadena="<button name='"+ id + "' onclick='f2("+id +");'>Eliminar</button>";
 			$("#resultats").append($cadena);
 			$("#resultats").append('<p>Titol    : '+titol+'\t <br> Contingut  :'+contingut+'\t <br> Url : '+url+'</p><br>');
-			
+			$("#resultats").append('<img class="grafic" src="../' +url+'" height="100%" width="100%" border=0 alt="">');
+ 			
 		})
 	);
 }
