@@ -7,13 +7,13 @@ altres();
 }
 //Connector Events--Formulari
 function associaEvents(){
-$("#actualizarDades").click(llistatClients);
+$("#actualizarDades").click(llistatNoticies);
 }
 //Altres inits
 function altres(){};
 
 //Peticó AJAX (llistat total de clients de la BD)
-function llistatClients(dades){
+function llistatNoticies(dades){
     $.ajax
 	({	url: 'llistatComplert.php',
 		dataType: 'json',
@@ -41,18 +41,19 @@ function presentaDades(data){
 	$("#resultats").html("");
 	$("#resultats").append(
 		$.each(data, function(index){
-			var nom = data[index].nombres;
-			var ciutat = data[index].ciudad;
-			var telf = data[index].telefono;
-			var idClient=data[index].id;
-			$("#resultats").append('<p>Id    : '+idClient+'</p>');
+			var id = data[index].id;
+			var tipus = data[index].tipus;
+			var titol = data[index].titol;
+			var contingut = data[index].contingut;
+			var url=data[index].url;
+			$("#resultats").append('<p>Id    : '+id+'</p>');
 			//Proposta 1. Crear enllaços dinàmics amb href 
-			$("#resultats").append('<a href=modificar.php?id='+idClient+'>Editar | ');
-			$("#resultats").append('<a href=eliminar.php?id='+idClient+'>Eliminar');
+			// $("#resultats").append('<a href=modificar.php?id='+id+'>Editar | ');
+			// $("#resultats").append('<a href=eliminar.php?id='+id+'>Eliminar');
 			//Proposta 2. Crear botó o imatge que invoqui una funció amb paràmetre
-			$cadena="<button name='"+ idClient + "' onclick='f2("+idClient +");'>Eliminar</button>";
+			$cadena="<button name='"+ id + "' onclick='f2("+id +");'>Eliminar</button>";
 			$("#resultats").append($cadena);
-			$("#resultats").append('<p>Nom    : '+nom+'\t Telefon  :'+telf+'\t Ciutat : '+ciutat+'</p><br>');
+			$("#resultats").append('<p>Titol    : '+titol+'\t <br> Contingut  :'+contingut+'\t <br> Url : '+url+'</p><br>');
 			
 		})
 	);
