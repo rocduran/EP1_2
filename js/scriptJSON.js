@@ -9,6 +9,7 @@ function init(){
 //Connector Events--Formulari
 function associaEvents(){
 	$("a.noticies").click(llistatNoticies);
+	$("#actualizarDades").click(test);
 }
 
 //Altres inits
@@ -17,7 +18,7 @@ function altres(){};
 //Peticó AJAX (llistat total de clients de la BD)
 function llistatNoticies(dades){
 	$.ajax
-	({	url: 'php/LlistatNoticies.php',
+	({	url: 'php/llistat.php',
 		dataType: 'json',
 		type: 'get',
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
@@ -26,10 +27,21 @@ function llistatNoticies(dades){
 	});
 }
 
+function test(dades){
+	$.ajax
+	({	url: 'llistat.php',
+		dataType: 'json',
+		type: 'get',
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		//Trucada a funció (per no programar-la aquí i respectar el model)
+		success: function(data) {testing(data);} 
+	});
+}
+
 function eliminaNoticia(valor) {
 //alert(valor);
 $.ajax
-({	url: 'php/eliminaNoticia.php?id='+valor,
+({	url: 'php/elimina.php?id='+valor,
 	dataType: 'json',
 	type: 'get',
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
@@ -58,6 +70,30 @@ function presentaDades(data){
 			txt = txt +'</div>';
 
 			$("#containerNoticies").append(txt);
+
+		})
+);
+}
+
+function testing(data){
+$("#resultats").html("");
+	$("#resultats").append(
+		$.each(data, function(index){
+			var id = data[index].id;
+			var titol = data[index].titol;
+			var image = data[index].url
+
+			var txt = '';
+			txt = txt +'<div class="item">';
+			txt = txt +'<div class="textitem" >';
+			txt = txt +'<span>'+titol+'</span>';
+			txt = txt +'</div>';
+			txt = txt +'<div class="botons">';
+			txt = txt +'<span><img src="../'+image+'" alt="borrar"> </span>';
+			txt = txt +'</div>';
+			txt = txt +'</div>';
+
+			$("#resultats").append(txt);
 
 		})
 );
