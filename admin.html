@@ -13,7 +13,7 @@
   <script src="js/signup.js" type="text/javascript"></script>
   <script src="js/jquery-ui.js" type="text/javascript"></script>
 
-  <script type="text/javascript" src="js/scriptJSON.js"></script>
+  <script type="text/javascript" src="js/admin.js"></script>
 
 </head>
 <body>
@@ -67,7 +67,7 @@
 
     <div class="resum">
       <h2 class="header">Resum</h2>
-      <div class="container">
+      <div id="containerResum">
         <h3>Actualment</h3>
         <ul class="contingutResum">
           <li>Contingut</li>
@@ -87,15 +87,14 @@
 
     <div class="noticies">
       <h2 class="header">Notícies</h2> 
-      <a  href="#" class="inserirNoticia" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
       <div id="containerNoticies">
-        
+        <a  href="#" class="inserirNoticia" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
       </div>
     </div>
 
     <div class="multimedia">
      <h2 class="header">Multimèdia</h2>
-     <div class="container">
+     <div id="containerMultimedia">
       <a  href="#" class="inserirMulti" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
       <div class="item">
         <div class="textitem video" >
@@ -138,7 +137,7 @@
 
   <div class="usuaris">
    <h2 class="header">Usuaris</h2>
-   <div class="container">
+   <div id="containerUsuaris">
      <a  href="#" class="inserirUsuari" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
      <div class="item">
       <div class="textitem" >
@@ -181,7 +180,7 @@
 
   <div class="inserirNoticia">
   <h2 class="header">Inserir noticia</h2> 
-  <div class="container">
+  <div id="containerInsNot">
     <span><label class="lbl" for="titulNot">Insereix el titol de la noticia: <input class="long" type="text" name="titulNot" value=""></label></span> 
     
     <div class="opcions">
@@ -203,7 +202,7 @@
 
   <div class="inserirMulti">
   <h2 class="header">Inserir multimèdia:</h2> 
-  <div class="container">
+  <div id="containerInsMult">
     <span><label class="lbl" for="titulNot">Insereix el titol del arxiu: <input class="long" type="text" name="titulNot" value=""></label></span> 
     <div class="opcions">
       <span><label class="lbl">Selecionar categoria:</label></span>
@@ -222,7 +221,7 @@
 
   <div class="inserirUsuari">
   <h2 class="header">Inserir usuari:</h2> 
-  <div class="container">
+  <div id="containerInsUsers">
    <form id="formulari" method="post" class="validar-form">
     <h2>Registrar Administrador</h2>
     <hr>

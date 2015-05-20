@@ -6,7 +6,7 @@ $objnoticia=new noticia;
 if( $objnoticia->eliminar($noticia_id) == true){
 	//Exemple s'ha decidit que després d'eliminar, actualitzar dades
 	//Redirigim la petició AJAX a fer un llistat Complert
-	header('Location: LlistatComplert.php');
+	header('Location: llistat.php');
 
 }else{
 	//echo "Error";

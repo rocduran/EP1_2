@@ -4,7 +4,7 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	min-height: 800px;
 }
 
-#containerNoticies{
+#containerResum, #containerNoticies, #containerMultimedia, #containerUsuaris{
 	border: solid 1px rgb(235, 235, 235);
 	border-radius: 5px;
 	margin-left: 25%;
