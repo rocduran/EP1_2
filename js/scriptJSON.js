@@ -75,7 +75,6 @@ function presentaDades(data){
 );
 }
 
-<<<<<<< 9e34dead43c334bfa603063b1abf5d058403d5aa
 function testing(data){
 $("#resultats").html("");
 	$("#resultats").append(
@@ -99,7 +98,5 @@ $("#resultats").html("");
 		})
 );
 }
-=======
->>>>>>> 117e2b7dfa2c77db1929af56a8e702a462eaca7f
 
 

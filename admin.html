@@ -54,7 +54,7 @@
   </nav>
 
 
-<div class="contingut">
+  <div class="contingut">
     <!-- Panell administració -->
     <div class="menuadmin">
       <ul>
@@ -86,182 +86,145 @@
     </div>
 
     <div class="noticies">
-      <h2 class="header">Notícies</h2> 
-      <div id="containerNoticies">
-        <a  href="#" class="inserirNoticia" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
+      <h2 class="header">Notícies <a  href="#" class="inserirNoticia" title=""><img class="agregar" src="./img/plus.png" alt=""></a></h2> 
+      
+      <div id="containerNoticies">  
       </div>
     </div>
 
     <div class="multimedia">
-     <h2 class="header">Multimèdia</h2>
+     <h2 class="header">Multimèdia <a  href="#" class="inserirMulti" title=""><img class="agregar" src="./img/plus.png" alt=""></a></h2>
      <div id="containerMultimedia">
-      <a  href="#" class="inserirMulti" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
-      <div class="item">
-        <div class="textitem video" >
-          <span>Video 1</span>
-        </div>
-        <div class="botons">
-          <span><img src="img/pencil.png" alt="edita"> </span>
-          <span><img src="img/bin.png" alt="borra"> </span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="textitem audio" >
-          <span>Audio 1</span>
-        </div>
-        <div class="botons">
-          <span><img src="img/pencil.png" alt="edita"> </span>
-          <span><img src="img/bin.png" alt="borra"> </span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="textitem article" >
-          <span>Article 1</span>
-        </div>
-        <div class="botons">
-          <span><img src="img/pencil.png" alt="edita"> </span>
-          <span><img src="img/bin.png" alt="borra"> </span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="textitem audio" >
-          <span>Audio 2</span>
-        </div>
-        <div class="botons">
-          <span><img src="img/pencil.png" alt="edita"> </span>
-          <span><img src="img/bin.png" alt="borra"> </span>
-        </div>
-      </div>
-    </div>
-  </div>
+     </div>
+   </div>
 
-  <div class="usuaris">
-   <h2 class="header">Usuaris</h2>
-   <div id="containerUsuaris">
-     <a  href="#" class="inserirUsuari" title=""><img class="agregar" src="./img/plus.png" alt=""></a>
-     <div class="item">
-      <div class="textitem" >
-        <span>Moises Miret</span>
+   <div class="usuaris">
+   <h2 class="header">Usuaris <a  href="#" class="inserirUsuari" title=""><img class="agregar" src="./img/plus.png" alt=""></a></h2>
+     <div id="containerUsuaris">
+
+       <div class="item">
+        <div class="textitem" >
+          <span>Moises Miret</span>
+        </div>
+        <div class="botons">
+          <span><img src="img/pencil.png" alt="edita"> </span>
+          <span><img src="img/bin.png" alt="borra"> </span>
+        </div>
       </div>
-      <div class="botons">
-        <span><img src="img/pencil.png" alt="edita"> </span>
-        <span><img src="img/bin.png" alt="borra"> </span>
+      <div class="item">
+        <div class="textitem" >
+          <span>Roc Duran</span>
+        </div>
+        <div class="botons">
+          <span><img src="img/pencil.png" alt="edita"> </span>
+          <span><img src="img/bin.png" alt="borra"> </span>
+        </div>
       </div>
-    </div>
-    <div class="item">
-      <div class="textitem" >
-        <span>Roc Duran</span>
+      <div class="item">
+        <div class="textitem" >
+          <span>Pepito Huan</span>
+        </div>
+        <div class="botons">
+          <span><img src="img/pencil.png" alt="edita"> </span>
+          <span><img src="img/bin.png" alt="borra"> </span>
+        </div>
       </div>
-      <div class="botons">
-        <span><img src="img/pencil.png" alt="edita"> </span>
-        <span><img src="img/bin.png" alt="borra"> </span>
-      </div>
-    </div>
-    <div class="item">
-      <div class="textitem" >
-        <span>Pepito Huan</span>
-      </div>
-      <div class="botons">
-        <span><img src="img/pencil.png" alt="edita"> </span>
-        <span><img src="img/bin.png" alt="borra"> </span>
-      </div>
-    </div>
-    <div class="item">
-      <div class="textitem" >
-        <span>Thor</span>
-      </div>
-      <div class="botons">
-        <span><img src="img/pencil.png" alt="edita"> </span>
-        <span><img src="img/bin.png" alt="borra"> </span>
+      <div class="item">
+        <div class="textitem" >
+          <span>Thor</span>
+        </div>
+        <div class="botons">
+          <span><img src="img/pencil.png" alt="edita"> </span>
+          <span><img src="img/bin.png" alt="borra"> </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <div class="inserirNoticia">
-  <h2 class="header">Inserir noticia</h2> 
-  <div id="containerInsNot">
-    <span><label class="lbl" for="titulNot">Insereix el titol de la noticia: <input class="long" type="text" name="titulNot" value=""></label></span> 
-    
-    <div class="opcions">
-      <span><label class="lbl">Selecionar categoria:</label></span>
-      <span><input type = "radio" name = "op" class = "radBut" id="op1" title="opcio1" checked="checked" /><label class="opl" for="op1">Votació</label></span>
-      <span><input type = "radio" name = "op" class = "radBut" id="op2" title="opcio2" /><label class="opl" for="op2">Enquesta</label></span>
-      <span><input type = "radio" name = "op" class = "radBut" id="op3" title="opcio3" /><label class="opl" for="op3">Referendum</label></span>
+    <h2 class="header">Inserir noticia</h2> 
+    <div id="containerInsNot">
+      <span><label class="lbl" for="titulNot">Insereix el titol de la noticia: <input class="long" type="text" name="titulNot" value=""></label></span> 
+
+      <div class="opcions">
+        <span><label class="lbl">Selecionar categoria:</label></span>
+        <span><input type = "radio" name = "op" class = "radBut" id="op1" title="opcio1" checked="checked" /><label class="opl" for="op1">Votació</label></span>
+        <span><input type = "radio" name = "op" class = "radBut" id="op2" title="opcio2" /><label class="opl" for="op2">Enquesta</label></span>
+        <span><input type = "radio" name = "op" class = "radBut" id="op3" title="opcio3" /><label class="opl" for="op3">Referendum</label></span>
+      </div>
+
+      <span><label class="lbl" for="arxiu">Selecionar imatge: <input type="file" name="arxiu" value=""></label></span> 
+
+      <span><label class="lbl" for="contingutNot">Insereix el contingut:<textarea name="contingutNot" placeholder="Contingut noticia..."></textarea></label></span> 
+
+      <span><label for="enviar"><input id="enviar" class="button-submit" type="button" name="" value="Enviar"></label> </span>
+      <span><label for="borrar"><input id="borrar" class="button-cancelar" type="button" name="" value="Reinicialitzar"></label> </span>
+
     </div>
-
-    <span><label class="lbl" for="arxiu">Selecionar imatge: <input type="file" name="arxiu" value=""></label></span> 
-
-    <span><label class="lbl" for="contingutNot">Insereix el contingut:<textarea name="contingutNot" placeholder="Contingut noticia..."></textarea></label></span> 
-
-    <span><label for="enviar"><input id="enviar" class="button-submit" type="button" name="" value="Enviar"></label> </span>
-    <span><label for="borrar"><input id="borrar" class="button-cancelar" type="button" name="" value="Reinicialitzar"></label> </span>
-
   </div>
-</div>
 
   <div class="inserirMulti">
-  <h2 class="header">Inserir multimèdia:</h2> 
-  <div id="containerInsMult">
-    <span><label class="lbl" for="titulNot">Insereix el titol del arxiu: <input class="long" type="text" name="titulNot" value=""></label></span> 
-    <div class="opcions">
-      <span><label class="lbl">Selecionar categoria:</label></span>
-      <span><input type = "radio" name = "op" class = "radBut" id="op4" title="opcio1" checked="checked" /><label class="opl" for="op4">Audio</label></span>
-      <span><input type = "radio" name = "op" class = "radBut" id="op5" title="opcio2" /><label class="opl" for="op5">Video</label></span>
-      <span><input type = "radio" name = "op" class = "radBut" id="op6" title="opcio3" /><label class="opl" for="op6">Article</label></span>
+    <h2 class="header">Inserir multimèdia:</h2> 
+    <div id="containerInsMult">
+      <span><label class="lbl" for="titulNot">Insereix el titol del arxiu: <input class="long" type="text" name="titulNot" value=""></label></span> 
+      <div class="opcions">
+        <span><label class="lbl">Selecionar categoria:</label></span>
+        <span><input type = "radio" name = "op" class = "radBut" id="op4" title="opcio1" checked="checked" /><label class="opl" for="op4">Audio</label></span>
+        <span><input type = "radio" name = "op" class = "radBut" id="op5" title="opcio2" /><label class="opl" for="op5">Video</label></span>
+        <span><input type = "radio" name = "op" class = "radBut" id="op6" title="opcio3" /><label class="opl" for="op6">Article</label></span>
+      </div>
+
+      <span><label class="lbl" for="arxiu">Selecionar arxiu: <input type="file" name="arxiu" value=""></label></span> 
+
+      <span><label for="enviar"><input class="button-submit" type="button" name="" value="Enviar"></label> </span>
+      <span><label for="borrar"><input class="button-cancelar" type="button" name="" value="Reinicialitzar"></label> </span>
+
     </div>
-
-    <span><label class="lbl" for="arxiu">Selecionar arxiu: <input type="file" name="arxiu" value=""></label></span> 
-
-    <span><label for="enviar"><input class="button-submit" type="button" name="" value="Enviar"></label> </span>
-    <span><label for="borrar"><input class="button-cancelar" type="button" name="" value="Reinicialitzar"></label> </span>
-
   </div>
-</div>
 
   <div class="inserirUsuari">
-  <h2 class="header">Inserir usuari:</h2> 
-  <div id="containerInsUsers">
-   <form id="formulari" method="post" class="validar-form">
-    <h2>Registrar Administrador</h2>
-    <hr>
-    <label for="nom">
-      <h2 class="h2Form">Nom:</h2>
-      <span><input  id="nom" type="text" class="long important"></span>
-      <div id= "errNom" class="error"></div>
-    </label>
+    <h2 class="header">Inserir usuari:</h2> 
+    <div id="containerInsUsers">
+     <form id="formulari" method="post" class="validar-form">
+      <h2>Registrar Administrador</h2>
+      <hr>
+      <label for="nom">
+        <h2 class="h2Form">Nom:</h2>
+        <span><input  id="nom" type="text" class="long important"></span>
+        <div id= "errNom" class="error"></div>
+      </label>
 
-    <label for="cognom">
-      <h2 class="h2Form">Cognom:</h2>
-      <input id="cognom" type="text" class="long important">
-      <div id= "errCognom" class="error"></div>
-    </label>
+      <label for="cognom">
+        <h2 class="h2Form">Cognom:</h2>
+        <input id="cognom" type="text" class="long important">
+        <div id= "errCognom" class="error"></div>
+      </label>
 
-    <label for="email">
-      <h2 class="h2Form">Email:</h2>
-      <input id="email" type="text" class="long important" placeholder="exemple@exemple.com">
-      <div id= "errMail" class="error"></div>
-    </label>
+      <label for="email">
+        <h2 class="h2Form">Email:</h2>
+        <input id="email" type="text" class="long important" placeholder="exemple@exemple.com">
+        <div id= "errMail" class="error"></div>
+      </label>
 
-    <label for="contrasenya">
-      <h2 class="h2Form">Contrasenya:</h2>
-      <input id="contrasenya" type="password" class="long important">
-      <div id= "errPass" class="error"></div>
-    </label>
+      <label for="contrasenya">
+        <h2 class="h2Form">Contrasenya:</h2>
+        <input id="contrasenya" type="password" class="long important">
+        <div id= "errPass" class="error"></div>
+      </label>
 
-    <label for="contrasenya2">
-      <h2 class="h2Form">Repeteix la contrasenya:</h2>
-      <input id="contrasenya2" type="password" class="long important">
-      <div id= "errPass2" class="error"></div>
-    </label>
+      <label for="contrasenya2">
+        <h2 class="h2Form">Repeteix la contrasenya:</h2>
+        <input id="contrasenya2" type="password" class="long important">
+        <div id= "errPass2" class="error"></div>
+      </label>
 
-    <div class="formButs">
-      <button id="cancelar" class="button-cancelar" type="button">Cancelar</button>
-      <button id="registrar" class="button-submit des" disabled="true" type="submit">Registrar</button>
-      <p id="correcte"></p>
-    </div>
+      <div class="formButs">
+        <button id="cancelar" class="button-cancelar" type="button">Cancelar</button>
+        <button id="registrar" class="button-submit des" disabled="true" type="submit">Registrar</button>
+        <p id="correcte"></p>
+      </div>
 
-  </form>
+    </form>
 
   </div>
 </div>

@@ -4,7 +4,7 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	min-height: 800px;
 }
 
-#containerResum, #containerNoticies, #containerMultimedia, #containerUsuaris{
+#containerResum, #containerNoticies, #containerMultimedia, #containerUsuaris, #containerInsNot, #containerInsMult, #containerInsUsers{
 	border: solid 1px rgb(235, 235, 235);
 	border-radius: 5px;
 	margin-left: 25%;
@@ -13,30 +13,30 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	margin-top: 10px;
 }
 
-#containerNoticies .lbl{
+#containerInsNot .lbl, #containerInsMult .lbl, #containerInsUsers .lbl{
 	display: block;
 	margin-top: 10px;
 }
 
-#containerNoticies .long{
+#containerInsNot .long, #containerInsMult .long, #containerInsUsers .long{
 	width: 300px;
 }
 
-#containerNoticies .opcions{
+#containerInsNot .opcions, #containerInsMult .opcions, #containerInsUsers .opcions{
 	margin-top: 25px;
 	text-align: center;
 }
 
-#containerNoticies .opcions .lbl{
+#containerInsNot .opcions .lbl, #containerInsMult .opcions .lbl, #containerInsUsers .opcions .lbl{
 	display: inline-block;
 	float: left;
 }
 
-#containerNoticies .radBut{
+#containerInsNot .radBut, #containerInsMult .radBut, #containerInsUsers .radBut{
 	display:none;
 }
 
-#containerNoticies .opl{
+#containerInsNot .opl, #containerInsMult .opl, #containerInsUsers .opl{
 	display: block;
     position: relative;
     cursor: pointer;
@@ -47,20 +47,20 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
     color: rgb(58,58,58);
 }
 
-#containerNoticies .opl:first-child{
+#containerInsNot .opl:first-child, #containerInsMult .opl:first-child, #containerInsUsers .opl:first-child{
 	display: inline-block;
 }
 
-#containerNoticies .opl:hover{
+#containerInsNot .opl:hover, #containerInsMult .opl:hover, #containerInsUsers .opl:hover{
 	cursor: pointer;
 }
 
-#containerNoticies .radBut:checked + .opl{
+#containerInsNot .radBut:checked + .opl, #containerInsMult .radBut:checked + .opl, #containerInsUsers .radBut:checked + .opl{
 	background-color: #00A573;
 	color: white; 
 }
 
-#containerNoticies textarea{
+#containerInsNot textarea, #containerInsUsers textarea{
 	display: block;
 	resize:none;
 	width: 99%;
@@ -69,11 +69,11 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	margin-bottom: 25px;
 }
 
-#containerNoticies .button-submit, #containerNoticies .button-cancelar{
+#containerInsNot .button-submit, #containerInsNot .button-cancelar, #containerInsMult .button-submit,  #containerInsMult .button-cancelar, #containerInsUsers .button-submit, #containerInsUsers .button-cancelar{
 	margin-top: 25px;
 }
 
-#containerNoticies.button, input[type="button"], button {
+#containerInsNot .button, input[type="button"], button , #containerInsMult .button, #containerInsUsers .button{
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -94,21 +94,25 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 }
 
 
-#containerNoticies .button-submit {
+#containerInsNot .button-submit , #containerInsMult .button-submit, #containerInsUsers .button-submit{
   float:right;
   background: #00A573;
 }
-#containerNoticies .button-submit:hover {
+#containerInsNot .button-submit:hover , #containerInsMult .button-submit:hover , #containerInsUsers .button-submit:hover{
   background: #000;
   color: #00A573;
 }
 
-#containerNoticies .button-cancelar{
+#containerInsNot .button-cancelar, #containerInsMult .button-cancelar, #containerInsUsers .button-cancelar{
   background: #B66;
 }
-#containerNoticies .button-cancelar:hover{
+#containerInsNot .button-cancelar:hover, #containerInsMult .button-cancelar:hover, #containerInsUsers .button-cancelar:hover{
   background: #000;
   color: #B66;
+}
+
+#containerInsUsers h2{
+	margin-left: 0;
 }
 
 h2{
@@ -118,6 +122,9 @@ h2{
 	padding: 10px;
 }
 
+.header {
+	font-size: 28px;
+}
 .h2Form{
 	color: #444;
 	margin: 0;
@@ -227,7 +234,8 @@ div.resum{
 }
 
 .agregar{
-	padding: 5px;
+	padding: 3px;
+	margin-left: 10px;
 	border: 1px solid rgb(190, 190 ,190);
 	border-radius: 2px;
 	background-color: rgb(235, 235, 235);
