@@ -7,9 +7,14 @@ function init(){
 
 //Connector Events--Formulari
 function associaEvents(){
+	// MENU VERTICAL//
 	$("a.noticies").click(llistatNoticies);
 	$("a.multimedia").click(llistatMultimedies);
-	$("a.usuaris").click(llistatUsuaris);
+	$("a.usuaris").click(recuperarDades);
+
+	//Inserir elements//
+	$('#enviarNot').click(inserirNoticia);
+
 }
 
 //FUNCIONS PER RECUPERAR DADES DE LA BASE DE DADES//
@@ -48,6 +53,41 @@ function llistatUsuaris(dades){
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 		//Trucada a funció (per no programar-la aquí i respectar el model)
 		success: function(data) {presentaUsuaris(data);} 
+	});
+}
+
+//FUNCIONS PER INSERIR DADES A LA BASE DE DADES//
+/////////////////////////////////////////////////
+function recuperarDades(){
+	var titul = document.getElementById('titulNot').value;
+
+	var contingut = document.getElementById('contingutNot').value;
+
+	var tipus;
+
+	if(document.getElementById('op1').checked){
+		tipus = 'Votació';
+	}
+
+	if(document.getElementById('op2').checked){
+		tipus = 'Enquesta';
+	}
+
+	if(document.getElementById('op3').checked){
+		tipus = 'Referendum';
+	}
+
+	var url = null;
+	var resum = null;
+
+	inserirNoticia(titul, tipus, contingut, url, resum);
+}
+
+function inserirNoticia(ti, tp, co, url, rsm){
+	$.ajax
+	({	url: 'php/inserir.php?quin=noticies&titol='+ti+'&tipus='+tp+'$contingut='+co+'&url='+url+'&resum='+rsm,
+		type: 'get',
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 	});
 }
 

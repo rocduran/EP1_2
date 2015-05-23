@@ -1,5 +1,6 @@
 <?php
-
+//RECUPERACIO D'UNA TAULA LA BASE DE DADES//
+////////////////////////////////////////////
 if($_GET['quin'] == 'noticies'){
 	//Carregar codi de la Classe Noticia
 	require('clases/noticia.class.php');
@@ -65,4 +66,8 @@ if($_GET['quin'] == 'usuaris'){
 	//Codificar en JSON i retornar petició en un array entenible per JS
 	echo json_encode($dades);
 }
+//RECUPERACIO D'UN ELEMENT EN CONCRET D'UNA TAULA DE LA BASE DE DADES//
+///////////////////////////////////////////////////////////////////////
+
+
 ?>
