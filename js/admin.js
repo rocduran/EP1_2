@@ -1,19 +1,20 @@
 $(document).ready(init);
 //Inicialitzar associacions Events-formulari
-//Altres inits 
 function init(){
 	associaEvents();
 }
 
-//Connector Events--Formulari
+//Connector Events
 function associaEvents(){
 	// MENU VERTICAL//
 	$("a.noticies").click(llistatNoticies);
 	$("a.multimedia").click(llistatMultimedies);
-	$("a.usuaris").click(recuperarDades);
+	$("a.usuaris").click(llistatUsuaris);
 
 	//Inserir elements//
 	$('#enviarNot').click(inserirNoticia);
+	$('#borrarNot').click(netejaNoticia);
+
 
 }
 
@@ -23,9 +24,10 @@ function associaEvents(){
 //Peticó AJAX (llistat total de noticies de la BD)
 function llistatNoticies(dades){
 	$.ajax
-	({	url: 'php/llistats.php?quin=noticies',
+	({	url: 'php/llistats.php',
 		dataType: 'json',
-		type: 'get',
+		type: 'GET',
+		data: 'quin=noticies',
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 		//Trucada a funció (per no programar-la aquí i respectar el model)
 		success: function(data) {presentaNoticies(data);} 
@@ -35,9 +37,10 @@ function llistatNoticies(dades){
 //Peticó AJAX (llistat total de multimedies de la BD)
 function llistatMultimedies(dades){
 	$.ajax
-	({	url: 'php/llistats.php?quin=multimedies',
+	({	url: 'php/llistats.php',
 		dataType: 'json',
-		type: 'get',
+		type: 'GET',
+		data: 'quin=multimedies',
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 		//Trucada a funció (per no programar-la aquí i respectar el model)
 		success: function(data) {presentaMultimedies(data);} 
@@ -47,9 +50,10 @@ function llistatMultimedies(dades){
 //Peticó AJAX (llistat total de usuaris de la BD)
 function llistatUsuaris(dades){
 	$.ajax
-	({	url: 'php/llistats.php?quin=usuaris',
+	({	url: 'php/llistats.php',
 		dataType: 'json',
-		type: 'get',
+		type: 'GET',
+		data : 'quin=usuaris', 
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 		//Trucada a funció (per no programar-la aquí i respectar el model)
 		success: function(data) {presentaUsuaris(data);} 
@@ -58,10 +62,10 @@ function llistatUsuaris(dades){
 
 //FUNCIONS PER INSERIR DADES A LA BASE DE DADES//
 /////////////////////////////////////////////////
-function recuperarDades(){
-	var titul = document.getElementById('titulNot').value;
+function inserirNoticia(){
+	var titol = document.getElementById('titolNot').value;
 
-	var contingut = document.getElementById('contingutNot').value;
+	var cont = document.getElementById('contingutNot').value;
 
 	var tipus;
 
@@ -77,58 +81,68 @@ function recuperarDades(){
 		tipus = 'Referendum';
 	}
 
-	var url = null;
-	var resum = null;
+	var url = "test";
+	var resum = "test";
 
-	inserirNoticia(titul, tipus, contingut, url, resum);
+	alert(tipus);
+	
+	$.ajax
+	({	url: 'php/inserir.php',
+		type: 'POST',
+		data: 'quin=noticies&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&url='+url+'&resum='+resum ,
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+
+	});
+
+	netejaNoticia();
 }
 
-function inserirNoticia(ti, tp, co, url, rsm){
-	$.ajax
-	({	url: 'php/inserir.php?quin=noticies&titol='+ti+'&tipus='+tp+'$contingut='+co+'&url='+url+'&resum='+rsm,
-		type: 'get',
-		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-	});
+function netejaNoticia(){
+	//netejem els camps 
+	document.getElementById('titolNot').value = "";
+
+	document.getElementById('op1').checked = false;
+	document.getElementById('op2').checked = false;
+	document.getElementById('op3').checked = false;
+
+	document.getElementById('contingutNot').value = "";
 }
 
 //FUNCIONS PER ELIMINAR DADES DE LA BASE DE DADES//
 ///////////////////////////////////////////////////
 
 function eliminaNoticia(valor) {
-//alert(valor);
-$.ajax
-({	url: 'php/elimina.php?id='+valor+'&quin=noticia',
-	dataType: 'json',
-	type: 'get',
+	$.ajax
+	({	url: 'php/elimina.php',
+		dataType: 'json',
+		type: 'GET',
+		data: 'id='+valor+'&quin=noticia',
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-		//Trucada a funció (per no programar-la aquí i respectar el model)
-		//Decidim que després d'eliminar tornem a presentar les dades
-		success: function(data) {presentaNoticies(data);} 
+
+		success: function() {llistatNoticies(dades);} 
 	});
 }	
 
 function eliminaMultimedia(valor) {
-//alert(valor);
-$.ajax
-({	url: 'php/elimina.php?id='+valor+'&quin=multimedia',
-	dataType: 'json',
-	type: 'get',
+	$.ajax
+	({	url: 'php/elimina.php',
+		dataType: 'json',
+		type: 'GET',
+		data : 'id='+valor+'&quin=multimedia', 
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-		//Trucada a funció (per no programar-la aquí i respectar el model)
-		//Decidim que després d'eliminar tornem a presentar les dades
+
 		success: function(data) {presentaMultimedies(data);} 
 	});
 }
 
 function eliminaUsuari(valor) {
-//alert(valor);
-$.ajax
-({	url: 'php/elimina.php?id='+valor+'&quin=usuari',
-	dataType: 'json',
-	type: 'get',
+	$.ajax
+	({	url: 'php/elimina.php',
+		dataType: 'json',
+		type: 'GET',
+		data: 'id='+valor+'&quin=usuari',
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-		//Trucada a funció (per no programar-la aquí i respectar el model)
-		//Decidim que després d'eliminar tornem a presentar les dades
+
 		success: function(data) {presentaUsuari(data);} 
 	});
 }	
@@ -147,19 +161,19 @@ function presentaNoticies(data){
 
 			var txt = '';
 			txt = txt +'<div class="item">';
-				txt = txt +'<div class="textitem" >';
-					txt = txt +'<span>'+titol+'</span>';
+			txt = txt +'<div class="textitem" >';
+			txt = txt +'<span>'+titol+'</span>';
 			txt = txt +'</div>';
-				txt = txt +'<div class="botons">';
-					txt = txt +'<span><img src="img/pencil.png" alt="edita"> </span>';
-					txt = txt +'<span><img src="img/bin.png" onclick="eliminaNoticia('+id +')" alt="borrar"> </span>';
-				txt = txt +'</div>';
+			txt = txt +'<div class="botons">';
+			txt = txt +'<span><img src="img/pencil.png" alt="edita"> </span>';
+			txt = txt +'<span><img src="img/bin.png" onclick="eliminaNoticia('+id +')" alt="borrar"> </span>';
+			txt = txt +'</div>';
 			txt = txt +'</div>';
 
 			$("#containerNoticies").append(txt);
 
 		})
-);
+		);
 }
 
 //Funció de presentació quan es rebin les dades formatades
@@ -177,14 +191,14 @@ function presentaMultimedies(data){
 			txt = txt +'</div>';
 			txt = txt +'<div class="botons">';
 			txt = txt +'<span><img src="img/pencil.png" alt="edita"> </span>';
-			txt = txt +'<span><img src="img/bin.png" onclick="eliminaNoticia('+id +')" alt="borrar"> </span>';
+			txt = txt +'<span><img src="img/bin.png" onclick="eliminaMultimedia('+id +')" alt="borrar"> </span>';
 			txt = txt +'</div>';
 			txt = txt +'</div>';
 
 			$("#containerMultimedia").append(txt);
 
 		})
-);
+		);
 }
 
 //Funció de presentació quan es rebin les dades formatades
@@ -209,7 +223,7 @@ function presentaUsuaris(data){
 			$("#containerUsuaris").append(txt);
 
 		})
-);
+		);
 }
 
 

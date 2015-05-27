@@ -10,13 +10,13 @@ class Noticia{
 
 	function inserir($camps){
 		if($this->con->conectar()==true){
-			return mysql_query("INSERT INTO noticies (tipus, titol, contingut, url) VALUES ('".$camps[1]."','".$camps[2]."','".$camps[3]."','".$camps[4]."')");
+			return mysql_query("INSERT INTO noticies (tipus, titol, contingut, url, resum) VALUES ('".$camps[0]."','".$camps[1]."','".$camps[2]."','".$camps[3]."','".$camps[4]."')");
 		}
 	}
 	
 	function modificar($camps,$id){
 		if($this->con->conectar()==true){
-			return mysql_query("UPDATE noticies SET id = '".$camps[0]."', tipus = '".$camps[1]."', titol = '".$camps[2]."', contingut = '".$camps[3]."', url = '".$camps[4]."' WHERE id = ".$id);
+			return mysql_query("UPDATE noticies SET id = '".$camps[0]."', tipus = '".$camps[1]."', titol = '".$camps[2]."', contingut = '".$camps[3]."', url = '".$camps[4]."','".$camps[5]."' WHERE id = ".$id);
 		}
 	}
 	

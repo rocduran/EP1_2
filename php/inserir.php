@@ -1,19 +1,15 @@
 <?php
-if($_GET['quin'] == 'noticies'){
+if($_POST['quin'] == 'noticies'){
 	require('clases/noticia.class.php');
 
-	$titul = $_GET['titul'];
-	$tipus = $_GET['tipus']
-	$contingut = $_GET['contingut']
-	$url = $_GET['url']
-	$resum = $_GET['resum']
+	$tipus = htmlspecialchars(trim($_POST['tipus']));
+	$titol = htmlspecialchars(trim($_POST['titol']));
+	$contingut = htmlspecialchars(trim($_POST['contingut']));
+	$url = htmlspecialchars(trim($_POST['url']));
+	$resum = htmlspecialchars(trim($_POST['resum']));
 
 	$objnoticia=new noticia;
-
-	if($objnoticia->inserir(array($tipus, $titul, $contingut, $url, $resum)) == true){
-		echo 'Datos guardados';
-	else {
-		echo 'ERROR';
-	}
+	$objnoticia->inserir(array("$tipus", "$titol", "$contingut", "$url," "$resum"))
+	
 }
 ?>
