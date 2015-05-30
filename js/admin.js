@@ -15,6 +15,8 @@ function associaEvents(){
 	$('#enviarNot').click(inserirModificarNoticia);
 	$('#borrarNot').click(netejaNoticia);
 
+	//AQUI FALTARIEN ELS DE enviarMultimedia i enviarUsuari (nse si es diuen aixi, al html surt XD)
+
 
 }
 
@@ -123,6 +125,22 @@ function netejaNoticia(){
 	document.getElementById('contingutNot').value = "";
 }
 
+function inserirModificarMultimedies(){ //segons sigui el header del div, inserim o modifiquem
+	// com el de noticies
+}
+
+function netejaMultimedia(){
+
+}
+
+function inserirModificarUsuaris(){ //segons sigui el header del div, inserim o modifiquem
+	//mas de lo mismo xd
+}
+
+function netejaUsuari(){
+
+}
+
 //FUNCIONS PER ELIMINAR DADES DE LA BASE DE DADES//
 ///////////////////////////////////////////////////
 
@@ -207,10 +225,28 @@ function presentaNoticia(data){
 	var texte = document.createTextNode(id);
 	element.appendChild(texte);
 	element.style.display = "none";
-	element.id = "idNot"
+	element.id = "idNot";
 
 	document.getElementById("containerInsNot").appendChild(element);
 }
+
+function recuperarMultimedia(dades){
+	//aqui aniria la peticio ajax + crida a la seguuent
+}
+
+function presentaMultimedia(data){
+	//aqui lo de recuperar dades del element i presentarles, canviar el header i el div oculto pel id
+}
+
+function recuperarUsuari(dades){
+	//mas de lo mismo XD
+}
+
+function presentaUsuari(data){
+	//mas de lo mismo xD
+}
+
+function 
 //FUNCIONS PER PRESENTAR DADES DE LA BASE DE DADES//
 ////////////////////////////////////////////////////
 function presentaNoticies(data){
@@ -250,7 +286,7 @@ function presentaMultimedies(data){
 			txt = txt +'<span>'+titol+'</span>';
 			txt = txt +'</div>';
 			txt = txt +'<div class="botons">';
-			txt = txt +'<span><img src="img/pencil.png" alt="edita"> </span>';
+			txt = txt +'<span><img src="img/pencil.png" onclick="recuperarMultimedia('+id +')" alt="edita"> </span>';
 			txt = txt +'<span><img src="img/bin.png" onclick="eliminaMultimedia('+id +')" alt="borrar"> </span>';
 			txt = txt +'</div>';
 			txt = txt +'</div>';
@@ -274,7 +310,7 @@ function presentaUsuaris(data){
 			txt = txt +'<span>'+nom+'</span>';
 			txt = txt +'</div>';
 			txt = txt +'<div class="botons">';
-			txt = txt +'<span><img src="img/pencil.png" alt="edita"> </span>';
+			txt = txt +'<span><img src="img/pencil.png" onclick="recuperarUsuari('+id +')" alt="edita"> </span>';
 			txt = txt +'<span><img src="img/bin.png" onclick="eliminaUsuari('+id +')" alt="borrar"> </span>';
 			txt = txt +'</div>';
 			txt = txt +'</div>';
