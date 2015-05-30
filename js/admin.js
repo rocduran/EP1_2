@@ -91,6 +91,7 @@ function inserirNoticia(){
 		type: 'POST',
 		data: 'quin=noticies&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&url='+url+'&resum='+resum ,
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		success: function(datos){alert("Dades inserides correctament")}
 
 	});
 

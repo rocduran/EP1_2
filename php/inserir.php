@@ -1,5 +1,5 @@
 <?php
-if($_POST['quin'] == 'noticies'){
+// if($_POST['quin'] == 'noticies'){
 	require('clases/noticia.class.php');
 
 	$tipus = htmlspecialchars(trim($_POST['tipus']));
@@ -9,7 +9,7 @@ if($_POST['quin'] == 'noticies'){
 	$resum = htmlspecialchars(trim($_POST['resum']));
 
 	$objnoticia=new noticia;
-	$objnoticia->inserir(array("$tipus", "$titol", "$contingut", "$url," "$resum"))
+	$objnoticia->inserir(array($tipus, $titol, $contingut, $url, $resum));
 	
-}
+// }
 ?>
