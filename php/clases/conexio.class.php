@@ -24,4 +24,5 @@ class DBManager{
 		return true;	
 	}
 }
+
 ?>
