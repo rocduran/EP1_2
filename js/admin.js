@@ -11,7 +11,7 @@ function associaEvents(){
 	$("a.multimedia").click(llistatMultimedies);
 	$("a.usuaris").click(llistatUsuaris);
 
-	//Inserir elements//
+	//Inserir elements, eliminar o modificar elements//
 	$('#enviarNot').click(inserirNoticia);
 	$('#borrarNot').click(netejaNoticia);
 
@@ -83,15 +83,13 @@ function inserirNoticia(){
 
 	var url = "test";
 	var resum = "test";
-
-	alert(tipus);
 	
 	$.ajax
 	({	url: 'php/inserir.php',
 		type: 'POST',
 		data: 'quin=noticies&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&url='+url+'&resum='+resum ,
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-		success: function(datos){alert("Dades inserides correctament")}
+		success: function(data){alert("Dades inserides correctament")}
 
 	});
 
@@ -119,8 +117,6 @@ function eliminaNoticia(valor) {
 		type: 'GET',
 		data: 'id='+valor+'&quin=noticia',
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-
-		success: function() {llistatNoticies(dades);} 
 	});
 }	
 
@@ -131,8 +127,6 @@ function eliminaMultimedia(valor) {
 		type: 'GET',
 		data : 'id='+valor+'&quin=multimedia', 
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-
-		success: function(data) {presentaMultimedies(data);} 
 	});
 }
 
@@ -142,11 +136,28 @@ function eliminaUsuari(valor) {
 		dataType: 'json',
 		type: 'GET',
 		data: 'id='+valor+'&quin=usuari',
-		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-
-		success: function(data) {presentaUsuari(data);} 
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false
 	});
 }	
+
+// FUNCIONS PER MODIFICAR DADES DE LA BASE DE DADES//
+/////////////////////////////////////////////////////
+function modificarNoticia(valor){
+ 	$('.menuadmin a').removeClass('aqui');
+    $('div.inserirNoticia').addClass('aqui');
+    $('div.inserirNoticia').show();
+    $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti, div.inserirUsuari').hide();
+
+    $('.header').html("Editar Noticia");
+
+    $.ajax
+	({	url: 'php/llistats.php',
+		dataType: 'json',
+		type: 'GET',
+		data: 'quin=noticia&id='+valor,
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+	});
+}
 
 
 //FUNCIONS PER PRESENTAR DADES DE LA BASE DE DADES//
@@ -166,7 +177,7 @@ function presentaNoticies(data){
 			txt = txt +'<span>'+titol+'</span>';
 			txt = txt +'</div>';
 			txt = txt +'<div class="botons">';
-			txt = txt +'<span><img src="img/pencil.png" alt="edita"> </span>';
+			txt = txt +'<span><img src="img/pencil.png" onclick="modificarNoticia('+id +')" alt="edita"> </span>';
 			txt = txt +'<span><img src="img/bin.png" onclick="eliminaNoticia('+id +')" alt="borrar"> </span>';
 			txt = txt +'</div>';
 			txt = txt +'</div>';
