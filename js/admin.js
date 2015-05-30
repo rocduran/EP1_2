@@ -12,7 +12,7 @@ function associaEvents(){
 	$("a.usuaris").click(llistatUsuaris);
 
 	//Inserir elements, eliminar o modificar elements//
-	$('#enviarNot').click(inserirNoticia);
+	$('#enviarNot').click(inserirModificarNoticia);
 	$('#borrarNot').click(netejaNoticia);
 
 
@@ -62,7 +62,7 @@ function llistatUsuaris(dades){
 
 //FUNCIONS PER INSERIR DADES A LA BASE DE DADES//
 /////////////////////////////////////////////////
-function inserirNoticia(){
+function inserirModificarNoticia(){ //segons sigui el header del div, inserim o modifiquem
 	var titol = document.getElementById('titolNot').value;
 
 	var cont = document.getElementById('contingutNot').value;
@@ -70,28 +70,44 @@ function inserirNoticia(){
 	var tipus;
 
 	if(document.getElementById('op1').checked){
-		tipus = 'Votació';
+		tipus = 'Vot';
 	}
 
 	if(document.getElementById('op2').checked){
-		tipus = 'Enquesta';
+		tipus = 'Enq';
 	}
 
 	if(document.getElementById('op3').checked){
-		tipus = 'Referendum';
+		tipus = 'Ref';
 	}
 
 	var url = "test";
 	var resum = "test";
-	
-	$.ajax
-	({	url: 'php/inserir.php',
-		type: 'POST',
-		data: 'quin=noticies&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&url='+url+'&resum='+resum ,
-		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-		success: function(data){alert("Dades inserides correctament")}
 
-	});
+	var quin = $('.inserirNoticia').find('.header').text();
+		
+	if(quin == "Inserir notícia"){
+		$.ajax
+		({	url: 'php/inserir.php',
+			type: 'POST',
+			data: 'quin=noticies&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&url='+url+'&resum='+resum ,
+			cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+			success: function(data){alert("Dades inserides correctament")}
+
+		});
+	}
+
+	if(quin == "Editar notícia"){
+		var id = document.getElementById("idNot").innerHTML;
+		$.ajax
+		({	url: 'php/inserir.php',
+			type: 'POST',
+			data: 'quin=noticiesUpdate&id='+id+'&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&url='+url+'&resum='+resum ,
+			cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+			success: function(data){alert("Dades actualitzades correctament")}
+
+		});
+	}
 
 	netejaNoticia();
 }
@@ -142,28 +158,61 @@ function eliminaUsuari(valor) {
 
 // FUNCIONS PER MODIFICAR DADES DE LA BASE DE DADES//
 /////////////////////////////////////////////////////
-function modificarNoticia(valor){
- 	$('.menuadmin a').removeClass('aqui');
-    $('div.inserirNoticia').addClass('aqui');
-    $('div.inserirNoticia').show();
-    $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti, div.inserirUsuari').hide();
-
-    $('.header').html("Editar Noticia");
-
-    $.ajax
+function recuperarNoticia(valor){ // primer recuperem la noticia que volem modificar
+ 	$.ajax
 	({	url: 'php/llistats.php',
 		dataType: 'json',
 		type: 'GET',
 		data: 'quin=noticia&id='+valor,
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		success: function(data){presentaNoticia(data);}
 	});
 }
 
+function presentaNoticia(data){ 
+	// Primer mostrem la pagina d'inserir modificada amb els camps de la noticia
+	$('.menuadmin a').removeClass('aqui');
+    $('div.inserirNoticia').addClass('aqui');
+    $('div.inserirNoticia').show();
+    $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti, div.inserirUsuari').hide();
 
+    $('.inserirNoticia .header').html("Editar notícia"); // s'ha de tornar al estat original al sortir !
+    
+    var id = data[1].id;
+    var titol = data[1].titol;
+    var tipus = data[1].tipus;
+    var url = data[1].url;
+    var cont = data[1].contingut;
+    var resum = data[1].resum;
+
+    $('#titolNot').val(titol);
+
+    if(tipus == "Vot"){
+		document.getElementById('op1').checked = true;
+	}
+
+	if(tipus == "Enq"){
+		document.getElementById('op2').checked = true;
+	}
+
+	if(tipus == "Ref"){
+		document.getElementById('op3').checked = true;
+	}
+
+	$('#contingutNot').val(cont);
+	$('#resum').val(resum);
+
+	// aquest p sera per guardar el id de la noticia, per actualitzar quan l'usuari clicki al boto enviar 
+	var element = document.createElement("p");
+	var texte = document.createTextNode(id);
+	element.appendChild(texte);
+	element.style.display = "none";
+	element.id = "idNot"
+
+	document.getElementById("containerInsNot").appendChild(element);
+}
 //FUNCIONS PER PRESENTAR DADES DE LA BASE DE DADES//
 ////////////////////////////////////////////////////
-
-//Funció de presentació quan es rebin les dades formatades
 function presentaNoticies(data){
 	$("#containerNoticies").html("");
 	$("#containerNoticies").append(
@@ -177,7 +226,7 @@ function presentaNoticies(data){
 			txt = txt +'<span>'+titol+'</span>';
 			txt = txt +'</div>';
 			txt = txt +'<div class="botons">';
-			txt = txt +'<span><img src="img/pencil.png" onclick="modificarNoticia('+id +')" alt="edita"> </span>';
+			txt = txt +'<span><img src="img/pencil.png" onclick="recuperarNoticia('+id +')" alt="edita"> </span>';
 			txt = txt +'<span><img src="img/bin.png" onclick="eliminaNoticia('+id +')" alt="borrar"> </span>';
 			txt = txt +'</div>';
 			txt = txt +'</div>';
@@ -188,7 +237,6 @@ function presentaNoticies(data){
 		);
 }
 
-//Funció de presentació quan es rebin les dades formatades
 function presentaMultimedies(data){
 	$("#containerMultimedia").html("");
 	$("#containerMultimedia").append(
@@ -213,7 +261,6 @@ function presentaMultimedies(data){
 		);
 }
 
-//Funció de presentació quan es rebin les dades formatades
 function presentaUsuaris(data){
 	$("#containerUsuaris").html("");
 	$("#containerUsuaris").append(

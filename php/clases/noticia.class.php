@@ -16,7 +16,7 @@ class Noticia{
 	
 	function modificar($camps,$id){
 		if($this->con->conectar()==true){
-			return mysql_query("UPDATE noticies SET id = '".$camps[0]."', tipus = '".$camps[1]."', titol = '".$camps[2]."', contingut = '".$camps[3]."', url = '".$camps[4]."','".$camps[5]."' WHERE id = ".$id);
+			return mysql_query("UPDATE noticies SET id = '".$camps[0]."', tipus = '".$camps[1]."', titol = '".$camps[2]."', contingut = '".$camps[3]."', url = '".$camps[4]."', resum ='".$camps[5]."' WHERE id = ".$id);
 		}
 	}
 	

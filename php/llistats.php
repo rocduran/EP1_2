@@ -75,10 +75,10 @@ if($_GET['quin'] == 'noticia'){
 	//Instància de l'objecte
 	$objnoticia=new noticia;
 
-	//Recuperem id de la noticia a recuperar
+	//id de la noticia a recuperar
 	$id = $_GET['id'];
 
-	//Invocar mètode (Recollir tots les noticies)
+	//Invocar mètode (Recollir noticia)
 	$consulta=$objnoticia->mostrar_noticia($id);
 
 	//Cal que el primer index sigui 1 (per poder usar each en JS)
@@ -92,5 +92,4 @@ if($_GET['quin'] == 'noticia'){
 	//Codificar en JSON i retornar petició en un array entenible per JS
 	echo json_encode($dades);
 }
-
 ?>

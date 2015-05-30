@@ -87,6 +87,7 @@ $(document).ready(function() { // Script del Slider de la pagina index
   $("a.inserirNoticia").click(function(e) {
     $('.menuadmin a').removeClass('aqui');
     $(this).addClass('aqui');
+    $('.inserirNoticia .header').html("Inserir notícia");
     $('div.inserirNoticia').show();
     $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti, div.inserirUsuari').hide();
     return false;
@@ -96,6 +97,7 @@ $(document).ready(function() { // Script del Slider de la pagina index
   $("a.inserirMulti").click(function(e) {
     $('.menuadmin a').removeClass('aqui');
     $(this).addClass('aqui');
+    $('.inserirMulti .header').html("Inserir multimèdia");
     $('div.inserirMulti').show();
     $('div.noticies, div.multimedia, div.resum, div.usuaris, div.inserirUsuari').hide();
     return false;
@@ -105,6 +107,7 @@ $(document).ready(function() { // Script del Slider de la pagina index
   $("a.inserirUsuari").click(function(e) {
     $('.menuadmin a').removeClass('aqui');
     $(this).addClass('aqui');
+    $('.inserirUsuari .header').html("Inserir usuari");
     $('div.inserirUsuari').show();
     $('div.noticies, div.multimedia, div.resum, div.usuaris').hide();
     return false;
