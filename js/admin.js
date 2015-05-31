@@ -246,7 +246,6 @@ function presentaUsuari(data){
 	//mas de lo mismo xD
 }
 
-function 
 //FUNCIONS PER PRESENTAR DADES DE LA BASE DE DADES//
 ////////////////////////////////////////////////////
 function presentaNoticies(data){
