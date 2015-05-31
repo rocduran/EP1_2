@@ -173,32 +173,35 @@ nav ul ul li:last-child a:hover {
 	border-radius: 0 5px 5px 5px;
 }
 
-#conectat{
-	height: 140px;
-	padding: 10px;
+#noConectat{
+    height: 140px;
+    padding: 10px;
 }
 
-#conectat label{
-	color:#EEE;
+#noConectat label{
+    color:#EEE;
+    background-color: #222;
+    padding: 0;
+    float: none;
 }
 
-#conectat input[type = text], #conectat input[type = password]{
-	display: block;
-	margin-bottom: 2%;
+#noConectat input[type = text], #noConectat input[type = password]{
+    display: block;
+    margin-bottom: 2%;
 }
 
-#conectat input[type = button]{
-	margin-left: 32%;
-	margin-top: 2%;
-	border: 1px solid;
-	padding :4% 6%;
-	color: #00A573;
-	background-color: #222;
+#BotoConectat{
+    margin-left: 32%;
+    margin-top: 2%;
+    border: 1px solid;
+    padding :4% 6%;
+    color: #00A573;
+    background-color: #222;
 }
 
-#conectat input[type = button]:hover{
-	color: #000000;
-	background-color: #00A573;
+#BotoConectat:hover{
+    color: #000000;
+    background-color: #00A573;
 }
 
 #sortir:hover{
