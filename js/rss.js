@@ -34,11 +34,11 @@ function presentaNoticies(data){
 		var descripcio = data[index][1];
 		var url = data[index][2];
 
-		txt = txt +'<a href="'+url+'" title="">';
+		txt = txt +'<a href="'+url+'" title="'+titol+'">';
 		txt = txt +'<div class="seccio">';
 		txt = txt +'<h1 class="pageTitle">'+titol+'</h1>';
 		txt = txt + descripcio;
-		txt = txt +'</div></a>';
+		txt = txt +'</div></a><hr>';
 
 		});
 

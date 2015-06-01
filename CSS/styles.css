@@ -430,6 +430,30 @@ span {
     text-align: justify;
 }
 
+/*RSS */
+
+#rss {
+	background-color: #FFF;
+}
+
+#rss :not(h1){
+	margin: 0;
+}
+
+#rss h1 {
+	color: #666;
+	margin: 0 0 10px 0;
+	background-color: #ddd;
+}
+
+#rss hr{
+	margin-top: 50px;
+}
+
+#rss img, #rss iframe, #rss h2, #rss p, #rss a{
+	margin-left: 20px;
+} 
+
 /* Footer */
 .footer {
 	min-height: 1em;
