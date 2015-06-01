@@ -2,6 +2,7 @@ $(document).ready(init);
 //Inicialitzar associacions Events-formulari
 function init(){
 	associaEvents();
+	determinaVariableSessio();
 }
 
 //Connector Events
@@ -17,6 +18,10 @@ function associaEvents(){
 
 	//AQUI FALTARIEN ELS DE enviarMultimedia i enviarUsuari (nse si es diuen aixi, al html surt XD)
 
+
+	//Inici Sessio//
+	$("#BotoConectat").click(conecta);
+	$("#sortir").click(desconecta);
 
 }
 
@@ -88,7 +93,7 @@ function inserirModificarNoticia(){ //segons sigui el header del div, inserim o 
 
 	var quin = $('.inserirNoticia').find('.header').text();
 		
-	if(quin == "Inserir notícia"){
+	if(quin == "Inserir not\u00edcia"){
 		$.ajax
 		({	url: 'php/inserir.php',
 			type: 'POST',
@@ -99,7 +104,7 @@ function inserirModificarNoticia(){ //segons sigui el header del div, inserim o 
 		});
 	}
 
-	if(quin == "Editar notícia"){
+	if(quin == "Editar not\u00edcia"){
 		var id = document.getElementById("idNot").innerHTML;
 		$.ajax
 		({	url: 'php/inserir.php',
@@ -194,7 +199,7 @@ function presentaNoticia(data){
     $('div.inserirNoticia').show();
     $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti, div.inserirUsuari').hide();
 
-    $('.inserirNoticia .header').html("Editar notícia"); // s'ha de tornar al estat original al sortir !
+    $('.inserirNoticia .header').html("Editar not\u00edcia"); // s'ha de tornar al estat original al sortir !
     
     var id = data[1].id;
     var titol = data[1].titol;
@@ -318,6 +323,69 @@ function presentaUsuaris(data){
 
 		})
 		);
+}
+
+//INICI SESSIO//
+function conecta(){
+	var usuari = document.getElementById('suNom').value;
+
+	var contrasenya = document.getElementById('suPass').value;
+
+	$.ajax
+	({	url: 'php/conectat.php',
+		type: 'POST',
+		data: 'quin=login&usuari='+usuari+'&contrasenya='+contrasenya,
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		//Trucada a funció (per no programar-la aquí i respectar el model)
+		success: function(data) {resposta(data, usuari);} 
+	});
+}
+
+function resposta(ok, usuari){
+	if(ok){
+		alert("BENVINGUT ! " + usuari);
+		determinaVariableSessio();
+		location.reload();
+	} else {
+		alert("NOM D'USUARI O CONTRASENYA INCORRECTA !");
+	}
+}
+
+function desconecta(){
+	$.ajax
+	({	url: 'php/conectat.php',
+		type: 'POST',
+		data: 'quin=logout',
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		success: function() {determinaVariableSessio();} 
+	});
+	location.reload();
+}
+
+function determinaVariableSessio(){
+	$.ajax
+	({	url: 'php/conectat.php',
+		type: 'POST',
+		data: 'quin=load',
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		//Trucada a funció (per no programar-la aquí i respectar el model)
+		success: function(data) {presentacio(data);} 
+	});
+}
+
+function presentacio(data){
+	if(data[0]){
+		document.getElementById("noConectat").style.display = "none";
+		document.getElementById("conectat").style.display = "hidden";
+		document.getElementById("nomUsuari").text = data[1];
+		document.getElementById("signIn").style.display = "none";
+
+	} else {
+		document.getElementById("nomUsuari").text = "Inicia Sessi\u00f3";
+		document.getElementById("noConectat").style.display = "hidden";
+		document.getElementById("conectat").style.display = "none";
+		document.getElementById("signIn").style.display = "block";
+	}
 }
 
 

@@ -1,6 +1,7 @@
 window.onload = function() {
 	//indexedDB.deleteDatabase("RMBD"); Per borrar la base de dades, util pel testing
 	associarEvents();
+	determinaVariableSessio();
 };
 
 function associarEvents() {
@@ -444,6 +445,7 @@ function reiniciar(){
 		//alert("Recarregar la pàgina !");
 	}
 }
+
 
 
 

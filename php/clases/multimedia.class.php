@@ -12,6 +12,7 @@ class Multimedia{
 		if($this->con->conectar()==true){
 			return mysql_query("INSERT INTO elements_mm (id, tipus, titol, desc, url) VALUES ('".$campos[0]."', '".$campos[1]."','".$campos[2]."','".$campos[3]."','".$campos[4]."')");
 		}
+		
 	}
 	
 	function modificar($campos,$id){

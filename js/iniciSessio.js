@@ -27,8 +27,8 @@ function conecta(){
 	});
 }
 
-function resposta(estat, usuari){
-	if(estat =="true"){
+function resposta(ok, usuari){
+	if(ok){
 		alert("BENVINGUT ! " + usuari);
 		determinaVariableSessio();
 		location.reload();
@@ -43,7 +43,6 @@ function desconecta(){
 		type: 'POST',
 		data: 'quin=logout',
 		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
-		//Trucada a funció (per no programar-la aquí i respectar el model)
 		success: function() {determinaVariableSessio();} 
 	});
 	location.reload();
@@ -65,10 +64,13 @@ function presentacio(data){
 		document.getElementById("noConectat").style.display = "none";
 		document.getElementById("conectat").style.display = "hidden";
 		document.getElementById("nomUsuari").text = data[1];
+		document.getElementById("signIn").style.display = "none";
 
 	} else {
 		document.getElementById("nomUsuari").text = "Inicia Sessió";
 		document.getElementById("noConectat").style.display = "hidden";
 		document.getElementById("conectat").style.display = "none";
+		document.getElementById("signIn").style.display = "block";
 	}
+
 }

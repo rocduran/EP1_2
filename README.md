@@ -31,10 +31,11 @@
 
 - Part altres (tema 5 Proves i depuració) OPCIONAL :
   - Mitjançant PHPUNIT definiu un informe amb els diferents test efectuats per provar i depurar el vostre projecte
-  - Part serveis Web i Mashups (temes 6, 7 i 9):
-    - En el treball anterior, es van recollir les dades provinents de les diferents països veïns en format XML i Json (DPEspanya2015.XML  i DPFranca2015.txt).
-    - En aquest treball, us demano de que aquestes informacions provinguin d’un serveiWeb que generi la mateixa informació en XML
-    - Crear una pàgina web en la que es combinin informacions provinents d’un parell de RSS i del servei GoogleMaps.
+  
+- Part serveis Web i Mashups (temes 6, 7 i 9):
+  - En el treball anterior, es van recollir les dades provinents de les diferents països veïns en format XML i Json (DPEspanya2015.XML  i DPFranca2015.txt).
+  - En aquest treball, us demano de que aquestes informacions provinguin d’un serveiWeb que generi la mateixa informació en XML
+  - Crear una pàgina web en la que es combinin informacions provinents d’un parell de RSS i del servei GoogleMaps.
 
 
 ### Idees + TODO

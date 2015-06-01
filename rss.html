@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-	<title>Altres Dades</title>
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="css/altres.css">
+	<title>RSS FinoFilipino</title>
 	<meta charset="utf-8">
-
-  <script src="js/altres.js" type="text/javascript"></script>
-  <script src="js/jquery-1.11.2.js" type="text/javascript"></script>
-  <script src="js/iniciSessio.js" type="text/javascript"></script>
-
+	<link rel="stylesheet" type="text/css" href="CSS/styles.css">  
 </head>
-
 <body>
   <div class="panell">
     <div class="top"> <!--Capçalera-->
-      <h1>Democràcias Andorrana</h1>
+      <h1>Democràcia Andorrana</h1>
     </div>
     <nav> <!--Menu-->
       <ul> 
@@ -35,8 +27,9 @@
           <li><a href="" title="Articles">Articles</a></li>
         </ul>
       </li>
-      <li><a id="altres" href="" title="Altres">Altres</a></li>
-      
+      <li><a id="altres" href="altres.html" title="Altres">Altres</a></li>
+      <li><a id="RSS" href="rss.html" title="Altres">RSS</a></li>
+
        <li class="login"><a id="nomUsuari"></a>
         <ul id="conectat">
           <li><a href="#">Perfil</a></li>
@@ -58,30 +51,12 @@
     </ul>
   </nav>
 
+<div class="footer">
+  <p id="copyright">Roc Duran &amp; Moises Miret </p>
+</div>
 
-  <div class="botons">
-    <label for="jsonBut"><input id="jsonBut" class="button" type="button" name="" value="Democràcia participativa a França"></label>
-    <label for="res"><input id="res" class="button" type="button" name="" value="Reinicialitzar"></label>
-    <label for="xmlBut"><input id="xmlBut" class="button" type="button" name="" value="Democràcia participativa a Espanya"></label>
-  </div>
-
-  <h2 id="titulH">Contingut fitxer:</h2>
-
-  <div id="contingutFitxer"></div>
-
-  <div id="crud">
-      <label for="mod"><input id="mod" class="button"  type="button" name="" value="Modificar"></label>
-      <label for="sav"><input id="sav" class="button"  type="button" name="" value="Guardar"></label>
-      <label for="del"><input id="del" class="button" type="button" name="" value="Esborrar"></label>
-  </div>
-  
+</div> <!--panell -->
 
 
-
-   <div class="footer">
-   <p id="copyright">Roc Duran &amp; Moises Miret </p>
-   </div>
- </div>
-
- </body>
- </html>
+</body>
+</html>

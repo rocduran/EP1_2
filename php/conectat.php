@@ -6,9 +6,9 @@ switch ($_POST["quin"]){
 
 		if ($bind = ldap_bind($ldap, "mail=".$_POST["usuari"]."@uda.ad", $_POST["contrasenya"])) {
 			$_SESSION['usuari']  = $_POST["usuari"]."@uda.ad";
-			$ok = "true";
+			$ok = true;
 		} else {
-			$ok = "false";
+			$ok = false;
 		}
 		header('Content-type: application/json');
 		echo json_encode($ok);
