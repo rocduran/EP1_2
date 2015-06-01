@@ -10,7 +10,7 @@ class Multimedia{
 
 	function inserir($campos){
 		if($this->con->conectar()==true){
-			return mysql_query("INSERT INTO elements_mm (id, tipus, titol, desc, url) VALUES ('".$campos[0]."', '".$campos[1]."','".$campos[2]."','".$campos[3]."','".$campos[4]."')");
+			return mysql_query("INSERT INTO elements_mm (tipus, titol, url) VALUES ('".$campos[0]."', '".$campos[1]."','".$campos[2]."')");
 		}
 		
 	}
@@ -18,7 +18,7 @@ class Multimedia{
 	function modificar($campos,$id){
 		if($this->con->conectar()==true){
 			//print_r($campos);
-			return mysql_query("UPDATE elements_mm SET id = '".$campos[0]."', tipus = '".$campos[1]."', titol = '".$campos[2]."', desc = '".$campos[3]."', url = '".$campos[4]."' WHERE id = ".$id);
+			return mysql_query("UPDATE elements_mm SET id = '".$campos[0]."', tipus = '".$campos[1]."', titol = '".$campos[2]."', url = '".$campos[3]."' WHERE id = ".$id);
 		}
 	}
 	

@@ -13,7 +13,8 @@ function associaEvents(){
 	$("a.usuaris").click(llistatUsuaris);
 
 	//Inserir elements, eliminar o modificar elements//
-	$('#enviarNot').click(inserirModificarNoticia);
+	$('#enviarNot').click(inserirModificarNoticies);
+	$('#enviarMult').click(inserirModificarMultimedies);
 	$('#borrarNot').click(netejaNoticia);
 
 	//AQUI FALTARIEN ELS DE enviarMultimedia i enviarUsuari (nse si es diuen aixi, al html surt XD)
@@ -69,7 +70,7 @@ function llistatUsuaris(dades){
 
 //FUNCIONS PER INSERIR DADES A LA BASE DE DADES//
 /////////////////////////////////////////////////
-function inserirModificarNoticia(){ //segons sigui el header del div, inserim o modifiquem
+function inserirModificarNoticies(){ //segons sigui el header del div, inserim o modifiquem
 	var titol = document.getElementById('titolNot').value;
 
 	var cont = document.getElementById('contingutNot').value;
@@ -88,7 +89,8 @@ function inserirModificarNoticia(){ //segons sigui el header del div, inserim o 
 		tipus = 'Ref';
 	}
 
-	var url = "test";
+	var url = document.getElementById('arxiu').text ;
+	alert(url);
 	var resum = "test";
 
 	var quin = $('.inserirNoticia').find('.header').text();
@@ -131,11 +133,57 @@ function netejaNoticia(){
 }
 
 function inserirModificarMultimedies(){ //segons sigui el header del div, inserim o modifiquem
-	// com el de noticies
+	var titol = document.getElementById('titolMult').value;
+
+	var tipus;
+
+	if(document.getElementById('op4').checked){
+		tipus = 'Audio';
+	}
+
+	if(document.getElementById('op5').checked){
+		tipus = 'Video';
+	}
+
+	if(document.getElementById('op6').checked){
+		tipus = 'Article';
+	}
+
+	var url = document.getElementById('arxiu').text ;
+
+	var quin = $('.inserirMulti').find('.header').text();
+		
+	if(quin == "Inserir multim\u00e8dia"){
+		$.ajax
+		({	url: 'php/inserir.php',
+			type: 'POST',
+			data: 'quin=multimedies&tipus='+tipus+'&titol='+titol+'&url='+url,
+			cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+			success: function(data){alert("Dades inserides correctament")}
+		});
+	}
+
+	if(quin == "Editar multim\u00e8dia"){
+		var id = document.getElementById("idMult").innerHTML;
+		$.ajax
+		({	url: 'php/inserir.php',
+			type: 'POST',
+			data: 'quin=multimediesUpdate&id='+id+'&tipus='+tipus+'&titol='+titol+'&url='+url,
+			cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+			success: function(data){alert("Dades actualitzades correctament")}
+
+		});
+	}
+
+	netejaMultimedia();
 }
 
 function netejaMultimedia(){
+	document.getElementById('titolMult').value = "";
 
+	document.getElementById('op4').checked = false;
+	document.getElementById('op5').checked = false;
+	document.getElementById('op6').checked = false;
 }
 
 function inserirModificarUsuaris(){ //segons sigui el header del div, inserim o modifiquem
@@ -235,12 +283,53 @@ function presentaNoticia(data){
 	document.getElementById("containerInsNot").appendChild(element);
 }
 
-function recuperarMultimedia(dades){
-	//aqui aniria la peticio ajax + crida a la seguuent
+function recuperarMultimedia(valor){
+	$.ajax
+	({	url: 'php/llistats.php',
+		dataType: 'json',
+		type: 'GET',
+		data: 'quin=multimedia&id='+valor,
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		success: function(data){presentaMultimedia(data);}
+	});
 }
 
 function presentaMultimedia(data){
-	//aqui lo de recuperar dades del element i presentarles, canviar el header i el div oculto pel id
+	// Primer mostrem la pagina d'inserir modificada amb els camps de la noticia
+	$('.menuadmin a').removeClass('aqui');
+    $('div.inserirMulti').addClass('aqui');
+    $('div.inserirMulti').show();
+    $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirNoticia, div.inserirUsuari').hide();
+
+    $('.inserirMulti .header').html("Editar multim\u00e8dia"); // s'ha de tornar al estat original al sortir !
+    
+    var id = data[1].id;
+    var titol = data[1].titol;
+    var tipus = data[1].tipus;
+    var url = data[1].url;
+
+    $('#titolMult').val(titol);
+
+    if(tipus == "Audio"){
+		document.getElementById('op4').checked = true;
+	}
+
+	if(tipus == "Video"){
+		document.getElementById('op5').checked = true;
+	}
+
+	if(tipus == "Article"){
+		document.getElementById('op6').checked = true;
+	}
+
+	// aquest p sera per guardar el id de la noticia, per actualitzar quan l'usuari clicki al boto enviar 
+	var element = document.createElement("p");
+	var texte = document.createTextNode(id);
+	element.appendChild(texte);
+	element.style.display = "none";
+	element.id = "idMult";
+
+	document.getElementById("containerInsMult").appendChild(element);
 }
 
 function recuperarUsuari(dades){
