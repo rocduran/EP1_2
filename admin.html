@@ -121,15 +121,6 @@
         <span><input type = "radio" name = "op" class = "radBut" id="op3" title="opcio3" /><label class="opl" for="op3">Referendum</label></span>
       </div>
 
-      <form enctype="multipart/form-data" action="upload.php" method="POST">
-        <!-- MAX_FILE_SIZE debe preceder el campo de entrada de archivo -->
-        <input type="hidden" name="MAX_FILE_SIZE" value="" />
-        <!-- El nombre del elemento de entrada determina el nombre en el array $_FILES -->
-        Seleccionar imatge: ( MAX 30KB): <input name="userfile" type="file" value = "" />
-        <input type="submit" value="Pujar arxiu:" />
-      </form>
-      
-
       <span><label class="lbl" for="contingutNot">Insereix el contingut:<textarea id="contingutNot" placeholder="Contingut noticia..."></textarea></label></span> 
 
       <span><label for="enviar"><input id="enviarNot" class="button-submit" type="button" name="" value="Enviar"></label> </span>
@@ -141,18 +132,22 @@
   <div class="inserirMulti">
     <h2 class="header">Inserir multimèdia:</h2> 
     <div id="containerInsMult">
-      <span><label class="lbl" for="titolMult">Insereix el titol del arxiu: <input class="long" type="text" id="titolMult" value=""></label></span> 
-      <div class="opcions">
-        <span><label class="lbl">Selecionar categoria:</label></span>
-        <span><input type = "radio" name = "op" class = "radBut" id="op4" title="opcio1" checked="checked" /><label class="opl" for="op4">Audio</label></span>
-        <span><input type = "radio" name = "op" class = "radBut" id="op5" title="opcio2" /><label class="opl" for="op5">Video</label></span>
-        <span><input type = "radio" name = "op" class = "radBut" id="op6" title="opcio3" /><label class="opl" for="op6">Article</label></span>
-      </div>
 
-      <span><label class="lbl" for="arxiu">Selecionar arxiu: <input type="file" name="arxiu" value=""></label></span> 
+      <form enctype="multipart/form-data" action="http://exemples.ua.ad/RocMoi/php/upload.php" method="POST">
+        <label class="lbl" for="titolMult">Insereix el titol del arxiu: <input class="long" type="text" id="titolMult" value=""></label>
+        <div class="opcions">
+          <label class="lbl">Selecionar categoria:</label>
+          <input type = "radio" name = "op" class = "radBut" id="op4" title="opcio1" checked="checked" /><label class="opl" for="op4">Audio</label>
+          <input type = "radio" name = "op" class = "radBut" id="op5" title="opcio2" /><label class="opl" for="op5">Video</label>
+          <input type = "radio" name = "op" class = "radBut" id="op6" title="opcio3" /><label class="opl" for="op6">Article</label>
+        </div>
 
-      <span><label for="enviar"><input id="enviarMult" class="button-submit" type="button" name="" value="Enviar"></label> </span>
-      <span><label for="borrar"><input id="enviarMult" class="button-cancelar" type="button" name="" value="Reinicialitzar"></label> </span>
+        <input type="hidden" name="MAX_FILE_SIZE" value="" />
+        <label class="lbl" for="userfile">Selecionar arxiu: <input id="arxiu" type="file" name="userfile" value=""></label>
+
+        <label for="enviar"><input id="enviarMult" class="button-submit" type="submit" name="" value="Enviar"></label> 
+        <label for="borrar"><input id="borrarMult" class="button-cancelar" type="button" name="" value="Reinicialitzar"></label>
+      </form>
 
     </div>
   </div>

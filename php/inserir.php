@@ -5,16 +5,10 @@ if($_POST['quin'] == 'noticies'){
 	$tipus = htmlspecialchars(trim($_POST['tipus']));
 	$titol = htmlspecialchars(trim($_POST['titol']));
 	$contingut = htmlspecialchars(trim($_POST['contingut']));
-	$url = htmlspecialchars(trim($_POST['url']));
-	//prova penjar arxiu
-	$target_path = "uploads/";
-	$target_path = $target_path . basename( $_POST['url']); 
-	$url = $target_path;
-	//
 	$resum = htmlspecialchars(trim($_POST['resum']));
 
 	$objnoticia=new noticia;
-	$objnoticia->inserir(array($tipus, $titol, $contingut, $url, $resum));
+	$objnoticia->inserir(array($tipus, $titol, $contingut, $resum));
 }
 
 if($_POST['quin'] == 'noticiesUpdate'){
@@ -24,11 +18,10 @@ if($_POST['quin'] == 'noticiesUpdate'){
 	$tipus = htmlspecialchars(trim($_POST['tipus']));
 	$titol = htmlspecialchars(trim($_POST['titol']));
 	$contingut = htmlspecialchars(trim($_POST['contingut']));
-	$url = htmlspecialchars(trim($_POST['url']));
 	$resum = htmlspecialchars(trim($_POST['resum']));
 
 	$objnoticia=new noticia;
-	$objnoticia->modificar(array($id, $tipus, $titol, $contingut, $url, $resum), $id);
+	$objnoticia->modificar(array($id, $tipus, $titol, $contingut, $resum), $id);
 }
 
 if($_POST['quin'] == 'multimedies'){
@@ -36,7 +29,10 @@ if($_POST['quin'] == 'multimedies'){
 
 	$tipus = htmlspecialchars(trim($_POST['tipus']));
 	$titol = htmlspecialchars(trim($_POST['titol']));
-	$url = htmlspecialchars(trim($_POST['url']));
+	
+	$target_path = "img/";
+	$target_path = $target_path . basename( $_POST['url']); 
+	$url = $target_path;
 
 	$objmultimedia=new multimedia;
 	$objmultimedia->inserir(array($tipus, $titol, $url));
@@ -48,7 +44,10 @@ if($_POST['quin'] == 'multimediesUpdate'){
 	$id = htmlspecialchars(trim($_POST['id']));
 	$tipus = htmlspecialchars(trim($_POST['tipus']));
 	$titol = htmlspecialchars(trim($_POST['titol']));
-	$url = htmlspecialchars(trim($_POST['url']));
+	
+	$target_path = "uploads/";
+	$target_path = $target_path . basename( $_POST['url']); 
+	$url = $target_path;
 
 	$objmultimedia=new multimedia;
 	$objmultimedia->modificar(array($id, $tipus, $titol, $url), $id);

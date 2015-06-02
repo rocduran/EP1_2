@@ -18,8 +18,7 @@ function associaEvents(){
 	$('#borrarNot').click(netejaNoticia);
 
 	//AQUI FALTARIEN ELS DE enviarMultimedia i enviarUsuari (nse si es diuen aixi, al html surt XD)
-
-
+	
 	//Inici Sessio//
 	$("#BotoConectat").click(conecta);
 	$("#sortir").click(desconecta);
@@ -89,8 +88,6 @@ function inserirModificarNoticies(){ //segons sigui el header del div, inserim o
 		tipus = 'Ref';
 	}
 
-	var url = document.getElementById('arxiu').value ;
-	alert(url);
 	var resum = "test";
 
 	var quin = $('.inserirNoticia').find('.header').text();
@@ -99,7 +96,7 @@ function inserirModificarNoticies(){ //segons sigui el header del div, inserim o
 		$.ajax
 		({	url: 'php/inserir.php',
 			type: 'POST',
-			data: 'quin=noticies&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&url='+url+'&resum='+resum ,
+			data: 'quin=noticies&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&resum='+resum ,
 			cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 			success: function(data){alert("Dades inserides correctament")}
 
@@ -111,7 +108,7 @@ function inserirModificarNoticies(){ //segons sigui el header del div, inserim o
 		$.ajax
 		({	url: 'php/inserir.php',
 			type: 'POST',
-			data: 'quin=noticiesUpdate&id='+id+'&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&url='+url+'&resum='+resum ,
+			data: 'quin=noticiesUpdate&id='+id+'&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&resum='+resum ,
 			cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 			success: function(data){alert("Dades actualitzades correctament")}
 
@@ -149,7 +146,7 @@ function inserirModificarMultimedies(){ //segons sigui el header del div, inseri
 		tipus = 'Article';
 	}
 
-	var url = document.getElementById('arxiu').text ;
+	var url = document.getElementById('arxiu').value ;
 
 	var quin = $('.inserirMulti').find('.header').text();
 		
