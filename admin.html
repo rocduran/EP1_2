@@ -41,7 +41,7 @@
       <li><a id="altres" href="altres.html" title="Altres">Altres</a></li>
       <li><a id="RSS" href="rss.html" title="Altres">RSS</a></li>
 
-       <li class="login"><a id="nomUsuari"></a>
+      <li class="login"><a id="nomUsuari"></a>
         <ul id="conectat">
           <li><a href="#">Perfil</a></li>
           <li><a href="admin.html#resum">Ajustaments</a></li>
@@ -105,11 +105,11 @@
    </div>
 
    <div class="usuaris">
-   <h2 class="header">Usuaris <a  href="#" class="inserirUsuari" title=""><img class="agregar" src="./img/plus.png" alt=""></a></h2>
+     <h2 class="header">Usuaris <a  href="#" class="inserirUsuari" title=""><img class="agregar" src="./img/plus.png" alt=""></a></h2>
      <div id="containerUsuaris"></div>
-  </div>
+   </div>
 
-  <div class="inserirNoticia">
+   <div class="inserirNoticia">
     <h2 class="header">Inserir noticia</h2> 
     <div id="containerInsNot">
       <span><label class="lbl" for="titolNot">Insereix el titol de la noticia: <input class="long" type="text" id="titolNot"></label></span> 
@@ -121,7 +121,14 @@
         <span><input type = "radio" name = "op" class = "radBut" id="op3" title="opcio3" /><label class="opl" for="op3">Referendum</label></span>
       </div>
 
-      <span><label class="lbl" for="arxiu">Selecionar imatge: <input type="file" id="arxiu" value=""></label></span> 
+      <form enctype="multipart/form-data" action="upload.php" method="POST">
+        <!-- MAX_FILE_SIZE debe preceder el campo de entrada de archivo -->
+        <input type="hidden" name="MAX_FILE_SIZE" value="" />
+        <!-- El nombre del elemento de entrada determina el nombre en el array $_FILES -->
+        Seleccionar imatge: ( MAX 30KB): <input name="userfile" type="file" value = "" />
+        <input type="submit" value="Pujar arxiu:" />
+      </form>
+      
 
       <span><label class="lbl" for="contingutNot">Insereix el contingut:<textarea id="contingutNot" placeholder="Contingut noticia..."></textarea></label></span> 
 

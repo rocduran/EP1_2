@@ -6,6 +6,11 @@ if($_POST['quin'] == 'noticies'){
 	$titol = htmlspecialchars(trim($_POST['titol']));
 	$contingut = htmlspecialchars(trim($_POST['contingut']));
 	$url = htmlspecialchars(trim($_POST['url']));
+	//prova penjar arxiu
+	$target_path = "uploads/";
+	$target_path = $target_path . basename( $_POST['url']); 
+	$url = $target_path;
+	//
 	$resum = htmlspecialchars(trim($_POST['resum']));
 
 	$objnoticia=new noticia;

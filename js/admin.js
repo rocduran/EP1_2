@@ -89,7 +89,7 @@ function inserirModificarNoticies(){ //segons sigui el header del div, inserim o
 		tipus = 'Ref';
 	}
 
-	var url = document.getElementById('arxiu').text ;
+	var url = document.getElementById('arxiu').value ;
 	alert(url);
 	var resum = "test";
 

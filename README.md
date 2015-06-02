@@ -22,7 +22,7 @@
       - Llistat dels elements (a partir del tipus, per exemple, votacions, referèndums o enquestes)
       - Crear un formulari per poder efectuar una votació
     - Part Administrador :
-      - Crear un nou element en la taula ELEMENTS_MM inclòs el FTP per upload:
+      - Crear un nou element en la taula ELEMENTS_MM inclòs el [FTP](http://norfipc.com/inf/como-subir-fotos-imagenes-servidor-web.php) per upload:
       -  CodiElement : Codi únic
       - Tipus : (1->PDF, 2 -> Vídeo 3 -> àudio, 4-> altres). 
       - Titol : String

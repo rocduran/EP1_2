@@ -35,6 +35,10 @@ document.getElementById("datepicker").onkeyup = lsDatePicker;
 document.getElementById("email").onkeyup = lsEmail;
 document.getElementById("banc").onkeyup = lsBanc;
 
+//Boto registrar
+document.getElementById("registrar").style.display = "none";
+document.getElementById("registrar").onclick = registrarse ;
+
   //Calendari de "naixement"
   $(function() {
     $( "#datepicker" ).datepicker();
@@ -42,6 +46,7 @@ document.getElementById("banc").onkeyup = lsBanc;
 
   //volcar llista de paisos
   volcarJSON();
+
 }
 
 //Definició de funcions de validació
@@ -329,10 +334,12 @@ function valNom(){
         var boto = document.getElementById("registrar");
         boto.classList.remove("des");
         boto.setAttribute("disabled", "false");
+        boto.style.display = "block";
       } else {
         var boto = document.getElementById("registrar");
         boto.classList.add("des");
         boto.setAttribute("disabled", "true");
+        boto.style.display = "hidden";
         document.getElementById("condicions").checked = false;
       }
     }
@@ -457,4 +464,8 @@ function volcarJSON(){
   };
   jsonRequest.open('GET', jsonPaisos, true);
   jsonRequest.send("");
+}
+
+function registrarse(){
+  alert("registrarse");
 }
