@@ -7,6 +7,7 @@ function init(){
 //Connector Events
 function associaEvents(){
 	llistatNoticies();
+	determinaVariableSessio();
 }
 
 

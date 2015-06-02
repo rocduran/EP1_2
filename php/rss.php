@@ -27,7 +27,7 @@ foreach ($rss->get_items() as $item){ //aca hacemos un foreach para el array de 
 
 // echo json_encode($noticia);
 	//Enviar capaçalera indicant JSON
- header('Content-type: application/json');
+ // header('Content-type: application/json');
 // 	//Codificar en JSON i retornar petició en un array entenible per JS
  echo json_encode($items);
 
