@@ -43,18 +43,6 @@ input[type="button"].button-submit:hover, button.button-submit:hover {
   color: #00A573;
 }
 
-input[type="button"].des, button.des {
-  float:right;
-  background: #333;
-  color: #999;
-  cursor: default;
-}
-
-input[type="button"].des:hover, button.des:hover {
-  background: #111;
-  color: #999;
-}
-
 input[type="button"].button-cancelar, button.button-cancelar {
   background: #B66;
 }

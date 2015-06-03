@@ -16,7 +16,7 @@ function associaEvents(){
 	$('#enviarNot').click(inserirModificarNoticies);
 	$('#enviarMult').click(inserirModificarMultimedies);
 	$('#borrarNot').click(netejaNoticia);
-
+	
 	//AQUI FALTARIEN ELS DE enviarMultimedia i enviarUsuari (nse si es diuen aixi, al html surt XD)
 	
 	//Inici Sessio//
@@ -91,7 +91,7 @@ function inserirModificarNoticies(){ //segons sigui el header del div, inserim o
 	var resum = "test";
 
 	var quin = $('.inserirNoticia').find('.header').text();
-		
+
 	if(quin == "Inserir not\u00edcia"){
 		$.ajax
 		({	url: 'php/inserir.php',
@@ -99,7 +99,6 @@ function inserirModificarNoticies(){ //segons sigui el header del div, inserim o
 			data: 'quin=noticies&tipus='+tipus+'&titol='+titol+'&contingut='+cont+'&resum='+resum ,
 			cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 			success: function(data){alert("Dades inserides correctament")}
-
 		});
 	}
 
@@ -115,7 +114,7 @@ function inserirModificarNoticies(){ //segons sigui el header del div, inserim o
 		});
 	}
 
-	netejaNoticia();
+	// netejaNoticia();
 }
 
 function netejaNoticia(){
@@ -149,7 +148,7 @@ function inserirModificarMultimedies(){ //segons sigui el header del div, inseri
 	var url = document.getElementById('arxiu').value ;
 
 	var quin = $('.inserirMulti').find('.header').text();
-		
+
 	if(quin == "Inserir multim\u00e8dia"){
 		$.ajax
 		({	url: 'php/inserir.php',
@@ -168,7 +167,6 @@ function inserirModificarMultimedies(){ //segons sigui el header del div, inseri
 			data: 'quin=multimediesUpdate&id='+id+'&tipus='+tipus+'&titol='+titol+'&url='+url,
 			cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
 			success: function(data){alert("Dades actualitzades correctament")}
-
 		});
 	}
 
@@ -181,10 +179,6 @@ function netejaMultimedia(){
 	document.getElementById('op4').checked = false;
 	document.getElementById('op5').checked = false;
 	document.getElementById('op6').checked = false;
-}
-
-function inserirModificarUsuaris(){ //segons sigui el header del div, inserim o modifiquem
-	//mas de lo mismo xd
 }
 
 function netejaUsuari(){
@@ -227,7 +221,7 @@ function eliminaUsuari(valor) {
 // FUNCIONS PER MODIFICAR DADES DE LA BASE DE DADES//
 /////////////////////////////////////////////////////
 function recuperarNoticia(valor){ // primer recuperem la noticia que volem modificar
- 	$.ajax
+	$.ajax
 	({	url: 'php/llistats.php',
 		dataType: 'json',
 		type: 'GET',
@@ -240,35 +234,34 @@ function recuperarNoticia(valor){ // primer recuperem la noticia que volem modif
 function presentaNoticia(data){ 
 	// Primer mostrem la pagina d'inserir modificada amb els camps de la noticia
 	$('.menuadmin a').removeClass('aqui');
-    $('div.inserirNoticia').addClass('aqui');
-    $('div.inserirNoticia').show();
-    $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti, div.inserirUsuari').hide();
+	$('div.inserirNoticia').addClass('aqui');
+	$('div.inserirNoticia').show();
+	$('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirMulti, div.inserirUsuari').hide();
 
     $('.inserirNoticia .header').html("Editar not\u00edcia"); // s'ha de tornar al estat original al sortir !
     
     var id = data[1].id;
     var titol = data[1].titol;
     var tipus = data[1].tipus;
-    var url = data[1].url;
     var cont = data[1].contingut;
     var resum = data[1].resum;
 
     $('#titolNot').val(titol);
 
     if(tipus == "Vot"){
-		document.getElementById('op1').checked = true;
-	}
+    	document.getElementById('op1').checked = true;
+    }
 
-	if(tipus == "Enq"){
-		document.getElementById('op2').checked = true;
-	}
+    if(tipus == "Enq"){
+    	document.getElementById('op2').checked = true;
+    }
 
-	if(tipus == "Ref"){
-		document.getElementById('op3').checked = true;
-	}
+    if(tipus == "Ref"){
+    	document.getElementById('op3').checked = true;
+    }
 
-	$('#contingutNot').val(cont);
-	$('#resum').val(resum);
+    $('#contingutNot').val(cont);
+    $('#resum').val(resum);
 
 	// aquest p sera per guardar el id de la noticia, per actualitzar quan l'usuari clicki al boto enviar 
 	var element = document.createElement("p");
@@ -294,9 +287,9 @@ function recuperarMultimedia(valor){
 function presentaMultimedia(data){
 	// Primer mostrem la pagina d'inserir modificada amb els camps de la noticia
 	$('.menuadmin a').removeClass('aqui');
-    $('div.inserirMulti').addClass('aqui');
-    $('div.inserirMulti').show();
-    $('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirNoticia, div.inserirUsuari').hide();
+	$('div.inserirMulti').addClass('aqui');
+	$('div.inserirMulti').show();
+	$('div.noticies, div.multimedia, div.resum,div.usuaris, div.inserirNoticia, div.inserirUsuari').hide();
 
     $('.inserirMulti .header').html("Editar multim\u00e8dia"); // s'ha de tornar al estat original al sortir !
     
@@ -308,16 +301,16 @@ function presentaMultimedia(data){
     $('#titolMult').val(titol);
 
     if(tipus == "Audio"){
-		document.getElementById('op4').checked = true;
-	}
+    	document.getElementById('op4').checked = true;
+    }
 
-	if(tipus == "Video"){
-		document.getElementById('op5').checked = true;
-	}
+    if(tipus == "Video"){
+    	document.getElementById('op5').checked = true;
+    }
 
-	if(tipus == "Article"){
-		document.getElementById('op6').checked = true;
-	}
+    if(tipus == "Article"){
+    	document.getElementById('op6').checked = true;
+    }
 
 	// aquest p sera per guardar el id de la noticia, per actualitzar quan l'usuari clicki al boto enviar 
 	var element = document.createElement("p");

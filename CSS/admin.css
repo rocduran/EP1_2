@@ -73,7 +73,7 @@ div.resum,  div.noticies,  div.multimedia,  div.usuaris,  div.inserirNoticia, di
 	margin-top: 25px;
 }
 
-#containerInsNot .button, input[type="button"], button , #containerInsMult .button, #containerInsUsers .button{
+#containerInsNot .button, input[type="button"], button, input[type="submit"] , #containerInsMult .button, #containerInsUsers .button{
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;

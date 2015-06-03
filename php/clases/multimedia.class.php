@@ -8,17 +8,17 @@ class Multimedia{
  		$this->con=new DBManager;
  	}
 
-	function inserir($campos){
+	function inserir($camps){
 		if($this->con->conectar()==true){
-			return mysql_query("INSERT INTO elements_mm (tipus, titol, url) VALUES ('".$campos[0]."', '".$campos[1]."','".$campos[2]."')");
+			return mysql_query("INSERT INTO elements_mm (tipus, titol, url) VALUES ('".$camps[0]."', '".$camps[1]."','".$camps[2]."')");
 		}
 		
 	}
 	
-	function modificar($campos,$id){
+	function modificar($camps,$id){
 		if($this->con->conectar()==true){
-			//print_r($campos);
-			return mysql_query("UPDATE elements_mm SET id = '".$campos[0]."', tipus = '".$campos[1]."', titol = '".$campos[2]."', url = '".$campos[3]."' WHERE id = ".$id);
+			//print_r($camps);
+			return mysql_query("UPDATE elements_mm SET id = '".$camps[0]."', tipus = '".$camps[1]."', titol = '".$camps[2]."', url = '".$camps[3]."' WHERE id = ".$id);
 		}
 	}
 	

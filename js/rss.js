@@ -7,6 +7,7 @@ function init(){
 //Connector Events
 function associaEvents(){
 	llistatNoticies();
+	llistatGeo();
 	determinaVariableSessio();
 }
 
@@ -112,6 +113,40 @@ function presentacio(data){
 		document.getElementById("signIn").style.display = "block";
 	}
 }
+// Geoplugin
+// 
+function llistatGeo(dades){
+	$.ajax
+	({	url: 'php/geoplugin.php',
+		dataType: 'json',
+		type: 'GET',
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		//Trucada a funció (per no programar-la aquí i respectar el model)
+		success: function(data) {presentaGeo(data);} 
 
+	});
+}
+
+function presentaGeo(data){
+	var txt = '';
+	txt ='<p>Est\u00E0s a " '+ data[0].geoplugin_place +' ", tens aquests llocs aprop: </p>';
+	$("#geoplugin").html("");
+	// alert(data[0].geoplugin_place);
+	$.each(data, function(index){
+		var ciutat = data[index].geoplugin_place;
+		var parroquia = data[index].geoplugin_region;
+		var lat = data[index].geoplugin_latitude;
+		var lon = data[index].geoplugin_longitude;
+
+		txt = txt +'<p>Ciutat: " '+ ciutat +' "</p>';
+		txt = txt +'<p>Parr\u00F2quia:  " '+ parroquia +' "</p>';
+		txt = txt +'<p>Latitud: " '+ lat +' "</p>';
+		txt = txt +'<p>Longitud: " '+ lon +' "</p>';
+		txt = txt +'<hr>';
+
+		});
+
+	$("#geoplugin").append(txt);
+}
 
 

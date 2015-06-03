@@ -53,4 +53,24 @@ if($_POST['quin'] == 'multimediesUpdate'){
 	$objmultimedia->modificar(array($id, $tipus, $titol, $url), $id);
 }
 
+if($_POST['quin'] == 'usuaris'){
+	require('clases/usuari.class.php');
+
+	$nom = $_POST['nom'];
+	$cognom = $_POST['cognom'];
+	$telf = $_POST['telf'];
+	$adress = $_POST['adress'];
+	$poblacio = $_POST['poblacio'];
+	$codi = $_POST['codis'];
+	$pais = $_POST['pais'];
+	$born = $_POST['born'];
+	$email = $_POST['email'];
+	$contrasenya = $_POST['contrasenya'];
+	$banc = $_POST['banc'];
+
+	$objUsuari=new usuari;
+	$objUsuari->inserir(array($nom, $cognom, $telf, $adress, $poblacio, $codi, $pais, $born, $email, $contrasenya, $banc));
+
+}
+
 ?>

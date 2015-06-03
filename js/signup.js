@@ -1,12 +1,12 @@
-
-window.onload = function () {
+$(document).ready(inicialitzar);
+//Inicialitzar associacions Events-formulari
+function inicialitzar(){
 
   associaDOMevents();  
 
   //localStorage
-  init();
-};
-
+  iniciar();
+}
 //Inici funcions
 
 function associaDOMevents() {
@@ -20,8 +20,8 @@ document.getElementById("banc").onblur = valBanc;
 document.getElementById("contrasenya").onblur = valPass;
 document.getElementById("contrasenya2").onblur = valPass2;
 
-//Al fer activar "accepto condicions" valida tot el formulari i el desactiva si hi ha algun camp no vàlid
-document.getElementById("condicions").onchange = validarTot;
+//Al fer registrar, primer comprobem que tots els camps estiguin
+document.getElementById("registrar").onclick = validarTot;
 
 //A cada keyup(al anar escribint) va guardant a localStorage el que escrivim
 document.getElementById("nom").onkeyup = lsNom;
@@ -35,9 +35,6 @@ document.getElementById("datepicker").onkeyup = lsDatePicker;
 document.getElementById("email").onkeyup = lsEmail;
 document.getElementById("banc").onkeyup = lsBanc;
 
-//Boto registrar
-document.getElementById("registrar").style.display = "none";
-document.getElementById("registrar").onclick = registrarse ;
 
   //Calendari de "naixement"
   $(function() {
@@ -285,40 +282,40 @@ function valNom(){
     }
 
 //Comprova si el PASSWORD2 (validacio de contrasenya) es correcte
-    function valPass2(){
-      var elemVal = document.getElementById("contrasenya2");
-      var contra = document.getElementById("contrasenya").value;
-      var valor =  elemVal.value;
+function valPass2(){
+  var elemVal = document.getElementById("contrasenya2");
+  var contra = document.getElementById("contrasenya").value;
+  var valor =  elemVal.value;
 
-      var errPara = document.createElement("p");
-      var errText = document.createTextNode("Les contrasenyes han de coincidir");
-      errPara.appendChild(errText);
+  var errPara = document.createElement("p");
+  var errText = document.createTextNode("Les contrasenyes han de coincidir");
+  errPara.appendChild(errText);
 
-      if(valor != contra || valor===""){
-        elemVal.classList.add('noValid');
-        var divErr = document.getElementById("errPass2");
-        if (divErr.hasChildNodes()) {
-          divErr.removeChild(divErr.childNodes[0]);
-        }
-        divErr.appendChild(errPara);
-        if (elemVal.classList.contains('valid') ) {
-          elemVal.classList.remove('valid');
-        };
-        return false;
-      } else{
-        elemVal.classList.add('valid');
-
-        var divErr = document.getElementById("errPass2");
-        if (divErr.hasChildNodes()) {
-          divErr.removeChild(divErr.childNodes[0]);
-        }
-
-        if (elemVal.classList.contains('noValid') ) {
-          elemVal.classList.remove('noValid');
-        };
-        return true;
-      }
+  if(valor != contra || valor===""){
+    elemVal.classList.add('noValid');
+    var divErr = document.getElementById("errPass2");
+    if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
     }
+    divErr.appendChild(errPara);
+    if (elemVal.classList.contains('valid') ) {
+      elemVal.classList.remove('valid');
+    };
+    return false;
+  } else{
+    elemVal.classList.add('valid');
+
+    var divErr = document.getElementById("errPass2");
+    if (divErr.hasChildNodes()) {
+      divErr.removeChild(divErr.childNodes[0]);
+    }
+
+    if (elemVal.classList.contains('noValid') ) {
+      elemVal.classList.remove('noValid');
+    };
+    return true;
+  }
+}
 
 
     //Validar tot formulari
@@ -331,17 +328,43 @@ function valNom(){
       valPass();
       valPass2();
       if (valNom() && valCognom() && valEmail() && valTelf() && valBanc() && valPass() && valPass2()) {
-        var boto = document.getElementById("registrar");
-        boto.classList.remove("des");
-        boto.setAttribute("disabled", "false");
-        boto.style.display = "block";
+        registrar();
       } else {
-        var boto = document.getElementById("registrar");
-        boto.classList.add("des");
-        boto.setAttribute("disabled", "true");
-        boto.style.display = "hidden";
-        document.getElementById("condicions").checked = false;
-      }
+       alert("Hi han alguns camps malament !");
+     }
+   }
+
+    //inserir usuari a la BD
+    function registrar(){
+      var nom = document.getElementById('nom').value;
+
+      var cognom = document.getElementById('cognom').value;
+
+      var telf = document.getElementById('telf').value;
+
+      var adress = document.getElementById('adress').value;
+
+      var poblacio = document.getElementById('poblacio').value;
+
+      var codi = document.getElementById('cp').value;
+
+      var pais = document.getElementById('pais').value;
+
+      var born = document.getElementById('born').value;
+
+      var email = document.getElementById('email').value;
+
+      var contrasenya = document.getElementById('contrasenya').value;
+      
+      var banc = document.getElementById('banc').value;
+
+      $.ajax({  
+        url: 'php/inserir.php',
+        type: 'POST',
+        data: 'quin=usuaris&nom='+nom+'&cognom='+cognom+'&telf='+telf+'&adrress='+adress+'&poblacio='+poblacio+'&codi='+codi+'&pais='+pais+'&born='+born+'&email='+email+'&contrasenya='+contrasenya+'&banc='+banc,
+        cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+        success: function(data){alert("Dades inserides correctament")}
+      });
     }
 
     //Funcions de guardar al localStorage
@@ -398,7 +421,7 @@ function valNom(){
     }
 
 //Recuperem valors de la localStorage al carregar la pagina (si existeixen)
-function init() {
+function iniciar() {
 
   if (localStorage["nom"]) {
    document.getElementById("nom").value = localStorage.getItem('nom');
@@ -466,6 +489,3 @@ function volcarJSON(){
   jsonRequest.send("");
 }
 
-function registrarse(){
-  alert("registrarse");
-}

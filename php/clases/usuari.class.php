@@ -8,15 +8,15 @@ class Usuari{
  		$this->con=new DBManager;
  	}
 
-	function inserir($campos){
+	function inserir($camps){
 		if($this->con->conectar()==true){
-			return mysql_query("INSERT INTO usuaris (id, nom, cognom, telefon, adreca, poblacio, codiPostal, pais, dataNaix, email, contrasenya) VALUES ('".$campos[0]."', '".$campos[1]."','".$campos[2]."','".$campos[3]."','".$campos[4]."', '".$campos[5]."','".$campos[6]."','".$campos[7]."','".$campos[8]."','".$campos[9]."', '".$campos[10]."')");
+			return mysql_query("INSERT INTO usuaris (nom, cognom, telefon, adreca, poblacio, codiPostal, pais, dataNaix, email, contrasenya, iban) VALUES ('".$camps[0]."', '".$camps[1]."','".$camps[2]."','".$camps[3]."','".$camps[4]."', '".$camps[5]."','".$camps[6]."','".$camps[7]."','".$camps[8]."','".$camps[9]."', '".$camps[10]."')");
 		}
 	}
 	
-	function modificar($campos,$id){
+	function modificar($camps,$id){
 		if($this->con->conectar()==true){
-			return mysql_query("UPDATE usuaris SET id = '".$campos[0]."', nom = '".$campos[1]."', cognom = '".$campos[2]."', telefon = '".$campos[3]."', adreca, = '".$campos[4]."', poblacio = '".$campos[5]."', codiPostal = '".$campos[6]."', pais = '".$campos[7]."', dataNaix = '".$campos[8]."', email = '".$campos[9]."',  contrasenya = '".$campos[10]."' WHERE id = ".$id);
+			return mysql_query("UPDATE usuaris SET id = '".$camps[0]."', nom = '".$camps[1]."', cognom = '".$camps[2]."', telefon = '".$camps[3]."', adreca, = '".$camps[4]."', poblacio = '".$camps[5]."', codiPostal = '".$camps[6]."', pais = '".$camps[7]."', dataNaix = '".$camps[8]."', email = '".$camps[9]."',  contrasenya = '".$camps[10]."', email = '".$camps[11]."' WHERE id = ".$id);
 		}
 	}
 	
