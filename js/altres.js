@@ -15,6 +15,9 @@ function associarEvents() {
 	jsonBut = document.getElementById("jsonBut");
 	xmlBut = document.getElementById("xmlBut");
 
+	jsonWs = document.getElementById("jsonWs");
+	xmlWs = document.getElementById("xmlWs");
+
 	crud = document.getElementById("crud");
 	sav = document.getElementById("sav");
 	mod = document.getElementById("mod");
@@ -28,6 +31,9 @@ function associarEvents() {
 	sav.onclick = actualitzarDB;
 	del.onclick = borrar;
 	res.onclick = reiniciar;
+	jsonWs.onclick = recuperarJson;
+	xmlWs.onclick = recuperarXml;
+
 
 	idb =null;
 	vJSON = false;
@@ -444,6 +450,15 @@ function reiniciar(){
 		location.reload(true);
 		//alert("Recarregar la pàgina !");
 	}
+}
+
+function recuperarJson(){
+
+}
+
+function recuperarXml(){
+
+
 }
 
 
