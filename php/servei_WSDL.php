@@ -4,19 +4,19 @@
     require_once('servei.php');  
     
     //Generació del WSDL
-	//Cal trucar llibres_WSDL.php?WSDL per crear,actualitzar (llibres.wsdl) i visualitzar i provar el servei
-	//Un cop trucat, cal crear manualment el fitxer llibres.WSDL (a partir de copy paste del servei generat)
+	//Cal trucar servei_WSDL.php?WSDL per crear,actualitzar (servei.wsdl) i visualitzar i provar el servei
+	//Un cop trucat, cal crear manualment el fitxer servei.WSDL (a partir de copy paste del servei generat)
     $server = new soap_server();
-    $server->configureWSDL("llibres", "urn:llibres");
+    $server->configureWSDL("servei", "urn:servei");
     //Definició de les E/S del servei  
-    $server->register("getProd",
-        array("categoria" => "xsd:string"),
+    $server->register("getInfo",
+        array("quin" => "xsd:string"),
         array("return" => "xsd:string"),
-        "urn:llibres",
-        "urn:llibres#getProd",
+        "urn:servei",
+        "urn:servei#getInfo",
         "rpc",
         "encoded",
-        "Retorna un llistat de productes d'aquesta categoria");
+        "Retorna un array codificat en json amb el contingut d'un .xml o .txt, segons sigui 'quin'");
       
     $server->service($HTTP_RAW_POST_DATA);
 ?>

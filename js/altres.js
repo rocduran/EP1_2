@@ -9,8 +9,10 @@ function associarEvents() {
 	jsonFolder = "/RocMoi/BD/XMLDPFrança2015.txt";
 
 	contingut = document.getElementById("contingutFitxer");
+	contingutWS = document.getElementById("contingutServeiWeb");
 
 	titulCont = document.getElementById("titulH");
+	titolContWS = document.getElementById("titolWS");
 
 	jsonBut = document.getElementById("jsonBut");
 	xmlBut = document.getElementById("xmlBut");
@@ -314,11 +316,11 @@ function actualitzarDB(){
 
 		if (xml){ // si hem modificat l'apartat xml
 			var transaction = idb.transaction(["itemsXML"],"readwrite").objectStore("itemsXML");
-		} else{
-			var transaction = idb.transaction(["itemsJSON"],"readwrite").objectStore("itemsJSON");	
-		}
+	} else{
+		var transaction = idb.transaction(["itemsJSON"],"readwrite").objectStore("itemsJSON");	
+	}
 
-		var i = 0;
+	var i = 0;
 		while (i < llista.length) {  //actualitzem la base de dades primer
 			
 			var objecte = new Object;
@@ -333,12 +335,12 @@ function actualitzarDB(){
 			var request = transaction.put(objecte); // put serveix per actualitzar l'item d'index i 
 
 			request.onsuccess = function(e){
-            	console.log("Item actualitzat");
-        	};
+				console.log("Item actualitzat");
+			};
 
-        	request.onerror = function(e){
-            	console.log("error al actualitzar");
-        	};
+			request.onerror = function(e){
+				console.log("error al actualitzar");
+			};
 
 			llista[i].classList.remove("trEdit"); // treiem la classe trEdit a les files de la taula
 			i++;
@@ -432,7 +434,7 @@ function borrarRecordsDB(indxBorrar){
 
 	transaction.openCursor().onsuccess = function(e){
 		var cursor = e.target.result;
-			
+
 		if (cursor){
 			for (var i = 0; i != indxBorrar.length; i++){
 				if(cursor.value.ind == indxBorrar[i]){
@@ -452,13 +454,75 @@ function reiniciar(){
 	}
 }
 
-function recuperarJson(){
 
+function recuperarJson(dades){
+	$.ajax
+	({	url: 'php/client_servei.php',
+		dataType: 'json',
+		type: 'POST',
+		data: 'quin=JSON',
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		//Trucada a funció (per no programar-la aquí i respectar el model)
+		success: function(data) {presentarJSONWS(JSON.parse(data));} 
+	});
 }
 
-function recuperarXml(){
+function presentarJSONWS(data){
+	var txt ="<table id=\"table\">";
+	txt += "<thead> <tr> <th>Codi</th> <th>Tipus</th> <th>Pregunta</th> <th>Data Inici</th> <th>Data Fi</th> <th class=\"tdBorrar\">Borrar</th> </tr> </thead>";
+	txt += "<tbody>";
+	$.each(data, function(index){
+		
+		txt +="<td class=\"tdCodi\">"+data[index].CODI+"</td>";
 
+		txt +="<td class=\"tdTipus\">"+data[index].TIPUS+"</td>";
 
+		txt +="<td class=\"tdPreg\">"+data[index].PREGUNTA+"</td>";
+
+		txt +="<td class=\"tdDataI\">"+data[index].DATAI+"</td>";
+
+		txt +="<td class=\"tdDataF\">"+data[index].DATAF+"</td>";
+
+		txt +="</tr>";
+	});
+
+	contingutWS.innerHTML =txt + "</tbody></table>";
+	titolContWS.innerHTML ="Contingut democràcia participativa a França Web Service:";
+}
+
+function recuperarXml(dades){
+	$.ajax
+	({	url: 'php/client_servei.php',
+		dataType: 'json',
+		type: 'POST',
+		data: 'quin=XML',
+		cache: false, //IE per a defecte emmagatzema en caché (evitar-ho-->false)
+		//Trucada a funció (per no programar-la aquí i respectar el model)
+		success: function(data) {presentarXMLWS(JSON.parse(data));} 
+	});
+}
+
+function presentarXMLWS(data){
+	var txt ="<table id=\"table\">";
+	txt += "<thead> <tr> <th>Codi</th> <th>Tipus</th> <th>Pregunta</th> <th>Data Inici</th> <th>Data Fi</th> <th class=\"tdBorrar\">Borrar</th> </tr> </thead>";
+	txt += "<tbody>";
+	$.each(data.ITEM, function(index){
+		
+		txt +="<td class=\"tdCodi\">"+data.ITEM[index].CODI+"</td>";
+
+		txt +="<td class=\"tdTipus\">"+data.ITEM[index].TIPUS+"</td>";
+
+		txt +="<td class=\"tdPreg\">"+data.ITEM[index].PREGUNTA+"</td>";
+
+		txt +="<td class=\"tdDataI\">"+data.ITEM[index].DATAI+"</td>";
+
+		txt +="<td class=\"tdDataF\">"+data.ITEM[index].DATAF+"</td>";
+
+		txt +="</tr>";
+	});
+
+	contingutWS.innerHTML =txt + "</tbody></table>";
+	titolContWS.innerHTML ="Contingut democràcia participativa a Espanya Web Service:";
 }
 
 

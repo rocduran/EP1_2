@@ -1,0 +1,23 @@
+Noves funcionalitats:
+	- creada base de dades amb taulas de noticies, multimedies i usuaris.(Veure arxiu bd/mmiret.sql)
+
+	- carpeta php amb tots els php's, entre els quals tenim els que ens permeten fer el CRUD de la BD.
+
+	- javascripts nous: admin.js, iniciSessio.js, rss.js
+
+	- implementada autenticació via LDAP + manteniment amb variables de sessió (tancar sessió etc)
+
+	- ampliada la pàgina signup.html, ara ens podem registrar i les nostres dades s'envien a la BD
+
+	- implementat servei web (llegint la informació des dels arxius .xml i .txt, no la generem)
+
+	- implementat lector RSS
+
+	- implementat client de servei web de geolocalització
+
+Millores de funcionalitats ja presents en el TV-2:
+	- javascripts modificats: altres.js, signup.js
+
+	- petites millores d'algun css
+
+Per veure TOT el projecte i l'evolució del projecte: https://github.com/rocduran/EP1_2
