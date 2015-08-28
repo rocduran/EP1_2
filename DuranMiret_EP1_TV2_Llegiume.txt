@@ -1,4 +1,5 @@
 Noves funcionalitats:
+
 	- signup.html, signup.js : Validació de formaluri implementada i guardat de les dades (excepte contrasenya, per raons de seguretat) al localStorage per evitar pèrdues. Botó de "registrar" desactivat fins que l'usuari no ha introduit totes les dades vàlides i té activat el checkbox d'acceptar les condicions. La llista de paisos es carregada dinàmicament a partir d'un arxiu JSON.
 
 	- altres.html, altres.css, altres.js : Creació de base de dades indexedDB, lectura i modificació en local d'arxius JSON i XML. Per accedir-hi, has d'estar a la pàgina d'admin ("usuari">Ajustaments) i llavors a la barra de navegació surt l'opció d'Altres.
@@ -13,6 +14,7 @@ Noves funcionalitats:
 
 
 Millores de funcionalitats ja presents en el TV-1:
+
 	- admin.html, admin.css, index.html, slider.js : Separació del codi html i js, canvis menors del codi(.html i .css).
 
 	- multimedia.html, visualitzador.html, multimedia.js : Ara carrega l'arxiu que sel·lecciones a multimedia.html dinàmicament a visualitzador.html.
